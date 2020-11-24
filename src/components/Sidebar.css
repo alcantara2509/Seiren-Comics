@@ -1,0 +1,49 @@
+.sidebar-container {
+  align-items: center;
+  background-color: #262C46;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', sans-serif;
+  height: 100vh;
+  width: 166px;
+}
+
+.logo-sidebar {
+  margin: 10px;
+  width: 110px;
+}
+
+a {
+  color: #fff;
+  font-size: 10px;
+  padding: 0 5px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.sidebar-menu-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  width: 100%;
+}
+
+.sidebar-links {
+  align-items: center;
+  display: flex;
+  height: 42px;
+  padding-left: 35px;
+}
+
+.sidebar-links:hover {
+  background-color: #1C1F36;
+}
+
+.social-links {
+  bottom: 10px;
+  position: absolute;
+}
+
+.selected-link {
+  background-color: #1C1F36;
+}
