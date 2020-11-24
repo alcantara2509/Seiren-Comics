@@ -1,0 +1,8 @@
+.topbar-container {
+  align-items: center;
+  background-color: #222643;
+  display: flex;
+  justify-content: space-between;
+  height: 75px;
+  padding: 0 35px;
+}
