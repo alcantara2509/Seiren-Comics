@@ -7,8 +7,8 @@ function Sidebar() {
     <aside className="sidebar-container">
       <section className="logo-sidebar-container">
         <Link to="/">
-          oi
-          <img className="logo-sidebar" src="#" alt="Seiren Comics Logo" />
+          Logo
+          {/* <img className="logo-sidebar" src="#" alt="Seiren Comics Logo" /> */}
         </Link>
       </section>
       <section className="sidebar-menu-container">
