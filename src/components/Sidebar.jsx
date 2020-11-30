@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './Sidebar.css';
 
 function Sidebar() {
@@ -12,36 +12,41 @@ function Sidebar() {
         </Link>
       </section>
       <section className="sidebar-menu-container">
-        <Link
+        <NavLink
           className="sidebar-links"
           to="/profile"
+          activeClassName="selected-link"
         >
           Profile
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           className="sidebar-links"
           to="/estante"
+          activeClassName="selected-link"
         >
           Estante
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           className="sidebar-links"
           to="/calendario"
+          activeClassName="selected-link"
         >
           Calendário
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           className="sidebar-links"
           to="/categorias"
+          activeClassName="selected-link"
         >
           Categorias
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           className="sidebar-links"
           to="/favoritos"
+          activeClassName="selected-link"
         >
           Favoritos
-        </Link>
+        </NavLink>
       </section>
       <section className="social-links">
         <a rel="noreferrer" href="https://www.instagram.com/" target="_blank">Insta</a>
