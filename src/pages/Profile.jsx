@@ -1,12 +1,16 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar';
+import Topbar from '../components/Topbar';
 import './Profile.css';
 
 function Profile() {
   return (
     <section className="profile-container">
       <Sidebar />
-      <h1>Profile</h1>
+      <section className="profile-content">
+        <Topbar />
+        <h1>Profile</h1>
+      </section>
     </section>
   );
 }
