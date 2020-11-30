@@ -1,14 +1,15 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './Sidebar.css';
 
 function Sidebar() {
   return (
     <aside className="sidebar-container">
       <section className="logo-sidebar-container">
-        <NavLink to="/">
-          <img className="logo-sidebar" src="#" alt="Seiren Comics Logo" />
-        </NavLink>
+        <Link to="/">
+          Logo
+          {/* <img className="logo-sidebar" src="#" alt="Seiren Comics Logo" /> */}
+        </Link>
       </section>
       <section className="sidebar-menu-container">
         <NavLink
