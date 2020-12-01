@@ -5,5 +5,7 @@
 .favorites-content {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  position: absolute;
+  right: 0px;
+  width: 87.7%;
 }

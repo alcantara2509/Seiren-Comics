@@ -1,6 +1,7 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar';
 import Topbar from '../components/Topbar';
+import Banner from '../images/shelf-banner.png';
 import './Shelf.css';
 
 function Shelf() {
@@ -9,7 +10,8 @@ function Shelf() {
       <Sidebar />
       <section className="shelf-content">
         <Topbar />
-        <h1>Shelf</h1>
+        <img src={ Banner } alt="banner" id="shelf-banner" />
+        <h1>Destaques</h1>
       </section>
     </section>
   );
