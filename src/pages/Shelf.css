@@ -25,3 +25,37 @@
 .shelf-h2 {
   font-size: 40px;
 }
+
+.tales-container {
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.tales-card {
+  align-items: center;
+  background-size: cover;
+  display: flex;
+  height: 324px;
+  justify-content: center;
+  margin-right: 5px;
+  flex: 0 0 3.7%;
+  transition: transform 300ms ease 100ms;
+}
+
+.tales-container:hover .tales-card {
+  transform: translateX(-25%);
+}
+
+.tales-container:hover ~ .tales-card {
+  transform: translateX(25%);
+}
+
+.tales-card:hover {
+  transform: scale(1.1) !important;
+}
+
+.naoentendir {
+  margin: auto;
+  text-align: center;
+  width: 230px;
+}

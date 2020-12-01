@@ -4,10 +4,13 @@ import SeirenContext from './SeirenContext';
 
 function SeirenProvider({ children }) {
   const [anchorButton, setAnchorButton] = useState('');
+  const [apiMeals, setApiMeals] = useState('');
 
   const ContextValue = {
     anchorButton,
     setAnchorButton,
+    apiMeals,
+    setApiMeals,
   };
 
   return (

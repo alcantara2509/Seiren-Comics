@@ -5,7 +5,6 @@ import './Anchor.css';
 function Anchor() {
   const { setAnchorButton } = useContext(SeirenContext);
   const handleClick = ({ target: { value } }) => setAnchorButton(value);
-  console.log(setAnchorButton);
   return (
     <section className="anchor-btn-container">
       <button
