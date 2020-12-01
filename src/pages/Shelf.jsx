@@ -1,4 +1,5 @@
 import React from 'react';
+import Anchor from '../components/Anchor';
 import Sidebar from '../components/Sidebar';
 import Topbar from '../components/Topbar';
 import Banner from '../images/shelf-banner.png';
@@ -11,6 +12,7 @@ function Shelf() {
       <section className="shelf-content">
         <Topbar />
         <img src={ Banner } alt="banner" id="shelf-banner" />
+        <Anchor />
         <h1>Destaques</h1>
       </section>
     </section>
