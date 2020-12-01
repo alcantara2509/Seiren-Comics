@@ -15,11 +15,15 @@
   margin: 7px;
 }
 
-.categories-list {
+.highligths-list {
   color:#D2D3D9;
   font-size: 40px;
   margin-left: 40px;
   margin-top: 40px;
+  width: 96.6%;
+  overflow: overlay;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 .shelf-h2 {
@@ -42,17 +46,17 @@
   transition: transform 300ms ease 100ms;
 }
 
-.tales-container:hover .tales-card {
-  transform: translateX(-25%);
-}
+/* .tales-container:hover .tales-card {
+  transform: translateX(-100%);
+} */
 
-.tales-container:hover ~ .tales-card {
+/* .tales-container:hover ~ .tales-card {
   transform: translateX(25%);
 }
 
 .tales-card:hover {
   transform: scale(1.1) !important;
-}
+} */
 
 .naoentendir {
   margin: auto;
