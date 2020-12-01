@@ -25,7 +25,7 @@ a {
 .sidebar-menu-container {
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
+  margin-top: 24px;
   width: 100%;
 }
 

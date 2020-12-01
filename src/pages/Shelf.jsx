@@ -13,7 +13,12 @@ function Shelf() {
         <Topbar />
         <img src={ Banner } alt="banner" id="shelf-banner" />
         <Anchor />
-        <h1>Destaques</h1>
+        <div className="categories-list">
+          <h2 className="shelf-h2">Destaques</h2>
+          <h2 className="shelf-h2">Continue Lendo</h2>
+          <h2 className="shelf-h2">Próximos Lançamentos</h2>
+          <h2 className="shelf-h2">Séries</h2>
+        </div>
       </section>
     </section>
   );

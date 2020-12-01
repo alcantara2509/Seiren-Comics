@@ -6,3 +6,29 @@
   justify-content: space-between;
   height: 75px;
 }
+
+#search-input {
+  border: none;
+  height: 50px;
+  padding-left: 20px;
+  margin-left: 40px;
+  width: 290px;
+}
+
+#search-input:focus {
+  outline: none;
+}
+
+.topbar-btn {
+  background-color: #262C46;
+  border: none;
+  box-shadow: 0px 3px 6px #0000004D;
+  color: #fff;
+  height: 50px;
+  width: 50px;
+}
+
+#btn-setting {
+  padding-left: 2px;
+  margin-right: 40px;
+}
