@@ -18,10 +18,10 @@ function Slider() {
   }, []);
 
   const handleLeft = () => (
-    x === 0 ? setX(-100 * (apiResponseState.length - 1)) : setX(x + 100)
+    x === 0 ? setX(-100 * (apiResponseState.length - 4)) : setX(x + 100)
   );
   const handleRight = () => (
-    x === -100 * (apiResponseState.length - 1) ? setX(0) : setX(x - 100)
+    x === -100 * (apiResponseState.length - 4) ? setX(0) : setX(x - 100)
   );
 
   return (
