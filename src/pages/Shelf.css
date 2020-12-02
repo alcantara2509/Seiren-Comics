@@ -21,8 +21,6 @@
   margin-left: 40px;
   margin-top: 40px;
   width: 96.6%;
-  overflow: overlay;
-  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
