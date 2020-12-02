@@ -7,6 +7,7 @@ import Topbar from '../components/Topbar';
 import Banner from '../images/shelf-banner.png';
 import './Shelf.css';
 import Slider from '../components/Slider';
+import KeepReading from '../components/KeepReading';
 
 function Shelf() {
   return (
@@ -17,6 +18,7 @@ function Shelf() {
         <img src={ Banner } alt="banner" id="shelf-banner" />
         <Anchor />
         <Slider />
+        <KeepReading />
       </section>
     </section>
   );

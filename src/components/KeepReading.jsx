@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react';
 import './Slider.scss';
 import { useMediaQuery } from 'react-responsive';
 
-function Slider() {
+function KeepReading() {
   const [apiResponseState, setApiResponseState] = useState([]);
-  const [x, setX] = useState(0);
+  const [xKeep, setXKeep] = useState(0);
   const url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
 
   const isWide = useMediaQuery({ query: '(min-width: 1800px)' });
@@ -20,27 +20,31 @@ function Slider() {
     fetchUrl();
   }, []);
 
-  const handleLeft = () => {
+  const handleLeftKeep = () => {
     if (isWide) {
-      return x === 0 ? setX(-78 * (apiResponseState.length - 1)) : setX(x + 78);
+      return xKeep === 0
+        ? setXKeep(-78 * (apiResponseState.length - 1)) : setXKeep(xKeep + 78);
     }
-    return x === 0 ? setX(-86.5 * (apiResponseState.length - 1)) : setX(x + 86.5);
+    return xKeep === 0
+      ? setXKeep(-86.5 * (apiResponseState.length - 1)) : setXKeep(xKeep + 86.5);
   };
-  const handleRight = () => {
+  const handleRightKeep = () => {
     if (isWide) {
-      return x === -78 * (apiResponseState.length - 1) ? setX(0) : setX(x - 78);
+      return xKeep === -78 * (apiResponseState.length - 1)
+        ? setXKeep(0) : setXKeep(xKeep - 78);
     }
-    return x === -86.5 * (apiResponseState.length - 1) ? setX(0) : setX(x - 86.5);
+    return xKeep === -86.5 * (apiResponseState.length - 1)
+      ? setXKeep(0) : setXKeep(xKeep - 86.5);
   };
 
   return (
     <div className="highligths-list">
-      <h2 className="shelf-h2">Destaques</h2>
+      <h2 className="shelf-h2">Continue Lendo</h2>
       <div className="tales-container slider">
         {
           apiResponseState.map((tales, id) => (
             <div
-              style={ { transform: `translateX(${x}%)`,
+              style={ { transform: `translateX(${xKeep}%)`,
                 backgroundImage: `url(${tales.strMealThumb})` } }
               key={ id }
               className="tales-card slide"
@@ -49,11 +53,17 @@ function Slider() {
             </div>
           ))
         }
-        <button type="button" id="goLeft" onClick={ handleLeft }>left</button>
-        <button type="button" id="goRight" onClick={ handleRight }>right</button>
+        <button type="button" id="goLeftKeep" onClick={ handleLeftKeep }>
+          lvcxxcvxcveft
+
+        </button>
+        <button type="button" id="goRightKeep" onClick={ handleRightKeep }>
+          irigvcxvcxcvht
+
+        </button>
       </div>
     </div>
   );
 }
 
-export default Slider;
+export default KeepReading;

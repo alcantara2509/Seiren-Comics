@@ -1,0 +1,28 @@
+.slider {
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slide {
+  width: 260px;
+  transition: 0.5s;
+  position: relative;
+  z-index: -2;
+}
+
+%btn-styles {
+  position: absolute;
+  top: 0px;
+  transform: translateY(-50%);
+}
+
+#goLeftKeep {
+  left: 0;
+  @extend %btn-styles
+}
+
+#goRightKeep {
+  right: 100px;
+  @extend %btn-styles
+}
