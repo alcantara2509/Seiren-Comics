@@ -1,4 +1,4 @@
-%btn-styles-keep {
+%btn-styles-series {
   background-color: rgba(0, 0, 0, 0.534);
   border: none;
   color: white;
@@ -6,20 +6,20 @@
   font-size: 60px;
   padding: 5px;
   position: absolute;
-  top: 1129px;
+  top: 2066px;
   transform: translateY(-50%);
 }
 
-%btn-styles-keep:focus {
+%btn-styles-series:focus {
   outline: none;
 }
 
-#goLeftKeep {
+#goLeftSeries {
   left: 50px;
-  @extend %btn-styles-keep
+  @extend %btn-styles-series
 }
 
-#goRightKeep {
+#goRightSeries {
   right: 50px;
-  @extend %btn-styles-keep
+  @extend %btn-styles-series
 }

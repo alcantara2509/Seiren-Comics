@@ -8,6 +8,8 @@ import Banner from '../images/shelf-banner.png';
 import './Shelf.css';
 import Slider from '../components/Slider';
 import KeepReading from '../components/KeepReading';
+import Releases from '../components/Releases';
+import Series from '../components/Series';
 
 function Shelf() {
   return (
@@ -19,6 +21,8 @@ function Shelf() {
         <Anchor />
         <Slider />
         <KeepReading />
+        <Releases />
+        <Series />
       </section>
     </section>
   );
