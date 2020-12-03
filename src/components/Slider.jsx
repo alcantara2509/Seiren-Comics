@@ -12,8 +12,8 @@ function Slider() {
   const isWide = useMediaQuery({ query: '(min-width: 1800px)' });
 
   useEffect(() => {
+    setIsFetching(true);
     const fetchUrl = async () => {
-      setIsFetching(true);
       const apiRequest = await fetch(url);
       const apiResponse = await apiRequest.json();
       setApiResponseState(apiResponse.meals);
@@ -71,8 +71,8 @@ function Slider() {
               <p className="naoentendir">{tales.strMeal}</p>
             </div>
           ))}
-        <button type="button" id="goLeft" onClick={ handleLeft }>left</button>
-        <button type="button" id="goRight" onClick={ handleRight }>right</button>
+        <button type="button" id="goLeft" onClick={ handleLeft }>{'<'}</button>
+        <button type="button" id="goRight" onClick={ handleRight }>{'>'}</button>
       </div>
     </div>
   );

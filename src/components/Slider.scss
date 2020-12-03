@@ -12,17 +12,27 @@
 }
 
 %btn-styles {
+  background-color: rgba(0, 0, 0, 0.534);
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 60px;
+  padding: 5px;
   position: absolute;
   top: 652px;
   transform: translateY(-50%);
 }
 
+%btn-styles:focus {
+  outline: none;
+}
+
 #goLeft {
-  left: 0;
+  left: 50px;
   @extend %btn-styles
 }
 
 #goRight {
-  right: 100px;
+  right: 50px;
   @extend %btn-styles
 }

@@ -1,28 +1,27 @@
-.slider {
-  box-sizing: border-box;
-  width: 100%;
-  overflow: hidden;
-}
 
-.slide {
-  width: 260px;
-  transition: 0.5s;
-  position: relative;
-  z-index: -2;
-}
 
-%btn-styles {
+%btn-styles-keep {
+  background-color: rgba(0, 0, 0, 0.534);
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 60px;
+  padding: 5px;
   position: absolute;
-  top: 0px;
+  top: 1113px;
   transform: translateY(-50%);
 }
 
+%btn-styles-keep:focus {
+  outline: none;
+}
+
 #goLeftKeep {
-  left: 0;
-  @extend %btn-styles
+  left: 50px;
+  @extend %btn-styles-keep
 }
 
 #goRightKeep {
-  right: 100px;
-  @extend %btn-styles
+  right: 50px;
+  @extend %btn-styles-keep
 }

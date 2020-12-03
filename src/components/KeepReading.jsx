@@ -1,6 +1,6 @@
 /* eslint-disable no-magic-numbers */
 import React, { useEffect, useState } from 'react';
-import './Slider.scss';
+import './KeepReading.scss';
 import { useMediaQuery } from 'react-responsive';
 
 function KeepReading() {
@@ -76,12 +76,10 @@ function KeepReading() {
             </div>
           ))}
         <button type="button" id="goLeftKeep" onClick={ handleLeftKeep }>
-          lvcxxcvxcveft
-
+          {'<'}
         </button>
         <button type="button" id="goRightKeep" onClick={ handleRightKeep }>
-          irigvcxvcxcvht
-
+          {'>'}
         </button>
       </div>
     </div>
