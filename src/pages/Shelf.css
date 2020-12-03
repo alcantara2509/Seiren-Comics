@@ -136,3 +136,32 @@
     opacity: 0;
   }
 }
+
+.seiren-comunity {
+  align-items: center;
+  background-color: #222643;
+  color: #fff;
+  display: flex;
+  height: 187px;
+  padding-left: 40px;
+}
+
+.seiren-comunity-h3 {
+  color: #fff;
+  font-size: 40px;
+  margin-left: 40px;
+}
+
+.seiren-comunity-h1 {
+  font-size: 97px;
+}
+
+.seiren-comunity-h5 {
+  font-size: 25px;
+  margin-bottom: -20px;
+  margin-top: 10px;
+}
+
+.publicated-pages {
+  margin-right: 400px;
+}
