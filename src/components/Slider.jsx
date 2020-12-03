@@ -6,15 +6,18 @@ import { useMediaQuery } from 'react-responsive';
 function Slider() {
   const [apiResponseState, setApiResponseState] = useState([]);
   const [x, setX] = useState(0);
+  const [isFetching, setIsFetching] = useState(false);
   const url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
 
   const isWide = useMediaQuery({ query: '(min-width: 1800px)' });
 
   useEffect(() => {
     const fetchUrl = async () => {
+      setIsFetching(true);
       const apiRequest = await fetch(url);
       const apiResponse = await apiRequest.json();
       setApiResponseState(apiResponse.meals);
+      setIsFetching(false);
     };
 
     fetchUrl();
@@ -33,12 +36,32 @@ function Slider() {
     return x === -86.5 * (apiResponseState.length - 1) ? setX(0) : setX(x - 86.5);
   };
 
+  const isLoading = () => (
+    <div className="loading-container">
+      <div className="lds-spinner">
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+      </div>
+    </div>
+  );
+
   return (
     <div className="highligths-list">
       <h2 className="shelf-h2">Destaques</h2>
       <div className="tales-container slider">
-        {
-          apiResponseState.map((tales, id) => (
+        {isFetching
+          ? isLoading()
+          : apiResponseState.map((tales, id) => (
             <div
               style={ { transform: `translateX(${x}%)`,
                 backgroundImage: `url(${tales.strMealThumb})` } }
@@ -47,8 +70,7 @@ function Slider() {
             >
               <p className="naoentendir">{tales.strMeal}</p>
             </div>
-          ))
-        }
+          ))}
         <button type="button" id="goLeft" onClick={ handleLeft }>left</button>
         <button type="button" id="goRight" onClick={ handleRight }>right</button>
       </div>
