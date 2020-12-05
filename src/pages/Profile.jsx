@@ -33,7 +33,12 @@ function Profile() {
               <h4>Nova senha</h4>
               <input type="text" className="profile-input" />
               <button type="button">Trocar Senha</button>
-
+            </div>
+            <div className="ind-container">
+              <h4>Suas Indicações</h4>
+            </div>
+            <div className="assinatura-container">
+              <h4>Sua assinatura</h4>
             </div>
           </section>
         </div>
