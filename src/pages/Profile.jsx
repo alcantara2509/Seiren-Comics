@@ -1,6 +1,5 @@
 import React from 'react';
-import Sidebar from '../components/Sidebar';
-import Topbar from '../components/Topbar';
+import { Favorites, KeepReading, Sidebar, Topbar } from '../components';
 import './Profile.css';
 
 function Profile() {
@@ -9,7 +8,12 @@ function Profile() {
       <Sidebar />
       <section className="profile-content">
         <Topbar />
-        <h1>Profile</h1>
+        <div className="profile-user-container">
+          <h2>Seu Perfil</h2>
+
+        </div>
+        <Favorites />
+        <KeepReading />
       </section>
     </section>
   );

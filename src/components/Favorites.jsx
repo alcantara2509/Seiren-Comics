@@ -1,11 +1,11 @@
 /* eslint-disable no-magic-numbers */
 import React, { useEffect, useState } from 'react';
-import './KeepReading.scss';
+import './Favorites.scss';
 import { useMediaQuery } from 'react-responsive';
 
-function KeepReading() {
+function Favorites() {
   const [apiResponseState, setApiResponseState] = useState([]);
-  const [xKeep, setXKeep] = useState(0);
+  const [xFavs, setXFavs] = useState(0);
   const [isFetching, setIsFetching] = useState(false);
   const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
 
@@ -23,21 +23,21 @@ function KeepReading() {
     fetchUrl();
   }, []);
 
-  const handleLeftKeep = () => {
+  const handleLeftFavs = () => {
     if (isWide) {
-      return xKeep === 0
-        ? setXKeep(-78 * (apiResponseState.length - 1)) : setXKeep(xKeep + 78);
+      return xFavs === 0
+        ? setXFavs(-78 * (apiResponseState.length - 1)) : setXFavs(xFavs + 78);
     }
-    return xKeep === 0
-      ? setXKeep(-86.5 * (apiResponseState.length - 1)) : setXKeep(xKeep + 86.5);
+    return xFavs === 0
+      ? setXFavs(-86.5 * (apiResponseState.length - 1)) : setXFavs(xFavs + 86.5);
   };
-  const handleRightKeep = () => {
+  const handleRightFavs = () => {
     if (isWide) {
-      return xKeep === -78 * (apiResponseState.length - 1)
-        ? setXKeep(0) : setXKeep(xKeep - 78);
+      return xFavs === -78 * (apiResponseState.length - 1)
+        ? setXFavs(0) : setXFavs(xFavs - 78);
     }
-    return xKeep === -86.5 * (apiResponseState.length - 1)
-      ? setXKeep(0) : setXKeep(xKeep - 86.5);
+    return xFavs === -86.5 * (apiResponseState.length - 1)
+      ? setXFavs(0) : setXFavs(xFavs - 86.5);
   };
 
   const isLoading = () => (
@@ -61,13 +61,13 @@ function KeepReading() {
 
   return (
     <div className="highligths-list">
-      <h2 className="shelf-h2">Continue Lendo</h2>
+      <h2 className="shelf-h2">Favoritos</h2>
       <div className="tales-container slider">
         { isFetching
           ? isLoading()
           : apiResponseState.map((tales, id) => (
             <div
-              style={ { transform: `translateX(${xKeep}%)`,
+              style={ { transform: `translateX(${xFavs}%)`,
                 backgroundImage: `url(${tales.strDrinkThumb})` } }
               key={ id }
               className="tales-card slide"
@@ -75,10 +75,10 @@ function KeepReading() {
               <p className="naoentendir">{tales.strDrink}</p>
             </div>
           ))}
-        <button type="button" id="goLeftKeep" onClick={ handleLeftKeep }>
+        <button type="button" id="goLeftFavs" onClick={ handleLeftFavs }>
           {'<'}
         </button>
-        <button type="button" id="goRightKeep" onClick={ handleRightKeep }>
+        <button type="button" id="goRightFavs" onClick={ handleRightFavs }>
           {'>'}
         </button>
       </div>
@@ -86,4 +86,4 @@ function KeepReading() {
   );
 }
 
-export default KeepReading;
+export default Favorites;
