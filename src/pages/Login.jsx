@@ -1,8 +1,8 @@
-/* eslint-disable react/jsx-closing-tag-location */
 import React, { useContext, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import md5 from 'crypto-js/md5';
 import SeirenContext from '../context/SeirenContext';
+import Logo from '../images/logo.png';
 import './Login.css';
 
 function Login() {
@@ -29,52 +29,51 @@ function Login() {
 
   const setLocalStorage = () => {
     const user = { email };
-    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('user', JSON.stringify(md5(user)));
     localStorage.setItem(md5('isLogged'), JSON.stringify(md5(true)));
     window.location.reload();
   };
 
   return (
-    !isLogged
-      ? <div className="wrapper">
-        <div className="title">
-          Cook APP
-        </div>
-        <div className="field">
-          <input
-            type="email"
-            name="email"
-            data-testid="email-input"
-            onChange={ handleChangeEmail }
-            placeholder="email"
-          />
-        </div>
-        <div className="field">
-          <input
-            type="password"
-            name="password"
-            data-testid="password-input"
-            onChange={ handleChangePassword }
-            placeholder="senha"
-          />
-        </div>
-        <div className="field">
-          <Link to="/estante">
+    !isLogged ? (
+      <div className="wrapper">
+        <section className="login-container">
+          <img src={ Logo } className="login-logo" alt="logo seiren" />
+          <div className="field">
+            <button type="button" className="google-btn">Login com Google</button>
+            <span className="or-span">----- ou -----</span>
             <input
-              type="submit"
-              data-testid="login-submit-btn"
+              type="email"
+              name="email"
+              onChange={ handleChangeEmail }
+              placeholder="meunome@gmail.com"
+              className="field-login"
+            />
+            <input
+              type="password"
+              name="password"
+              onChange={ handleChangePassword }
+              placeholder="Digíte sua senha"
+              className="field-login"
+            />
+            <Link to="/" id="forgot-password">Esqueceu sua senha?</Link>
+            <Link
+              to="/estante"
               disabled={ !isValid }
               onClick={ setLocalStorage }
-            />
-          </Link>
-        </div>
-        <div className="content">
-          <div className="checkbox">
-            <input type="checkbox" id="remember-me" />
-            Lembrar senha
+              className="login-btn"
+            >
+              Entrar
+            </Link>
           </div>
-        </div>
+          <Link to="/">
+            Ainda não tem uma conta?
+            {' '}
+            <span>Cadastre-se!</span>
+          </Link>
+        </section>
       </div>
+    )
       : <Redirect to="/estante" />
   );
 }
