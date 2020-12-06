@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Favorites, KeepReading, Sidebar, Topbar } from '../components';
+import ChangeAvatar from '../components/ChangeAvatar';
 import './Profile.css';
 
 function Profile() {
@@ -9,6 +10,11 @@ function Profile() {
     'name@gmail.com', 'name@gmail.com', 'name@gmail.com',
     'name@gmail.com', 'name@gmail.com', 'name@gmail.com',
     'name@gmail.com', 'name@gmail.com', 'name@gmail.com'];
+  const [seen, setSeen] = useState(false);
+
+  const togglePop = () => {
+    setSeen(!seen);
+  };
 
   return (
     <section className="profile-container">
@@ -20,7 +26,14 @@ function Profile() {
           <section className="profile-settings">
             <div className="avatar-container">
               <img src={ avatarSrc } alt="Profile avatar" id="profile-avatar" />
-              <Link to="/" className="change-avatar">Trocar avatar</Link>
+              <button
+                type="button"
+                className="change-avatar"
+                onClick={ togglePop }
+              >
+                Trocar avatar
+
+              </button>
             </div>
             <div className="user-name-container">
               <h4>Nome de Usuário</h4>
@@ -68,10 +81,14 @@ function Profile() {
               </div>
             </div>
           </section>
+
         </div>
         <Favorites />
         <KeepReading />
       </section>
+      {
+        seen ? <ChangeAvatar toggle={ togglePop } /> : null
+      }
     </section>
   );
 }

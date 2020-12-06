@@ -1,13 +1,17 @@
+/* eslint-disable react/jsx-closing-tag-location */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-magic-numbers */
-import React from 'react';
+import React, { useContext } from 'react';
+import { Redirect } from 'react-router-dom';
 import Banner from '../images/shelf-banner.png';
+import SeirenContext from '../context/SeirenContext';
 import { Anchor, Footer, KeepReading,
   Releases, Series, Sidebar, Slider, Topbar } from '../components';
 import './Shelf.css';
 
 function Shelf() {
-  return (
+  const { isLogged } = useContext(SeirenContext);
+  const renderShelf = () => (
     <section className="shelf-container">
       <Sidebar />
       <section className="shelf-content">
@@ -39,6 +43,14 @@ function Shelf() {
         </section>
         <Footer />
       </section>
+    </section>
+  );
+
+  return (
+    <section>
+      {
+        isLogged ? renderShelf() : <Redirect to="/" />
+      }
     </section>
   );
 }
