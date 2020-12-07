@@ -59,11 +59,15 @@ function Login() {
             <Link to="/" id="forgot-password">Esqueceu sua senha?</Link>
             <Link
               to="/estante"
-              disabled={ !isValid }
-              onClick={ setLocalStorage }
-              className="login-btn"
             >
-              Entrar
+              <button
+                className="login-btn"
+                type="button"
+                disabled={ !isValid }
+                onClick={ setLocalStorage }
+              >
+                Entrar
+              </button>
             </Link>
           </div>
           <Link to="/">
