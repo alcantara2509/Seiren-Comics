@@ -25,17 +25,17 @@ function Slider() {
 
   const handleLeft = () => {
     if (isWide) {
-      return x === 0 ? setX(-78 * (apiResponseState.length - 1)) : setX(x + 78);
+      return x === 0 ? setX(-78 * (apiResponseState.length - 1)) : setX(x + 156);
     }
-    return x === 0 ? setX(-86.5 * (apiResponseState.length - 1)) : setX(x + 86.5);
+    return x === 0 ? setX(-86.5 * (apiResponseState.length - 1)) : setX(x + 173);
   };
   const handleRight = () => {
     if (isWide) {
-      return x === -78 * (apiResponseState.length - 1) ? setX(0) : setX(x - 78);
+      return x === -78 * (apiResponseState.length - 1) ? setX(0) : setX(x - 156);
     }
-    return x === -86.5 * (apiResponseState.length - 1) ? setX(0) : setX(x - 86.5);
+    return x === -86.5 * (apiResponseState.length - 1) ? setX(0) : setX(x - 173);
   };
-
+  console.log(x);
   const isLoading = () => (
     <div className="loading-container">
       <div className="lds-spinner">

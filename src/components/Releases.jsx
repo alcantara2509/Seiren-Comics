@@ -27,19 +27,19 @@ function Releases() {
     if (isWide) {
       return xReleases === 0
         ? setXReleases(-78 * (apiResponseState.length - 1))
-        : setXReleases(xReleases + 78);
+        : setXReleases(xReleases + 156);
     }
     return xReleases === 0
       ? setXReleases(-86.5 * (apiResponseState.length - 1))
-      : setXReleases(xReleases + 86.5);
+      : setXReleases(xReleases + 173);
   };
   const handleRightReleases = () => {
     if (isWide) {
       return xReleases === -78 * (apiResponseState.length - 1)
-        ? setXReleases(0) : setXReleases(xReleases - 78);
+        ? setXReleases(0) : setXReleases(xReleases - 156);
     }
     return xReleases === -86.5 * (apiResponseState.length - 1)
-      ? setXReleases(0) : setXReleases(xReleases - 86.5);
+      ? setXReleases(0) : setXReleases(xReleases - 173);
   };
 
   const isLoading = () => (

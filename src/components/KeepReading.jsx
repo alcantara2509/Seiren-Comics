@@ -26,18 +26,18 @@ function KeepReading() {
   const handleLeftKeep = () => {
     if (isWide) {
       return xKeep === 0
-        ? setXKeep(-78 * (apiResponseState.length - 1)) : setXKeep(xKeep + 78);
+        ? setXKeep(-78 * (apiResponseState.length - 1)) : setXKeep(xKeep + 156);
     }
     return xKeep === 0
-      ? setXKeep(-86.5 * (apiResponseState.length - 1)) : setXKeep(xKeep + 86.5);
+      ? setXKeep(-86.5 * (apiResponseState.length - 1)) : setXKeep(xKeep + 173);
   };
   const handleRightKeep = () => {
     if (isWide) {
       return xKeep === -78 * (apiResponseState.length - 1)
-        ? setXKeep(0) : setXKeep(xKeep - 78);
+        ? setXKeep(0) : setXKeep(xKeep - 156);
     }
     return xKeep === -86.5 * (apiResponseState.length - 1)
-      ? setXKeep(0) : setXKeep(xKeep - 86.5);
+      ? setXKeep(0) : setXKeep(xKeep - 173);
   };
 
   const isLoading = () => (
