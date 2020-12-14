@@ -1,3 +1,5 @@
+/* eslint-disable indent */
+/* eslint-disable react/jsx-indent */
 /* eslint-disable no-magic-numbers */
 import React, { useEffect, useState } from 'react';
 import './Slider.scss';
@@ -73,7 +75,20 @@ function Slider() {
         <div className="card-bottom">
           <div className="history-container">
             <p className="history-title">{`Nome história #${id + 1}`}</p>
-            <p className="is-favorite"><i className="fas fa-heart" /></p>
+            <p className="is-favorite">
+              {
+                id % 2 !== 0
+                  ? <span
+                      style={ {
+                      fontSize: '14px',
+                      color: 'white',
+                      textTransform: 'uppercase' } }
+                  >
+                    novo
+                    </span>
+                  : <i className="fas fa-heart" />
+              }
+            </p>
           </div>
           <div className="history-container chapter-container">
             <p className="chapter-title">Nome capítulo</p>
