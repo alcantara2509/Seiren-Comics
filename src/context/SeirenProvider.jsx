@@ -8,6 +8,7 @@ function SeirenProvider({ children }) {
   const [anchorButton, setAnchorButton] = useState('');
   const [apiMeals, setApiMeals] = useState('');
   const [isLogged, setIslogged] = useState(false);
+  const [searchInput, setSearchInput] = useState('');
 
   useEffect(() => {
     const isLoggedLocal = JSON.parse(localStorage.getItem(md5('isLogged')));
@@ -21,6 +22,8 @@ function SeirenProvider({ children }) {
     setApiMeals,
     isLogged,
     setIslogged,
+    searchInput,
+    setSearchInput,
   };
 
   return (
