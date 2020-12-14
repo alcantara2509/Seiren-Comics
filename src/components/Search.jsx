@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable no-magic-numbers */
 import React, { useEffect, useState, useContext } from 'react';
-import './Slider.scss';
+import './Search.scss';
 import { useMediaQuery } from 'react-responsive';
 import SeirenContext from '../context/SeirenContext';
 
@@ -103,15 +103,15 @@ function Search() {
 
   return (
     <div className="highligths-list">
-      <h2 className="shelf-h2">Search</h2>
+      <h2 className="shelf-h2">Resultados</h2>
       <div className="tales-container slider">
         {isFetching
           ? isLoading()
           : renderCards()}
-        <button type="button" id="goLeft" onClick={ handleLeft }>
+        <button type="button" id="goLeftSearch" onClick={ handleLeft }>
           <i className="fas fa-chevron-left" />
         </button>
-        <button type="button" id="goRight" onClick={ handleRight }>
+        <button type="button" id="goRightSearch" onClick={ handleRight }>
           <i className="fas fa-chevron-right" />
         </button>
       </div>
