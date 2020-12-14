@@ -78,10 +78,10 @@ function Series() {
             </div>
           ))}
         <button type="button" id="goLeftSeries" onClick={ handleLeftSeries }>
-          {'<'}
+          <i className="fas fa-chevron-left" />
         </button>
         <button type="button" id="goRightSeries" onClick={ handleRightSeries }>
-          {'>'}
+          <i className="fas fa-chevron-right" />
         </button>
       </div>
     </div>

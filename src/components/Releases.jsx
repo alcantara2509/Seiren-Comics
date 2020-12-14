@@ -78,10 +78,10 @@ function Releases() {
             </div>
           ))}
         <button type="button" id="goLeftReleases" onClick={ handleLeftReleases }>
-          {'<'}
+          <i className="fas fa-chevron-left" />
         </button>
         <button type="button" id="goRightReleases" onClick={ handleRightReleases }>
-          {'>'}
+          <i className="fas fa-chevron-right" />
         </button>
       </div>
     </div>

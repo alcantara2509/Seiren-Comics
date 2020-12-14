@@ -71,8 +71,12 @@ function Slider() {
               <p className="naoentendir">{tales.strMeal}</p>
             </div>
           ))}
-        <button type="button" id="goLeft" onClick={ handleLeft }>{'<'}</button>
-        <button type="button" id="goRight" onClick={ handleRight }>{'>'}</button>
+        <button type="button" id="goLeft" onClick={ handleLeft }>
+          <i className="fas fa-chevron-left" />
+        </button>
+        <button type="button" id="goRight" onClick={ handleRight }>
+          <i className="fas fa-chevron-right" />
+        </button>
       </div>
     </div>
   );

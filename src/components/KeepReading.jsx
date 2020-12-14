@@ -76,10 +76,10 @@ function KeepReading() {
             </div>
           ))}
         <button type="button" id="goLeftKeep" onClick={ handleLeftKeep }>
-          {'<'}
+          <i className="fas fa-chevron-left" />
         </button>
         <button type="button" id="goRightKeep" onClick={ handleRightKeep }>
-          {'>'}
+          <i className="fas fa-chevron-right" />
         </button>
       </div>
     </div>
