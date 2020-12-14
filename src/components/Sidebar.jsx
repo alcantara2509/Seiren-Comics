@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './Sidebar.css';
 import Logo from '../images/logo.png';
 
 function Sidebar() {
+  const [currHeart] = useState(window.location.pathname);
+
   return (
     <aside className="sidebar-container">
       <section className="logo-sidebar-container">
@@ -58,7 +60,11 @@ function Sidebar() {
           activeClassName="selected-link"
         >
           <div className="div-icons">
-            <i className="far fa-heart side-icons" />
+            {
+              currHeart === '/favoritos'
+                ? <i className="fas fa-heart side-icons" />
+                : <i className="far fa-heart side-icons" />
+            }
             <p id="fav-p">Favoritos</p>
           </div>
         </NavLink>

@@ -26,18 +26,18 @@ function Favorites() {
   const handleLeftFavs = () => {
     if (isWide) {
       return xFavs === 0
-        ? setXFavs(-78 * (apiResponseState.length - 1)) : setXFavs(xFavs + 78);
+        ? setXFavs(-78 * (apiResponseState.length - 1)) : setXFavs(xFavs + 156);
     }
     return xFavs === 0
-      ? setXFavs(-86.5 * (apiResponseState.length - 1)) : setXFavs(xFavs + 86.5);
+      ? setXFavs(-86.5 * (apiResponseState.length - 1)) : setXFavs(xFavs + 173);
   };
   const handleRightFavs = () => {
     if (isWide) {
       return xFavs === -78 * (apiResponseState.length - 1)
-        ? setXFavs(0) : setXFavs(xFavs - 78);
+        ? setXFavs(0) : setXFavs(xFavs - 156);
     }
     return xFavs === -86.5 * (apiResponseState.length - 1)
-      ? setXFavs(0) : setXFavs(xFavs - 86.5);
+      ? setXFavs(0) : setXFavs(xFavs - 173);
   };
 
   const isLoading = () => (
@@ -76,10 +76,10 @@ function Favorites() {
             </div>
           ))}
         <button type="button" id="goLeftFavs" onClick={ handleLeftFavs }>
-          {'<'}
+          <i className="fas fa-chevron-left" />
         </button>
         <button type="button" id="goRightFavs" onClick={ handleRightFavs }>
-          {'>'}
+          <i className="fas fa-chevron-right" />
         </button>
       </div>
     </div>

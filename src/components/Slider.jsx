@@ -55,22 +55,32 @@ function Slider() {
     </div>
   );
 
+  const renderCards = () => apiResponseState.map((tales, id) => (
+    <div
+      style={ { transform: `translateX(${x}%)`,
+        backgroundImage: `url(${tales.strMealThumb})` } }
+      key={ id }
+      className="tales-card slide"
+    >
+      <div className="card-infos-container">
+        <div className="card-top">
+          <p className="sup-left-p">Lorem Ipsum</p>
+          <p className="sup-left-p">
+            <i className="fas fa-clock timer" />
+            <span style={ { textTransform: 'lowercase' } }>1h ago</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  ));
+
   return (
     <div className="highligths-list">
       <h2 className="shelf-h2">Destaques</h2>
       <div className="tales-container slider">
         {isFetching
           ? isLoading()
-          : apiResponseState.map((tales, id) => (
-            <div
-              style={ { transform: `translateX(${x}%)`,
-                backgroundImage: `url(${tales.strMealThumb})` } }
-              key={ id }
-              className="tales-card slide"
-            >
-              <p className="naoentendir">{tales.strMeal}</p>
-            </div>
-          ))}
+          : renderCards()}
         <button type="button" id="goLeft" onClick={ handleLeft }>
           <i className="fas fa-chevron-left" />
         </button>
