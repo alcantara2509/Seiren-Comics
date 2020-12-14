@@ -70,6 +70,15 @@ function Slider() {
             <span style={ { textTransform: 'lowercase' } }>1h ago</span>
           </p>
         </div>
+        <div className="card-bottom">
+          <div className="history-container">
+            <p className="history-title">{`Nome história #${id + 1}`}</p>
+            <p className="is-favorite"><i className="fas fa-heart" /></p>
+          </div>
+          <div className="history-container chapter-container">
+            <p className="chapter-title">Nome capítulo</p>
+          </div>
+        </div>
       </div>
     </div>
   ));
