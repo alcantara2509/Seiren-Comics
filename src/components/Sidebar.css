@@ -16,7 +16,7 @@
 
 a {
   color: #fff;
-  font-size: 10px;
+  font-size: 14px;
   padding: 0 5px;
   text-decoration: none;
   text-transform: uppercase;
@@ -41,10 +41,48 @@ a {
 }
 
 .social-links {
-  bottom: 10px;
+  bottom: 20px;
   position: absolute;
 }
 
 .selected-link {
   background-color: #1C1F36;
+}
+
+.social {
+  font-size: 20px;
+}
+
+.side-icons {
+  font-size: 18px;
+  margin-right: 8px;
+}
+
+#twitter {
+  margin: 0 20px;
+}
+
+#pro-p {
+  height: 10px;
+}
+
+#shelf-p {
+  height: 12px;
+}
+
+#cal-p {
+  height: 12px;
+}
+
+#cat-p {
+  height: 12px;
+}
+
+#fav-p {
+  height: 12px;
+}
+
+.div-icons {
+  align-items: center;
+  display: flex;
 }

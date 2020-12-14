@@ -35,7 +35,7 @@ function Slider() {
     }
     return x === -86.5 * (apiResponseState.length - 1) ? setX(0) : setX(x - 173);
   };
-  console.log(x);
+
   const isLoading = () => (
     <div className="loading-container">
       <div className="lds-spinner">

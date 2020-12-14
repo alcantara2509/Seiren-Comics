@@ -17,41 +17,62 @@ function Sidebar() {
           to="/profile"
           activeClassName="selected-link"
         >
-          Profile
+          <div className="div-icons">
+            <i className="far fa-user side-icons" />
+            <p id="pro-p">Profile</p>
+          </div>
         </NavLink>
         <NavLink
           className="sidebar-links"
           to="/estante"
           activeClassName="selected-link"
         >
-          Estante
+          <div className="div-icons">
+            <i className="fas fa-bars side-icons" />
+            <p id="shelf-p">Estante</p>
+          </div>
         </NavLink>
         <NavLink
           className="sidebar-links"
           to="/calendario"
           activeClassName="selected-link"
         >
-          Calendário
+          <div className="div-icons">
+            <i className="far fa-calendar-alt side-icons" />
+            <p id="cal-p">Calendário</p>
+          </div>
         </NavLink>
         <NavLink
           className="sidebar-links"
           to="/categorias"
           activeClassName="selected-link"
         >
-          Categorias
+          <div className="div-icons">
+            <i className="fas fa-list-ul side-icons" />
+            <p id="cat-p">Categorias</p>
+          </div>
         </NavLink>
         <NavLink
           className="sidebar-links"
           to="/favoritos"
           activeClassName="selected-link"
         >
-          Favoritos
+          <div className="div-icons">
+            <i className="far fa-heart side-icons" />
+            <p id="fav-p">Favoritos</p>
+          </div>
         </NavLink>
       </section>
       <section className="social-links">
-        <a rel="noreferrer" href="https://www.instagram.com/" target="_blank">Insta</a>
-        <a rel="noreferrer" href="https://www.twitter.com/" target="_blank">twitter</a>
-        <a rel="noreferrer" href="https://www.facebook.com/" target="_blank">face</a>
+        <a rel="noreferrer" href="https://www.instagram.com/" target="_blank">
+          <i className="fab fa-instagram social" />
+        </a>
+        <a rel="noreferrer" href="https://www.twitter.com/" target="_blank">
+          <i className="fab fa-twitter social" id="twitter" />
+        </a>
+        <a rel="noreferrer" href="https://www.facebook.com/" target="_blank">
+          <i className="fab fa-facebook-f social" />
+        </a>
       </section>
     </aside>
   );

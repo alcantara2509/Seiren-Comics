@@ -27,19 +27,19 @@ function Series() {
     if (isWide) {
       return xSeries === 0
         ? setXSeries(-78 * (apiResponseState.length - 1))
-        : setXSeries(xSeries + 156);
+        : setXSeries(xSeries + 312);
     }
     return xSeries === 0
       ? setXSeries(-86.5 * (apiResponseState.length - 1))
-      : setXSeries(xSeries + 173);
+      : setXSeries(xSeries + 346);
   };
   const handleRightSeries = () => {
     if (isWide) {
       return xSeries === -78 * (apiResponseState.length - 1)
-        ? setXSeries(0) : setXSeries(xSeries - 156);
+        ? setXSeries(0) : setXSeries(xSeries - 312);
     }
     return xSeries === -86.5 * (apiResponseState.length - 1)
-      ? setXSeries(0) : setXSeries(xSeries - 173);
+      ? setXSeries(0) : setXSeries(xSeries - 346);
   };
 
   const isLoading = () => (
