@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import SeirenProvider from './context/SeirenProvider';
-import { Calendar, Categories, Profile, Shelf, Favoritos } from './pages';
+import { Calendar, Categories, Profile, Shelf, Favoritos, Viewer } from './pages';
 import Login from './pages/Login';
 
 function App() {
@@ -14,6 +14,7 @@ function App() {
         <Route path="/estante" component={ Shelf } />
         <Route path="/calendario" component={ Calendar } />
         <Route path="/categorias" component={ Categories } />
+        <Route path="/:id" component={ Viewer } />
       </Switch>
     </SeirenProvider>
   );

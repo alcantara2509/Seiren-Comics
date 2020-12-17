@@ -9,6 +9,7 @@ function SeirenProvider({ children }) {
   const [apiMeals, setApiMeals] = useState('');
   const [isLogged, setIslogged] = useState(false);
   const [searchInput, setSearchInput] = useState('');
+  const [historyId, setHistoryId] = useState('');
 
   useEffect(() => {
     const isLoggedLocal = JSON.parse(localStorage.getItem(md5('isLogged')));
@@ -24,6 +25,8 @@ function SeirenProvider({ children }) {
     setIslogged,
     searchInput,
     setSearchInput,
+    historyId,
+    setHistoryId,
   };
 
   return (
