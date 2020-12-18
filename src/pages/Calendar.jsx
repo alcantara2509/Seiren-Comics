@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Sidebar from '../components/Sidebar';
 import Topbar from '../components/Topbar';
 import './Calendar.css';
+import Login from './Login';
 
 function Calendar() {
-  return (
+  const [redirect, setRedirect] = useState(false);
+
+  const renderCalendar = () => (
     <section className="calendar-container">
       <Sidebar />
       <section className="calendar-content">
@@ -12,6 +15,16 @@ function Calendar() {
         <h1>Calendar</h1>
       </section>
     </section>
+  );
+
+  useEffect(() => {
+    const store = localStorage.getItem('login');
+    console.log(store);
+    if (store !== null) setRedirect(true);
+  }, []);
+
+  return (
+    redirect ? renderCalendar() : <Login />
   );
 }
 

@@ -1,16 +1,25 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable react/jsx-closing-tag-location */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-magic-numbers */
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Banner from '../images/shelf-banner.png';
 import SeirenContext from '../context/SeirenContext';
 import { Anchor, Footer, KeepReading,
   Releases, Series, Sidebar, Slider, Topbar } from '../components';
 import './Shelf.css';
 import Search from '../components/Search';
+import Login from './Login';
 
 function Shelf() {
   const { searchInput } = useContext(SeirenContext);
+  const [redirect, setRedirect] = useState(false);
+
+  useEffect(() => {
+    const store = localStorage.getItem('login');
+    console.log(store);
+    if (store !== null) setRedirect(true);
+  }, []);
 
   const renderShelf = () => (
     <section className="shelf-container">
@@ -75,9 +84,7 @@ function Shelf() {
   return (
     <section>
       {
-        searchInput === ''
-          ? renderShelf()
-          : renderSearch()
+        !redirect ? <Login /> : searchInput === '' ? renderShelf() : renderSearch()
       }
     </section>
   );
