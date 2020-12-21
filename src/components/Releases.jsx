@@ -1,15 +1,12 @@
 /* eslint-disable no-magic-numbers */
 import React, { useEffect, useState } from 'react';
 import './Releases.scss';
-import { useMediaQuery } from 'react-responsive';
+import Carousel from 'react-elastic-carousel';
 
 function Releases() {
   const [apiResponseState, setApiResponseState] = useState([]);
-  const [xReleases, setXReleases] = useState(0);
   const [isFetching, setIsFetching] = useState(false);
   const url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
-
-  const isWide = useMediaQuery({ query: '(min-width: 1800px)' });
 
   useEffect(() => {
     setIsFetching(true);
@@ -22,25 +19,6 @@ function Releases() {
 
     fetchUrl();
   }, []);
-
-  const handleLeftReleases = () => {
-    if (isWide) {
-      return xReleases === 0
-        ? setXReleases(-78 * (apiResponseState.length - 1))
-        : setXReleases(xReleases + 156);
-    }
-    return xReleases === 0
-      ? setXReleases(-86.5 * (apiResponseState.length - 1))
-      : setXReleases(xReleases + 173);
-  };
-  const handleRightReleases = () => {
-    if (isWide) {
-      return xReleases === -78 * (apiResponseState.length - 1)
-        ? setXReleases(0) : setXReleases(xReleases - 156);
-    }
-    return xReleases === -86.5 * (apiResponseState.length - 1)
-      ? setXReleases(0) : setXReleases(xReleases - 173);
-  };
 
   const isLoading = () => (
     <div className="loading-container">
@@ -61,29 +39,33 @@ function Releases() {
     </div>
   );
 
+  const breakPoints = [
+    { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
+    { width: 850, itemsToShow: 5, itemsToScroll: 2 },
+    { width: 1450, itemsToShow: 6, itemsToScroll: 2 },
+  ];
+
   return (
     <div className="highligths-list">
       <h2 className="shelf-h2">Lançamento</h2>
-      <div className="tales-container slider">
+      {/* <div className="tales-container slider"> */}
+      <Carousel
+        disableArrowsOnEnd={ false }
+        breakPoints={ breakPoints }
+      >
         { isFetching
           ? isLoading()
           : apiResponseState.map((tales, id) => (
             <div
-              style={ { transform: `translateX(${xReleases}%)`,
-                backgroundImage: `url(${tales.strMealThumb})` } }
+              style={ { backgroundImage: `url(${tales.strMealThumb})` } }
               key={ id }
               className="tales-card slide"
             >
               <p className="naoentendir">{tales.strMeal}</p>
             </div>
           ))}
-        <button type="button" id="goLeftReleases" onClick={ handleLeftReleases }>
-          <i className="fas fa-chevron-left" />
-        </button>
-        <button type="button" id="goRightReleases" onClick={ handleRightReleases }>
-          <i className="fas fa-chevron-right" />
-        </button>
-      </div>
+      </Carousel>
+      {/* </div> */}
     </div>
   );
 }

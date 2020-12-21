@@ -1,9 +1,26 @@
-const url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
+const url = 'http://localhost:8000/api/comics/';
+
+const getToken = () => {
+  const lstore = JSON.parse(localStorage.getItem('login'));
+  if (lstore !== null) {
+    return lstore.token;
+  }
+};
+
+const myHeaders = new Headers({
+  Authorization: `Bearer${getToken()}`,
+});
+
+const myInit = { method: 'GET',
+  headers: myHeaders,
+  mode: 'cors',
+  cache: 'default' };
 
 export const fetchUrl = async () => {
-  const apiRequest = await fetch(url);
+  const apiRequest = await fetch(url, myInit);
   const apiResponse = await apiRequest.json();
-  return apiResponse.meals;
+  const arrApiResponse = Object.values(apiResponse);
+  return arrApiResponse;
 };
 
 export default fetchUrl;

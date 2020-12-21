@@ -1,44 +1,10 @@
 /* eslint-disable no-magic-numbers */
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
+import SeirenContext from '../context/SeirenContext';
 import './KeepReading.scss';
-import { useMediaQuery } from 'react-responsive';
 
 function KeepReading() {
-  const [apiResponseState, setApiResponseState] = useState([]);
-  const [xKeep, setXKeep] = useState(0);
-  const [isFetching, setIsFetching] = useState(false);
-  const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
-
-  const isWide = useMediaQuery({ query: '(min-width: 1800px)' });
-
-  useEffect(() => {
-    setIsFetching(true);
-    const fetchUrl = async () => {
-      const apiRequest = await fetch(url);
-      const apiResponse = await apiRequest.json();
-      setApiResponseState(apiResponse.drinks);
-      setIsFetching(false);
-    };
-
-    fetchUrl();
-  }, []);
-
-  const handleLeftKeep = () => {
-    if (isWide) {
-      return xKeep === 0
-        ? setXKeep(-78 * (apiResponseState.length - 1)) : setXKeep(xKeep + 156);
-    }
-    return xKeep === 0
-      ? setXKeep(-86.5 * (apiResponseState.length - 1)) : setXKeep(xKeep + 173);
-  };
-  const handleRightKeep = () => {
-    if (isWide) {
-      return xKeep === -78 * (apiResponseState.length - 1)
-        ? setXKeep(0) : setXKeep(xKeep - 156);
-    }
-    return xKeep === -86.5 * (apiResponseState.length - 1)
-      ? setXKeep(0) : setXKeep(xKeep - 173);
-  };
+  const { apiResponse, isFetching } = useContext(SeirenContext);
 
   const isLoading = () => (
     <div className="loading-container">
@@ -65,22 +31,17 @@ function KeepReading() {
       <div className="tales-container slider">
         { isFetching
           ? isLoading()
-          : apiResponseState.map((tales, id) => (
+          : apiResponse.map((tales, id) => (
             <div
-              style={ { transform: `translateX(${xKeep}%)`,
-                backgroundImage: `url(${tales.strDrinkThumb})` } }
+              style={ {
+                backgroundImage: `url(${tales.strDrinkThumb})`,
+              } }
               key={ id }
               className="tales-card slide"
             >
               <p className="naoentendir">{tales.strDrink}</p>
             </div>
           ))}
-        <button type="button" id="goLeftKeep" onClick={ handleLeftKeep }>
-          <i className="fas fa-chevron-left" />
-        </button>
-        <button type="button" id="goRightKeep" onClick={ handleRightKeep }>
-          <i className="fas fa-chevron-right" />
-        </button>
       </div>
     </div>
   );

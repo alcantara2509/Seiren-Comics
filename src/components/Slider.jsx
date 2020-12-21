@@ -4,29 +4,12 @@
 /* eslint-disable no-magic-numbers */
 import React, { useContext, useEffect, useState } from 'react';
 import './Slider.scss';
-import { useMediaQuery } from 'react-responsive';
 import { Link } from 'react-router-dom';
+import Carousel from 'react-elastic-carousel';
 import SeirenContext from '../context/SeirenContext';
 
 function Slider() {
-  const [x, setX] = useState(0);
-
   const { apiResponse, isFetching } = useContext(SeirenContext);
-
-  const isWide = useMediaQuery({ query: '(min-width: 1800px)' });
-
-  const handleLeft = () => {
-    if (isWide) {
-      return x === 0 ? setX(-78 * (apiResponse.length - 1)) : setX(x + 156);
-    }
-    return x === 0 ? setX(-86.5 * (apiResponse.length - 1)) : setX(x + 173);
-  };
-  const handleRight = () => {
-    if (isWide) {
-      return x === -78 * (apiResponse.length - 1) ? setX(0) : setX(x - 156);
-    }
-    return x === -86.5 * (apiResponse.length - 1) ? setX(0) : setX(x - 173);
-  };
 
   const isLoading = () => (
     <div className="loading-container">
@@ -54,7 +37,6 @@ function Slider() {
       style={ {
                 padding: '0',
                 textTransform: 'none',
-                transform: `translateX(${x}%)`,
       backgroundImage: `url(${tales.strMealThumb})`,
     } }
       className="tales-card"
@@ -70,7 +52,7 @@ function Slider() {
               </div>
               <div className="card-bottom">
                 <div className="history-container">
-                  <p className="history-title">{`Nome história #${id + 1}`}</p>
+                  <p className="history-title">{tales.title}</p>
                   <p className="is-favorite">
                     {
                       id % 2 !== 0
@@ -95,18 +77,25 @@ function Slider() {
     </Link>
   ));
 
+  const breakPoints = [
+    { width: 550, itemsToShow: 2, itemsToScroll: 2 },
+    { width: 850, itemsToShow: 4, itemsToScroll: 2 },
+    { width: 1450, itemsToShow: 6, itemsToScroll: 2 },
+  ];
+
   return (
     <div className="highligths-list">
       <h2 className="shelf-h2">Destaques</h2>
-      <div className="tales-container slider">
-        {isFetching ? isLoading() : renderCards()}
-        <button type="button" id="goLeft" onClick={ handleLeft }>
-          <i className="fas fa-chevron-left" />
-        </button>
-        <button type="button" id="goRight" onClick={ handleRight }>
-          <i className="fas fa-chevron-right" />
-        </button>
-      </div>
+      <Carousel
+        disableArrowsOnEnd={ false }
+        breakPoints={ breakPoints }
+        pagination={ false }
+        className="tales-container"
+      >
+            {isFetching ? isLoading() : renderCards()}
+      </Carousel>
+          {/* <div className="tales-container slider"> */}
+          {/* </div> */}
     </div>
   );
 }

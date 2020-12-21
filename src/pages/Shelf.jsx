@@ -17,7 +17,6 @@ function Shelf() {
 
   useEffect(() => {
     const store = localStorage.getItem('login');
-    console.log(store);
     if (store !== null) setRedirect(true);
   }, []);
 
