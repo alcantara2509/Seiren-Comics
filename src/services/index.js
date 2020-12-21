@@ -11,10 +11,12 @@ const myHeaders = new Headers({
   Authorization: `Bearer${getToken()}`,
 });
 
-const myInit = { method: 'GET',
+const myInit = {
+  method: 'GET',
   headers: myHeaders,
   mode: 'cors',
-  cache: 'default' };
+  cache: 'default',
+};
 
 export const fetchUrl = async () => {
   const apiRequest = await fetch(url, myInit);

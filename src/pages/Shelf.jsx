@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable react/jsx-closing-tag-location */
 /* eslint-disable jsx-a11y/anchor-is-valid */
@@ -30,7 +31,7 @@ function Shelf() {
         <div id="slider-anchor">
           <Slider />
         </div>
-        <div id="keep-anchor">
+        {/* <div id="keep-anchor">
           <KeepReading />
         </div>
         <div id="releases-anchor">
@@ -38,7 +39,7 @@ function Shelf() {
         </div>
         <div id="series-anchor">
           <Series />
-        </div>
+        </div> */}
         <h3 className="seiren-comunity-h3">Comunidade Seiren</h3>
         <section className="seiren-comunity">
           <section className="publicated-pages">

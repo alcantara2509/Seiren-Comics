@@ -80,7 +80,7 @@ function Slider() {
   const breakPoints = [
     { width: 550, itemsToShow: 2, itemsToScroll: 2 },
     { width: 850, itemsToShow: 4, itemsToScroll: 2 },
-    { width: 1450, itemsToShow: 6, itemsToScroll: 2 },
+    { width: 1350, itemsToShow: 6, itemsToScroll: 2 },
   ];
 
   return (
