@@ -29,9 +29,37 @@ function Viewer() {
   );
 
   const renderHistory = () => (
-    apiResponse.filter((e) => e.idMeal === itemId).map((tale, id) => (
-      <div key={ id }>
-        <img src={ tale.strMealThumb } alt="thumb" />
+    apiResponse.filter((e) => e.id === +(itemId)).map((tale, id) => (
+      <div className="history-viewer-container" key={ id }>
+        <div className="history-viewer-content">
+          <button type="button" className="viewer-btn">
+            <i className="fas fa-chevron-circle-left" />
+          </button>
+          <div className="history-page">
+            <h1>{tale.title}</h1>
+          </div>
+          <button type="button" className="viewer-btn">
+            <i className="fas fa-chevron-circle-right" />
+          </button>
+        </div>
+        <div className="tales-comments-container">
+          <h2>Comente esta história</h2>
+          <textarea
+            name="tale-comments"
+            id="tale-comments"
+            cols="30"
+            rows="10"
+            placeholder="Dígite seu comentário"
+          />
+          <button type="button">Comentar</button>
+          {
+            apiResponse.filter((e) => e.id === +(itemId)).map((taleC, idC) => (
+              <div key={ idC }>
+                <p>{taleC.comments}</p>
+              </div>
+            ))
+          }
+        </div>
       </div>
     ))
   );

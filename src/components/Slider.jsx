@@ -30,10 +30,10 @@ function Slider() {
     </div>
   );
 
-  const renderCards = () => apiResponse.map((tales, id) => (
+  const renderCards = () => apiResponse.map((tales, index) => (
     <Link
-      to={ `/${tales.idMeal}` }
-      key={ id }
+      to={ `/${tales.id}` }
+      key={ index }
       style={ {
                 padding: '0',
                 textTransform: 'none',
@@ -55,7 +55,7 @@ function Slider() {
                   <p className="history-title">{tales.title}</p>
                   <p className="is-favorite">
                     {
-                      id % 2 !== 0
+                      index % 2 !== 0
                         ? <span
                             style={ {
                             fontSize: '14px',

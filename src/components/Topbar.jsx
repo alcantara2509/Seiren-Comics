@@ -5,7 +5,7 @@ import './Topbar.css';
 
 function Topbar() {
   const { setSearchInput } = useContext(SeirenContext);
-  const [currSearch, setCurrSearch] = useState();
+  const [currSearch, setCurrSearch] = useState('');
   return (
     <section className="topbar-container">
       <div className="search-div">
@@ -13,15 +13,21 @@ function Topbar() {
           type="text"
           id="search-input"
           placeholder="Search..."
+          value={ currSearch }
           onChange={ ({ target: { value } }) => setCurrSearch(value) }
         />
-        <button
-          type="button"
-          className="topbar-btn"
-          onClick={ () => setSearchInput(currSearch) }
-        >
-          <i className="fas fa-search top-icons" id="search-icon" />
-        </button>
+        <Link to="/search" className="topbar-btn">
+          <button
+            type="button"
+            className="topbar-btn"
+            onClick={ () => {
+              setCurrSearch('');
+              setSearchInput(currSearch);
+            } }
+          >
+            <i className="fas fa-search top-icons" id="search-icon" />
+          </button>
+        </Link>
       </div>
       <div>
         <button type="button" className="topbar-btn set-icons">
