@@ -10,7 +10,11 @@ import Banner from '../images/shelf-banner.png';
 import './Profile.css';
 
 function Profile() {
-  const { searchInput } = useContext(SeirenContext);
+  const { searchInput,
+    apiResponseProfile,
+    isFetchingProfile } = useContext(SeirenContext);
+
+    console.log(apiResponseProfile, isFetchingProfile);
 
   const avatarSrc = 'https://blog.nebrass.fr/wp-content/uploads/Homer-Simpson-4-200x200.jpg';
   const inds = ['name@gmail.com', 'name@gmail.com', 'name@gmail.com',

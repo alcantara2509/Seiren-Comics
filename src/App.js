@@ -9,13 +9,13 @@ function App() {
     <SeirenProvider>
       <Switch>
         <Route exact path="/" component={ Shelf } />
-        <Route path="/profile" component={ Profile } />
-        <Route path="/search" component={ Search } />
-        <Route path="/favoritos" component={ Favoritos } />
-        <Route path="/estante" component={ Shelf } />
-        <Route path="/calendario" component={ Calendar } />
-        <Route path="/categorias" component={ Categories } />
-        <Route path="/:id" component={ Viewer } />
+        <Route exact path="/profile" component={ Profile } />
+        <Route exact path="/search" component={ Search } />
+        <Route exact path="/favoritos" component={ Favoritos } />
+        <Route exact path="/estante" component={ Shelf } />
+        <Route exact path="/calendario" component={ Calendar } />
+        <Route exact path="/categorias" component={ Categories } />
+        <Route exact path="/:id" component={ Viewer } />
       </Switch>
     </SeirenProvider>
   );

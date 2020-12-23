@@ -102,6 +102,7 @@ function Search() {
         disableArrowsOnEnd={ false }
         breakPoints={ breakPoints }
         pagination={ false }
+        showEmptySlots
         className="tales-container"
       >
         {isFetching ? isLoading() : renderCards()}

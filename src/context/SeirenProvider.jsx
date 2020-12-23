@@ -2,25 +2,36 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import SeirenContext from './SeirenContext';
-import { fetchUrl } from '../services';
+import { fetchUrl, fetchUrlProfile } from '../services';
 
 function SeirenProvider({ children }) {
   const [anchorButton, setAnchorButton] = useState('');
   const [apiResponse, setApiResponse] = useState([]);
+  const [apiResponseProfile, setApiResponseProfile] = useState([]);
   const [isLogged, setIsLogged] = useState([]);
   const [searchInput, setSearchInput] = useState('');
   const [historyId, setHistoryId] = useState('');
   const [isFetching, setIsFetching] = useState(false);
+  const [isFetchingProfile, setIsFetchingProfile] = useState(false);
 
   useEffect(() => {
     setIsFetching(true);
     const fetchApi = async () => {
-      const apiResponsee = await fetchUrl();
-      setApiResponse(apiResponsee);
+      const apiResponseComics = await fetchUrl();
+      setApiResponse(apiResponseComics);
       setIsFetching(false);
     };
 
     fetchApi();
+
+    setIsFetchingProfile(true);
+    const fetchApiProfile = async () => {
+      const apiResponseComics = await fetchUrlProfile();
+      setApiResponseProfile(apiResponseComics);
+      setIsFetchingProfile(false);
+    };
+
+    fetchApiProfile();
   }, []);
 
   const ContextValue = {
@@ -36,6 +47,10 @@ function SeirenProvider({ children }) {
     setHistoryId,
     isFetching,
     setIsFetching,
+    apiResponseProfile,
+    setApiResponseProfile,
+    isFetchingProfile,
+    setIsFetchingProfile,
   };
 
   return (

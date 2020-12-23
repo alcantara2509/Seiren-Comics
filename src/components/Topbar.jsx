@@ -21,7 +21,6 @@ function Topbar() {
             type="button"
             className="topbar-btn"
             onClick={ () => {
-              setCurrSearch('');
               setSearchInput(currSearch);
             } }
           >
