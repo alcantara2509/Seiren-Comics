@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable indent */
 /* eslint-disable react/jsx-indent */
 import React, { useContext, useState } from 'react';
@@ -14,7 +15,7 @@ function Profile() {
     apiResponseProfile,
     isFetchingProfile } = useContext(SeirenContext);
 
-    console.log(apiResponseProfile, isFetchingProfile);
+    // console.log(apiResponseProfile, isFetchingProfile);
 
   const avatarSrc = 'https://blog.nebrass.fr/wp-content/uploads/Homer-Simpson-4-200x200.jpg';
   const inds = ['name@gmail.com', 'name@gmail.com', 'name@gmail.com',

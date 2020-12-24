@@ -26,8 +26,8 @@ function SeirenProvider({ children }) {
 
     setIsFetchingProfile(true);
     const fetchApiProfile = async () => {
-      const apiResponseComics = await fetchUrlProfile();
-      setApiResponseProfile(apiResponseComics);
+      const apiResponseProf = await fetchUrlProfile();
+      setApiResponseProfile(apiResponseProf);
       setIsFetchingProfile(false);
     };
 

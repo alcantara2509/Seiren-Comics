@@ -27,10 +27,10 @@ export const fetchUrl = async () => {
 };
 
 export const fetchUrlProfile = async () => {
-  const apiRequest = await fetch(profileUrl, myInit);
-  const apiResponse = await apiRequest.json();
-  const arrApiResponse = Object.values(apiResponse);
-  return arrApiResponse;
+  const apiRequestProfile = await fetch(profileUrl, myInit);
+  const apiResponseProfile = await apiRequestProfile.json();
+  const arrApiResponseProfile = Object.values(apiResponseProfile);
+  return arrApiResponseProfile;
 };
 
 export default fetchUrl;

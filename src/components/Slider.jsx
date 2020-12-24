@@ -91,6 +91,7 @@ function Slider() {
         breakPoints={ breakPoints }
         pagination={ false }
         className="tales-container"
+        showEmptySlots
       >
             {isFetching ? isLoading() : renderCards()}
       </Carousel>
