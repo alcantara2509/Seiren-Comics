@@ -1,19 +1,21 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import Search from './components/Search';
 import SeirenProvider from './context/SeirenProvider';
-import { Calendar, Categories, Profile, Shelf } from './pages';
-import Login from './pages/Login';
+import { Calendar, Categories, Profile, Shelf, Favoritos, Viewer } from './pages';
 
 function App() {
   return (
     <SeirenProvider>
       <Switch>
-        <Route exact path="/" component={ Login } />
-        <Route path="/profile" component={ Profile } />
-        <Route path="/favoritos" component={ Profile } />
-        <Route path="/estante" component={ Shelf } />
-        <Route path="/calendario" component={ Calendar } />
-        <Route path="/categorias" component={ Categories } />
+        <Route exact path="/" component={ Shelf } />
+        <Route exact path="/profile" component={ Profile } />
+        <Route exact path="/search" component={ Search } />
+        <Route exact path="/favoritos" component={ Favoritos } />
+        <Route exact path="/estante" component={ Shelf } />
+        <Route exact path="/calendario" component={ Calendar } />
+        <Route exact path="/categorias" component={ Categories } />
+        <Route exact path="/:id" component={ Viewer } />
       </Switch>
     </SeirenProvider>
   );

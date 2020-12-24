@@ -5,21 +5,20 @@
 }
 
 .slide {
-  width: 260px;
   transition: 0.5s;
   position: relative;
   z-index: -1;
 }
 
 %btn-styles {
-  background-color: rgba(0, 0, 0, 0.534);
+  background-color: #131624d5;
   border: none;
   color: white;
   cursor: pointer;
   font-size: 60px;
   padding: 5px;
   position: absolute;
-  top: 665px;
+  top: 656px;
   transform: translateY(-50%);
 }
 

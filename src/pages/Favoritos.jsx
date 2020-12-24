@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable indent */
 /* eslint-disable react/jsx-indent */
 import React, { useContext, useState } from 'react';
@@ -10,12 +9,8 @@ import SeirenContext from '../context/SeirenContext';
 import Banner from '../images/shelf-banner.png';
 import './Profile.css';
 
-function Profile() {
-  const { searchInput,
-    apiResponseProfile,
-    isFetchingProfile } = useContext(SeirenContext);
-
-    // console.log(apiResponseProfile, isFetchingProfile);
+function Favoritos() {
+  const { searchInput } = useContext(SeirenContext);
 
   const avatarSrc = 'https://blog.nebrass.fr/wp-content/uploads/Homer-Simpson-4-200x200.jpg';
   const inds = ['name@gmail.com', 'name@gmail.com', 'name@gmail.com',
@@ -143,4 +138,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default Favoritos;

@@ -27,19 +27,19 @@ function Series() {
     if (isWide) {
       return xSeries === 0
         ? setXSeries(-78 * (apiResponseState.length - 1))
-        : setXSeries(xSeries + 78);
+        : setXSeries(xSeries + 312);
     }
     return xSeries === 0
       ? setXSeries(-86.5 * (apiResponseState.length - 1))
-      : setXSeries(xSeries + 86.5);
+      : setXSeries(xSeries + 346);
   };
   const handleRightSeries = () => {
     if (isWide) {
       return xSeries === -78 * (apiResponseState.length - 1)
-        ? setXSeries(0) : setXSeries(xSeries - 78);
+        ? setXSeries(0) : setXSeries(xSeries - 312);
     }
     return xSeries === -86.5 * (apiResponseState.length - 1)
-      ? setXSeries(0) : setXSeries(xSeries - 86.5);
+      ? setXSeries(0) : setXSeries(xSeries - 346);
   };
 
   const isLoading = () => (
@@ -78,10 +78,10 @@ function Series() {
             </div>
           ))}
         <button type="button" id="goLeftSeries" onClick={ handleLeftSeries }>
-          {'<'}
+          <i className="fas fa-chevron-left" />
         </button>
         <button type="button" id="goRightSeries" onClick={ handleRightSeries }>
-          {'>'}
+          <i className="fas fa-chevron-right" />
         </button>
       </div>
     </div>

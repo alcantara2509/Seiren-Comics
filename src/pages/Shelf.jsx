@@ -1,16 +1,25 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-nested-ternary */
 /* eslint-disable react/jsx-closing-tag-location */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-magic-numbers */
-import React, { useContext } from 'react';
-import { Redirect } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
 import Banner from '../images/shelf-banner.png';
 import SeirenContext from '../context/SeirenContext';
 import { Anchor, Footer, KeepReading,
   Releases, Series, Sidebar, Slider, Topbar } from '../components';
 import './Shelf.css';
+import Search from '../components/Search';
+import Login from './Login';
 
 function Shelf() {
-  const { isLogged } = useContext(SeirenContext);
+  const [redirect, setRedirect] = useState(false);
+
+  useEffect(() => {
+    const store = localStorage.getItem('login');
+    if (store !== null) setRedirect(true);
+  }, []);
+
   const renderShelf = () => (
     <section className="shelf-container">
       <Sidebar />
@@ -21,7 +30,7 @@ function Shelf() {
         <div id="slider-anchor">
           <Slider />
         </div>
-        <div id="keep-anchor">
+        {/* <div id="keep-anchor">
           <KeepReading />
         </div>
         <div id="releases-anchor">
@@ -29,7 +38,7 @@ function Shelf() {
         </div>
         <div id="series-anchor">
           <Series />
-        </div>
+        </div> */}
         <h3 className="seiren-comunity-h3">Comunidade Seiren</h3>
         <section className="seiren-comunity">
           <section className="publicated-pages">
@@ -49,7 +58,7 @@ function Shelf() {
   return (
     <section>
       {
-        isLogged ? renderShelf() : <Redirect to="/" />
+        !redirect ? <Login /> : renderShelf()
       }
     </section>
   );

@@ -1,4 +1,4 @@
-%btn-styles-series {
+%btn-styles-search {
   background-color: #131624d5;
   border: none;
   color: white;
@@ -6,20 +6,20 @@
   font-size: 60px;
   padding: 5px;
   position: absolute;
-  top: 2044px;
+  top: 566px;
   transform: translateY(-50%);
 }
 
-%btn-styles-series:focus {
+%btn-styles-search:focus {
   outline: none;
 }
 
-#goLeftSeries {
+#goLeftSearch {
   left: 50px;
-  @extend %btn-styles-series
+  @extend %btn-styles-search
 }
 
-#goRightSeries {
+#goRightSearch {
   right: 50px;
-  @extend %btn-styles-series
+  @extend %btn-styles-search
 }

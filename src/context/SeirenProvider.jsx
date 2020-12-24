@@ -1,26 +1,56 @@
 /* eslint-disable no-unused-expressions */
 import React, { useEffect, useState } from 'react';
-import md5 from 'crypto-js/md5';
 import PropTypes from 'prop-types';
 import SeirenContext from './SeirenContext';
+import { fetchUrl, fetchUrlProfile } from '../services';
 
 function SeirenProvider({ children }) {
   const [anchorButton, setAnchorButton] = useState('');
-  const [apiMeals, setApiMeals] = useState('');
-  const [isLogged, setIslogged] = useState(false);
+  const [apiResponse, setApiResponse] = useState([]);
+  const [apiResponseProfile, setApiResponseProfile] = useState([]);
+  const [isLogged, setIsLogged] = useState([]);
+  const [searchInput, setSearchInput] = useState('');
+  const [historyId, setHistoryId] = useState('');
+  const [isFetching, setIsFetching] = useState(false);
+  const [isFetchingProfile, setIsFetchingProfile] = useState(false);
 
   useEffect(() => {
-    const isLoggedLocal = JSON.parse(localStorage.getItem(md5('isLogged')));
-    isLoggedLocal ? setIslogged(true) : setIslogged(isLogged);
+    setIsFetching(true);
+    const fetchApi = async () => {
+      const apiResponseComics = await fetchUrl();
+      setApiResponse(apiResponseComics);
+      setIsFetching(false);
+    };
+
+    fetchApi();
+
+    setIsFetchingProfile(true);
+    const fetchApiProfile = async () => {
+      const apiResponseProf = await fetchUrlProfile();
+      setApiResponseProfile(apiResponseProf);
+      setIsFetchingProfile(false);
+    };
+
+    fetchApiProfile();
   }, []);
 
   const ContextValue = {
     anchorButton,
     setAnchorButton,
-    apiMeals,
-    setApiMeals,
+    apiResponse,
+    setApiResponse,
     isLogged,
-    setIslogged,
+    setIsLogged,
+    searchInput,
+    setSearchInput,
+    historyId,
+    setHistoryId,
+    isFetching,
+    setIsFetching,
+    apiResponseProfile,
+    setApiResponseProfile,
+    isFetchingProfile,
+    setIsFetchingProfile,
   };
 
   return (
