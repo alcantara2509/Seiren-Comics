@@ -95,8 +95,6 @@ function Slider() {
       >
             {isFetching ? isLoading() : renderCards()}
       </Carousel>
-          {/* <div className="tales-container slider"> */}
-          {/* </div> */}
     </div>
   );
 }

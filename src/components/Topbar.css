@@ -47,3 +47,8 @@
 .set-icons {
   height: 50px;
 }
+
+#search-btn {
+  height: 100%;
+  box-shadow: none;
+}

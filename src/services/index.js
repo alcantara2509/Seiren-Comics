@@ -2,7 +2,7 @@ const url = 'http://localhost:8000/api/comics/';
 const profileUrl = 'http://localhost:8000/api/user/profile/';
 
 const getToken = () => {
-  const lstore = JSON.parse(localStorage.getItem('login'));
+  const lstore = JSON.parse(sessionStorage.getItem('login'));
   if (lstore !== null) {
     return lstore.token;
   }

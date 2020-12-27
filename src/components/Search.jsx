@@ -14,8 +14,6 @@ import { Sidebar } from '.';
 function Search() {
   const { apiResponse, isFetching, searchInput } = useContext(SeirenContext);
 
-  console.log(searchInput, apiResponse);
-
   const isLoading = () => (
     <div className="loading-container">
       <div className="lds-spinner">
@@ -36,8 +34,9 @@ function Search() {
   );
 
   const renderCards = () => apiResponse
-  .filter((e) => e.title.toLowerCase().includes(searchInput.toLowerCase())
-    || e.comments.toLowerCase().includes(searchInput.toLowerCase()))
+  .filter((e) => (e.title === undefined ? null
+   : e.title.toLowerCase().includes(searchInput.toLowerCase())
+    || e.comments.toLowerCase().includes(searchInput.toLowerCase())))
   .map((tales, id) => (
     <Link
       to={ `/${tales.idMeal}` }

@@ -20,6 +20,7 @@ function Topbar() {
           <button
             type="button"
             className="topbar-btn"
+            id="search-btn"
             onClick={ () => {
               setSearchInput(currSearch);
             } }

@@ -31,7 +31,7 @@ function Login() {
         response.json()
           .then((result) => {
             if (!result.error) {
-              localStorage.setItem('login', JSON.stringify({
+              sessionStorage.setItem('login', JSON.stringify({
                 login: true,
                 token: result.access_token,
               }));
