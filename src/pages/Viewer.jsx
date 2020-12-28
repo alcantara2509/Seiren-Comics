@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import Topbar from '../components/Topbar';
@@ -9,7 +9,8 @@ import './Viewer.css';
 function Viewer() {
   const itemId = useLocation().pathname.slice(1);
   const { apiResponse, isFetching } = useContext(SeirenContext);
-  const [newComment, setNewComment] = useState([]);
+  const [newComment, setNewComment] = useState('');
+  const [oldComment, setOldComment] = useState([]);
   const [pageIndex, setPageIndex] = useState(0);
 
   const isLoading = () => (
@@ -31,17 +32,28 @@ function Viewer() {
     </div>
   );
 
-  const renderComments = () => {
-    console.log();
-    return apiResponse.filter((e) => e.id === +(itemId)).map((taleC, idC) => {
-      console.log(taleC.comments);
-      return (
-        <div key={ idC }>
-          <p>{taleC.comments}</p>
-        </div>
-      );
-    });
+  useEffect(() => {
+    apiResponse.filter((e) => e.id === +(itemId))
+      .map((taleC) => setOldComment([taleC.comments]));
+    // tirar do array quando for atualizado
+  }, [isFetching]);
+
+  const handleSetComment = () => {
+    if (newComment !== '') {
+      let newArrComents = oldComment;
+      newArrComents = [...newArrComents, newComment];
+      setOldComment(newArrComents);
+    }
   };
+
+  const renderComments = () => oldComment.map((taleC, idC) => {
+    console.log(taleC.comments);
+    return (
+      <div key={ idC }>
+        <p>{taleC}</p>
+      </div>
+    );
+  }).reverse();
 
   const pages = [
     { page: 'https://br.web.img3.acsta.net/medias/nmedia/18/79/96/51/19694367.jpg' },
@@ -86,11 +98,14 @@ function Viewer() {
             cols="30"
             rows="10"
             placeholder="Dígite seu comentário"
+            onChange={ ({ target: { value } }) => setNewComment(value) }
           />
-          <button type="button">Comentar</button>
-          {
-            renderComments()
-          }
+          <button type="button" onClick={ handleSetComment }>Comentar</button>
+          <div>
+            {
+              renderComments()
+            }
+          </div>
         </div>
       </div>
     ))

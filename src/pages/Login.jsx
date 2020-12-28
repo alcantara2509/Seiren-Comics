@@ -34,6 +34,7 @@ function Login() {
               sessionStorage.setItem('login', JSON.stringify({
                 login: true,
                 token: result.access_token,
+                user_id: result.user.id,
               }));
               setError(false);
               window.location.href = `${loc}`;

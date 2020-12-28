@@ -1,7 +1,8 @@
+/* eslint-disable no-alert */
 /* eslint-disable no-unused-vars */
 /* eslint-disable indent */
 /* eslint-disable react/jsx-indent */
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Favorites, Footer, KeepReading, Sidebar, Topbar } from '../components';
 import ChangeAvatar from '../components/ChangeAvatar';
@@ -13,9 +14,8 @@ import './Profile.css';
 function Profile() {
   const { searchInput,
     apiResponseProfile,
-    isFetchingProfile } = useContext(SeirenContext);
-
-    // console.log(apiResponseProfile, isFetchingProfile);
+    isFetchingProfile,
+   } = useContext(SeirenContext);
 
   const avatarSrc = 'https://blog.nebrass.fr/wp-content/uploads/Homer-Simpson-4-200x200.jpg';
   const inds = ['name@gmail.com', 'name@gmail.com', 'name@gmail.com',
@@ -23,6 +23,7 @@ function Profile() {
     'name@gmail.com', 'name@gmail.com', 'name@gmail.com',
     'name@gmail.com', 'name@gmail.com', 'name@gmail.com'];
   const [seen, setSeen] = useState(false);
+  const [nickname, setNickname] = useState(null);
 
   const togglePop = () => {
     setSeen(!seen);
@@ -53,6 +54,52 @@ function Profile() {
     </section>
   );
 
+  const editNickname = () => {
+    const getId = () => {
+      const userId = JSON.parse(sessionStorage.getItem('login'));
+      if (userId !== null) {
+        return userId.user_id;
+      }
+    };
+
+    const editProfileUrl = `http://localhost:8000/api/user/edit/${getId()}`;
+
+    const getToken = () => {
+      const lstore = JSON.parse(sessionStorage.getItem('login'));
+      if (lstore !== null) {
+        return lstore.token;
+      }
+    };
+
+    const myHeaders = new Headers({
+      Authorization: `Bearer${getToken()}`,
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    });
+
+    const myInitEdit = {
+      method: 'POST',
+      headers: myHeaders,
+      body: JSON.stringify({ nickname }),
+      mode: 'cors',
+      cache: 'default',
+    };
+
+    const fetchUrlProfileEdit = async () => {
+      const apiRequestProfileEdit = await fetch(editProfileUrl, myInitEdit);
+      const apiResponseProfileEdit = await apiRequestProfileEdit.json();
+      const arrApiResponseProfileEdit = Object.values(apiResponseProfileEdit);
+      return arrApiResponseProfileEdit;
+    };
+    fetchUrlProfileEdit();
+
+    alert('Nome alterado com sucesso!');
+
+    setNickname('');
+
+    window.location.reload();
+  };
+
   return (
     <div>
       {
@@ -78,9 +125,20 @@ function Profile() {
                   </div>
                   <div className="user-name-container">
                     <h4>Nome de Usuário</h4>
-                    <input type="text" className="profile-input" />
+                    <input
+                      type="text"
+                      className="profile-input"
+                      value={ nickname }
+                      onChange={ ({ target: { value } }) => setNickname(value) }
+                    />
                     <div className="profile-btn-container">
-                      <button type="button" className="profile-btn">Alterar Nome</button>
+                      <button
+                        type="button"
+                        className="profile-btn"
+                        onClick={ () => editNickname() }
+                      >
+                        Alterar Nome
+                      </button>
                     </div>
                     <div className="supp-contact">
                       <p className="supp-line"> Está com algum problema?</p>
