@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-alert */
 /* eslint-disable no-unused-vars */
 /* eslint-disable indent */
@@ -23,7 +24,9 @@ function Profile() {
     'name@gmail.com', 'name@gmail.com', 'name@gmail.com',
     'name@gmail.com', 'name@gmail.com', 'name@gmail.com'];
   const [seen, setSeen] = useState(false);
-  const [nickname, setNickname] = useState(null);
+  const [nickname, setNickname] = useState('');
+  const [old_password, setOld_password] = useState('');
+  const [password, setPassword] = useState('');
 
   const togglePop = () => {
     setSeen(!seen);
@@ -80,7 +83,7 @@ function Profile() {
     const myInitEdit = {
       method: 'POST',
       headers: myHeaders,
-      body: JSON.stringify({ nickname }),
+      body: JSON.stringify({ nickname, old_password, password }),
       mode: 'cors',
       cache: 'default',
     };
@@ -93,7 +96,7 @@ function Profile() {
     };
     fetchUrlProfileEdit();
 
-    alert('Nome alterado com sucesso!');
+    alert('Alterado com sucesso!');
 
     setNickname('');
 
@@ -154,11 +157,25 @@ function Profile() {
                   </div>
                   <div className="password-container">
                     <h4>Senha atual</h4>
-                    <input type="password" className="profile-input" />
+                    <input
+                      type="password"
+                      className="profile-input"
+                      onChange={ ({ target: { value } }) => setOld_password(value) }
+                    />
                     <h4>Nova senha</h4>
-                    <input type="password" className="profile-input" />
+                    <input
+                      type="password"
+                      className="profile-input"
+                      onChange={ ({ target: { value } }) => setPassword(value) }
+                    />
                     <div className="profile-btn-container">
-                      <button type="button" className="profile-btn">Trocar Senha</button>
+                      <button
+                        type="button"
+                        className="profile-btn"
+                        onClick={ () => editNickname() }
+                      >
+                        Trocar Senha
+                      </button>
                     </div>
                   </div>
                   <div className="ind-container">
