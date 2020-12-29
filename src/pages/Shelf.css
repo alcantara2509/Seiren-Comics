@@ -262,10 +262,6 @@
     display: none;
   }
 
-  .sidebar-container {
-    left: -100%;
-  }
-
   .shelf-container {
     width: 100%;
   }
@@ -334,6 +330,14 @@
 
   .menu-mobile {
     display: initial;
+  }
+
+  #activated {
+    left: 0;
+  }
+  
+  #disabled {
+    left: -100%;
   }
 
 }

@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './Sidebar.css';
 import Logo from '../images/logo.png';
+import SeirenContext from '../context/SeirenContext';
 
 function Sidebar() {
   const [currHeart] = useState(window.location.pathname);
+  const { menuMobileState } = useContext(SeirenContext);
 
   return (
-    <aside className="sidebar-container">
+    <aside className="sidebar-container" id={ menuMobileState }>
       <section className="logo-sidebar-container">
         <Link to="/">
           <img className="logo-sidebar" src={ Logo } alt="Seiren Comics Logo" />

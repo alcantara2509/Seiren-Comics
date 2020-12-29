@@ -13,6 +13,7 @@ function SeirenProvider({ children }) {
   const [historyId, setHistoryId] = useState('');
   const [isFetching, setIsFetching] = useState(false);
   const [isFetchingProfile, setIsFetchingProfile] = useState(false);
+  const [menuMobileState, setMenuMobileState] = useState('disabled');
 
   const ContextValue = {
     anchorButton,
@@ -31,6 +32,8 @@ function SeirenProvider({ children }) {
     setApiResponseProfile,
     isFetchingProfile,
     setIsFetchingProfile,
+    menuMobileState,
+    setMenuMobileState,
   };
 
   useEffect(() => {

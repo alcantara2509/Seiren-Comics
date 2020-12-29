@@ -5,11 +5,20 @@ import './Topbar.css';
 import Logo from '../images/logo.png';
 
 function Topbar() {
-  const { setSearchInput } = useContext(SeirenContext);
+  const { setSearchInput, setMenuMobileState } = useContext(SeirenContext);
   const [currSearch, setCurrSearch] = useState('');
+
+  const handleClickMenuMobile = () => {
+    setMenuMobileState('activated');
+  };
+
   return (
     <section className="topbar-container">
-      <button type="button" className="topbar-btn set-icons menu-mobile">
+      <button
+        type="button"
+        className="topbar-btn set-icons menu-mobile"
+        onClick={ handleClickMenuMobile }
+      >
         <i className="fas fa-bars top-icons" />
       </button>
       <Link to="/">
