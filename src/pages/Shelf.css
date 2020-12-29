@@ -247,6 +247,7 @@
 
   .highligths-list {
     margin-left: 4px;
+    width: 100%;
   }
 
   .shelf-content {
@@ -361,6 +362,25 @@
   #rotate-false {
     transform: rotate(0deg);
     transition: ease-in-out 0.5s;
+  }
+
+  .tales-card {
+    height: 240px;
+    margin-right: 0;
+  }
+
+  .card-infos-container {
+    width: 165px;
+  }
+
+  .card-bottom {
+    width: 165px;
+  }
+
+  .card-top {
+    margin: 0;
+    width: 100%;
+    justify-content: space-around;
   }
 
 }
