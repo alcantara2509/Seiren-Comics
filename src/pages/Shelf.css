@@ -242,3 +242,98 @@
   background-color: #ffffff00 !important;
   box-shadow: none !important;
 }
+
+@media only screen and (max-width: 768px) {
+
+  .highligths-list {
+    margin-left: 0;
+  }
+
+  .shelf-content {
+    position: initial;
+    width: 100%;
+  }
+
+  #search-input {
+    display: none;
+  }
+
+  .anchor-btn-container {
+    display: none;
+  }
+
+  .sidebar-container {
+    left: -100%;
+  }
+
+  .shelf-container {
+    width: 100%;
+  }
+
+  .seiren-comunity {
+    flex-direction: column;
+    padding-left: 0;
+    width: 100%;
+  }
+
+  .publicated-pages {
+    margin-right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .online-users {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .seiren-comunity-h1 {
+    font-size: 50px;
+  }
+
+  .seiren-comunity-h5 {
+    font-size: 16px;
+    margin-bottom: 0;
+    margin-top: 10px;
+  }
+
+  .seiren-comunity-h3 {
+    font-size: 30px;
+    margin-left: 0;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  #btn-setting {
+    margin-right: 0;
+  }
+
+  .search-div {
+    margin-left: 6px;
+  }
+
+  .topbar-btn {
+    padding: 0;
+    height: 50px;
+  }
+
+  .notify-conteiner {
+    display: none;
+  }
+
+  .topbar-container {
+    padding: 0 12px;
+  }
+
+  .logo-mobile {
+    display: initial;
+    width: 100px;
+  }
+
+  .menu-mobile {
+    display: initial;
+  }
+
+}

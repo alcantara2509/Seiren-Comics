@@ -18,6 +18,8 @@ function Profile() {
     isFetchingProfile,
    } = useContext(SeirenContext);
 
+   console.log(apiResponseProfile);
+
   const avatarSrc = 'https://blog.nebrass.fr/wp-content/uploads/Homer-Simpson-4-200x200.jpg';
   const inds = ['name@gmail.com', 'name@gmail.com', 'name@gmail.com',
     'name@gmail.com', 'name@gmail.com', 'name@gmail.com',

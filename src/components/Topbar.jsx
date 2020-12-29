@@ -2,12 +2,19 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SeirenContext from '../context/SeirenContext';
 import './Topbar.css';
+import Logo from '../images/logo.png';
 
 function Topbar() {
   const { setSearchInput } = useContext(SeirenContext);
   const [currSearch, setCurrSearch] = useState('');
   return (
     <section className="topbar-container">
+      <button type="button" className="topbar-btn set-icons menu-mobile">
+        <i className="fas fa-bars top-icons" />
+      </button>
+      <Link to="/">
+        <img className="logo-sidebar logo-mobile" src={ Logo } alt="Seiren Comics Logo" />
+      </Link>
       <div className="search-div">
         <input
           type="text"
@@ -29,7 +36,7 @@ function Topbar() {
           </button>
         </Link>
       </div>
-      <div>
+      <div className="notify-conteiner">
         <button type="button" className="topbar-btn set-icons">
           <i className="far fa-bell top-icons" />
         </button>

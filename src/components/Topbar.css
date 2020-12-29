@@ -52,3 +52,11 @@
   height: 100%;
   box-shadow: none;
 }
+
+.logo-mobile {
+  display: none;
+}
+
+.menu-mobile {
+  display: none;
+}
