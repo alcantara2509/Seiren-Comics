@@ -247,7 +247,8 @@
 
   .highligths-list {
     margin-left: 4px;
-    width: 100%;
+    margin-top: 25px;
+    width: 99%;
   }
 
   .shelf-content {
@@ -381,6 +382,12 @@
     margin: 0;
     width: 100%;
     justify-content: space-around;
+  }
+
+  .shelf-h2 {
+    font-size: 30px;
+    margin-left: 12px;
+    margin-bottom: 12px;
   }
 
 }
