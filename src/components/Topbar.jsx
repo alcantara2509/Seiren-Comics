@@ -5,11 +5,21 @@ import './Topbar.css';
 import Logo from '../images/logo.png';
 
 function Topbar() {
-  const { setSearchInput, setMenuMobileState } = useContext(SeirenContext);
+  const { setSearchInput,
+    menuMobileState, setMenuMobileState } = useContext(SeirenContext);
   const [currSearch, setCurrSearch] = useState('');
+  const [rotate, setRotate] = useState('');
+
+  console.log(menuMobileState);
 
   const handleClickMenuMobile = () => {
-    setMenuMobileState('activated');
+    if (menuMobileState === 'activated') {
+      setMenuMobileState('disabled');
+      setRotate('rotate-false');
+    } else {
+      setMenuMobileState('activated');
+      setRotate('rotate-true');
+    }
   };
 
   return (
@@ -18,8 +28,9 @@ function Topbar() {
         type="button"
         className="topbar-btn set-icons menu-mobile"
         onClick={ handleClickMenuMobile }
+
       >
-        <i className="fas fa-bars top-icons" />
+        <i className="fas fa-bars top-icons" id={ rotate } />
       </button>
       <Link to="/">
         <img className="logo-sidebar logo-mobile" src={ Logo } alt="Seiren Comics Logo" />
