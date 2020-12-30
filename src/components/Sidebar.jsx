@@ -6,7 +6,15 @@ import SeirenContext from '../context/SeirenContext';
 
 function Sidebar() {
   const [currHeart] = useState(window.location.pathname);
-  const { menuMobileState } = useContext(SeirenContext);
+  const { menuMobileState, setMenuMobileState } = useContext(SeirenContext);
+
+  const handleClickMenuMobile = () => {
+    if (menuMobileState === 'activated') {
+      setMenuMobileState('disabled');
+    } else {
+      setMenuMobileState('activated');
+    }
+  };
 
   return (
     <aside className="sidebar-container" id={ menuMobileState }>
@@ -20,6 +28,7 @@ function Sidebar() {
           className="sidebar-links"
           to="/profile"
           activeClassName="selected-link"
+          onClick={ handleClickMenuMobile }
         >
           <div className="div-icons">
             <i className="far fa-user side-icons" />
@@ -30,6 +39,7 @@ function Sidebar() {
           className="sidebar-links"
           to="/estante"
           activeClassName="selected-link"
+          onClick={ handleClickMenuMobile }
         >
           <div className="div-icons">
             <i className="fas fa-bars side-icons" />
@@ -40,6 +50,7 @@ function Sidebar() {
           className="sidebar-links"
           to="/calendario"
           activeClassName="selected-link"
+          onClick={ handleClickMenuMobile }
         >
           <div className="div-icons">
             <i className="far fa-calendar-alt side-icons" />
@@ -50,6 +61,7 @@ function Sidebar() {
           className="sidebar-links"
           to="/categorias"
           activeClassName="selected-link"
+          onClick={ handleClickMenuMobile }
         >
           <div className="div-icons">
             <i className="fas fa-list-ul side-icons" />
@@ -60,6 +72,7 @@ function Sidebar() {
           className="sidebar-links"
           to="/favoritos"
           activeClassName="selected-link"
+          onClick={ handleClickMenuMobile }
         >
           <div className="div-icons">
             {

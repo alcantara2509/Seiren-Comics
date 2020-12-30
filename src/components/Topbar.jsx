@@ -32,7 +32,7 @@ function Topbar() {
       >
         <i className="fas fa-bars top-icons" id={ rotate } />
       </button>
-      <Link to="/">
+      <Link to="/" className="link-logo-mobile">
         <img className="logo-sidebar logo-mobile" src={ Logo } alt="Seiren Comics Logo" />
       </Link>
       <div className="search-div">

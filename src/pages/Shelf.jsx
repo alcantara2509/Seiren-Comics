@@ -58,7 +58,8 @@ function Shelf() {
   return (
     <section>
       {
-        !redirect ? <Login /> : renderShelf()
+        // !redirect ? <Login /> : renderShelf()
+        renderShelf()
       }
     </section>
   );
