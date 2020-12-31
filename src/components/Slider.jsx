@@ -41,17 +41,19 @@ function Slider() {
     { width: 1350, itemsToShow: 6, itemsToScroll: 2 },
   ];
 
-  const renderCards = () => apiResponse.map((tales, index) => (
-    <Carousel
-      disableArrowsOnEnd={ false }
-      breakPoints={ breakPoints }
-      pagination={ false }
-      className="tales-container"
-      showEmptySlots
-      key={ index }
-    >
+  const renderCards = () => (
+  <Carousel
+    disableArrowsOnEnd={ false }
+    breakPoints={ breakPoints }
+    pagination={ false }
+    className="tales-container"
+    showEmptySlots
+  >
+  {
+    apiResponse.map((tales, index) => (
       <Link
         to={ `/${tales.id}` }
+        key={ index }
         style={ {
                   padding: '0',
                   textTransform: 'none',
@@ -93,8 +95,10 @@ function Slider() {
           </div>
         </div>
       </Link>
-    </Carousel>
-  ));
+    ))
+  }
+  </Carousel>
+  );
 
   return (
     <div className="highligths-list">
