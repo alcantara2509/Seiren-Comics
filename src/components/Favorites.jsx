@@ -12,8 +12,12 @@ function Favorites() {
   const { apiResponse, isFetching, apiResponseProfile } = useContext(SeirenContext);
   const [favsState, setFavsState] = useState([]);
 
+  console.log(apiResponseProfile);
+
   useEffect(() => {
-    apiResponseProfile.map((e) => setFavsState(e.favorites.map((f) => f.comic_id)));
+    if (apiResponseProfile[0] !== 'Token is Expired') {
+      apiResponseProfile.map((e) => setFavsState(e.favorites.map((f) => f.comic_id)));
+    }
   }, [apiResponseProfile]);
 
   const isLoading = () => (
@@ -35,7 +39,27 @@ function Favorites() {
     </div>
   );
 
-  const renderCards = () => apiResponse
+  const breakPoints = [
+    { width: 600,
+      itemsToShow: 2,
+      itemsToScroll: 1,
+      showArrows: false,
+      autoTabIndexVisibleItems: false },
+    { width: 601, itemsToShow: 3, itemsToScroll: 2 },
+    { width: 850, itemsToShow: 4, itemsToScroll: 2 },
+    { width: 1350, itemsToShow: 6, itemsToScroll: 2 },
+  ];
+
+  const renderCards = () => (
+    <Carousel
+      disableArrowsOnEnd={ false }
+      breakPoints={ breakPoints }
+      pagination={ false }
+      className="tales-container"
+      showEmptySlots
+    >
+    {
+      apiResponse
   .filter((elem) => favsState.includes(elem.id))
   .map((tales, index) => (
     <Link
@@ -48,7 +72,7 @@ function Favorites() {
     } }
       className="tales-card"
     >
-      <div style={ { height: '100%' } }>
+      <div style={ { height: '100%', width: '100%' } }>
             <div className="card-infos-container">
               <div className="card-top">
                 <p className="sup-left-p">Lorem Ipsum</p>
@@ -82,26 +106,15 @@ function Favorites() {
             </div>
       </div>
     </Link>
-  ));
-
-  const breakPoints = [
-    { width: 550, itemsToShow: 2, itemsToScroll: 2 },
-    { width: 850, itemsToShow: 4, itemsToScroll: 2 },
-    { width: 1350, itemsToShow: 6, itemsToScroll: 2 },
-  ];
+  ))
+  }
+    </Carousel>
+  );
 
   return (
     <div className="highligths-list">
       <h2 className="shelf-h2">Favoritos</h2>
-      <Carousel
-        disableArrowsOnEnd={ false }
-        breakPoints={ breakPoints }
-        pagination={ false }
-        className="tales-container"
-        showEmptySlots
-      >
-            {isFetching ? isLoading() : renderCards()}
-      </Carousel>
+      {isFetching ? isLoading() : renderCards()}
     </div>
   );
 }

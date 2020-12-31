@@ -10,8 +10,6 @@ function Topbar() {
   const [currSearch, setCurrSearch] = useState('');
   const [rotate, setRotate] = useState('');
 
-  console.log(menuMobileState);
-
   const handleClickMenuMobile = () => {
     if (menuMobileState === 'activated') {
       setMenuMobileState('disabled');

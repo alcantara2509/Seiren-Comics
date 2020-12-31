@@ -18,8 +18,6 @@ function Profile() {
     isFetchingProfile,
    } = useContext(SeirenContext);
 
-   console.log(apiResponseProfile);
-
   const avatarSrc = 'https://blog.nebrass.fr/wp-content/uploads/Homer-Simpson-4-200x200.jpg';
   const inds = ['name@gmail.com', 'name@gmail.com', 'name@gmail.com',
     'name@gmail.com', 'name@gmail.com', 'name@gmail.com',
@@ -129,7 +127,7 @@ function Profile() {
                     </button>
                   </div>
                   <div className="user-name-container">
-                    <h4>Nome de Usuário</h4>
+                    <h4 className="input-label">Nome de Usuário</h4>
                     <input
                       type="text"
                       className="profile-input"
@@ -158,13 +156,13 @@ function Profile() {
                     </div>
                   </div>
                   <div className="password-container">
-                    <h4>Senha atual</h4>
+                    <h4 className="input-label">Senha atual</h4>
                     <input
                       type="password"
                       className="profile-input"
                       onChange={ ({ target: { value } }) => setOld_password(value) }
                     />
-                    <h4>Nova senha</h4>
+                    <h4 className="input-label" id="new-password">Nova senha</h4>
                     <input
                       type="password"
                       className="profile-input"
@@ -176,7 +174,7 @@ function Profile() {
                         className="profile-btn"
                         onClick={ () => editNickname() }
                       >
-                        Trocar Senha
+                        Alterar Senha
                       </button>
                     </div>
                   </div>
@@ -204,6 +202,17 @@ function Profile() {
                         <p className="sub-p" id="cancel-p">cancelar plano</p>
                       </div>
                     </div>
+                  </div>
+                  <div className="supp-contact-mobile">
+                      <p className="supp-line"> Está com algum problema?</p>
+                      <Link
+                        to="/"
+                        className="supp-line"
+                        id="supp-link"
+                      >
+                        Contate o suporte
+
+                      </Link>
                   </div>
                 </section>
 

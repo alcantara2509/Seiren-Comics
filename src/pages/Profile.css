@@ -166,3 +166,106 @@ h4 {
 #cancel-p {
   color: #E2415B;
 }
+
+.change-avatar {
+  color: #D2D3D9;
+  background: none;
+  border: none;
+}
+
+.supp-contact-mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+
+  .profile-user-container {
+    margin-left: 12px;
+    margin-top: 25px;
+  }
+
+  .profile-settings {
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+  }
+
+  .profile-content {
+    width: 99%;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  .avatar-container {
+    margin-right: 0;
+    width: 120px;
+  }
+
+  .profile-input {
+    margin-bottom: 12px;
+    padding: 0 6px;
+    width: 100%;
+    margin-left: -16px;
+  }
+
+  .input-label {
+    margin-left: -16px;
+    margin-top: 12px;
+  }
+
+  .user-name-container {
+    margin-top: 20px;
+    width: 70%;
+  }
+
+  .profile-btn-container {
+    margin-left: -5px;
+    padding-left: 0;
+  }
+  
+  .profile-btn {
+    padding: 5px 5%;
+    font-size: 13px;
+  }
+
+  .supp-contact {
+    display: none;
+  }
+
+  .supp-contact-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .password-container {
+    width: 70%;
+    margin-left: -5px;
+  }
+
+  #new-password {
+    margin-top: 0;
+  }
+
+  .ind-container {
+    justify-content: center;
+    margin-top: 30px;
+    margin-left: -26px;
+    width: 70%;
+  }
+
+  .ind-wrap {
+    justify-content: center;
+  }
+
+  .sub-container {
+    margin-left: -10px;
+    margin-top: 30px;
+    width: 73%;
+}
+
+}
