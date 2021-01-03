@@ -247,7 +247,7 @@
   display: none;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1030px) {
 
   .highligths-list {
     margin-left: 4px;
@@ -412,9 +412,9 @@
 
 }
 
-@media only screen and (min-width: 720px)  and (max-width: 900px) {
+@media only screen and (min-width: 720px)  and (max-width: 1030px) {
   .rec-carousel {
-    width: 84% !important;
+    width: 94% !important;
   }
 
   .seiren-comunity {

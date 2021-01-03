@@ -41,13 +41,14 @@ function Favorites() {
   );
 
   const breakPoints = [
-    { width: 520,
+    { width: 450,
       itemsToShow: 2,
       itemsToScroll: 1,
       showArrows: false,
       autoTabIndexVisibleItems: false },
-    { width: 520, itemsToShow: 3, itemsToScroll: 2 },
-    { width: 800, itemsToShow: 4, itemsToScroll: 2 },
+    { width: 451, itemsToShow: 3, itemsToScroll: 2, showArrows: false },
+    { width: 720, itemsToShow: 4, itemsToScroll: 2, showArrows: false },
+    { width: 721 },
     { width: 1350, itemsToShow: 6, itemsToScroll: 2 },
   ];
 
