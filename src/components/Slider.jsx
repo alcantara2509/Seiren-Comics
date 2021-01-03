@@ -31,13 +31,13 @@ function Slider() {
   );
 
   const breakPoints = [
-    { width: 600,
+    { width: 520,
       itemsToShow: 2,
       itemsToScroll: 1,
       showArrows: false,
       autoTabIndexVisibleItems: false },
-    { width: 601, itemsToShow: 3, itemsToScroll: 2 },
-    { width: 850, itemsToShow: 4, itemsToScroll: 2 },
+    { width: 520, itemsToShow: 3, itemsToScroll: 2 },
+    { width: 800, itemsToShow: 4, itemsToScroll: 2 },
     { width: 1350, itemsToShow: 6, itemsToScroll: 2 },
   ];
 

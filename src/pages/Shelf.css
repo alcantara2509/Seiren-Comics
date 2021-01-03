@@ -390,7 +390,7 @@
 
   .shelf-h2 {
     font-size: 30px;
-    margin-left: 12px;
+    margin-left: 18px;
     margin-bottom: 12px;
   }
 
@@ -403,6 +403,23 @@
     left: 36px;
     width: 3px;
     height: 8px;
+  }
+
+  .rec-slider-container {
+    margin: 0 !important;
+    margin-left: 16px !important;
+  }
+
+}
+
+@media only screen and (min-width: 720px)  and (max-width: 900px) {
+  .rec-carousel {
+    width: 84% !important;
+  }
+
+  .seiren-comunity {
+    flex-direction: row;
+    justify-content: space-around;
   }
 
 }

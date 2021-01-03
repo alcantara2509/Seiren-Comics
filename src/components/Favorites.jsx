@@ -3,7 +3,7 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable no-magic-numbers */
 import React, { useContext, useEffect, useState } from 'react';
-// import './Slider.scss';
+import './Slider.scss';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-elastic-carousel';
 import SeirenContext from '../context/SeirenContext';
@@ -12,10 +12,11 @@ function Favorites() {
   const { apiResponse, isFetching, apiResponseProfile } = useContext(SeirenContext);
   const [favsState, setFavsState] = useState([]);
 
-  console.log(apiResponseProfile);
+  console.log(favsState);
 
   useEffect(() => {
-    if (apiResponseProfile[0] !== 'Token is Expired') {
+    if (apiResponseProfile[0] !== 'Token is Expired'
+          && apiResponseProfile[0] !== 'Token is Invalid') {
       apiResponseProfile.map((e) => setFavsState(e.favorites.map((f) => f.comic_id)));
     }
   }, [apiResponseProfile]);
@@ -40,13 +41,13 @@ function Favorites() {
   );
 
   const breakPoints = [
-    { width: 600,
+    { width: 520,
       itemsToShow: 2,
       itemsToScroll: 1,
       showArrows: false,
       autoTabIndexVisibleItems: false },
-    { width: 601, itemsToShow: 3, itemsToScroll: 2 },
-    { width: 850, itemsToShow: 4, itemsToScroll: 2 },
+    { width: 520, itemsToShow: 3, itemsToScroll: 2 },
+    { width: 800, itemsToShow: 4, itemsToScroll: 2 },
     { width: 1350, itemsToShow: 6, itemsToScroll: 2 },
   ];
 
