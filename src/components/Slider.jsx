@@ -43,6 +43,7 @@ function Slider() {
       autoTabIndexVisibleItems: false },
     { width: 515, itemsToShow: 3, itemsToScroll: 2, showArrows: false },
     { width: 720, itemsToShow: 4, itemsToScroll: 2 },
+    { width: 920, itemsToShow: 4, itemsToScroll: 2 },
     { width: 1350, itemsToShow: 6, itemsToScroll: 2 },
   ];
 
