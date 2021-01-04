@@ -1,0 +1,9 @@
+.footer-container {
+  bottom: 0;
+  position: initial;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+}
