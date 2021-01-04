@@ -41,14 +41,19 @@ function Favorites() {
   );
 
   const breakPoints = [
-    { width: 450,
+    { width: 1,
+      itemsToShow: 1,
+      itemsToScroll: 1,
+      showArrows: false,
+      autoTabIndexVisibleItems: false },
+    { width: 340,
       itemsToShow: 2,
       itemsToScroll: 1,
       showArrows: false,
       autoTabIndexVisibleItems: false },
-    { width: 451, itemsToShow: 3, itemsToScroll: 2, showArrows: false },
-    { width: 720, itemsToShow: 4, itemsToScroll: 2, showArrows: false },
-    { width: 721 },
+    { width: 515, itemsToShow: 3, itemsToScroll: 2, showArrows: false },
+    { width: 720, itemsToShow: 4, itemsToScroll: 2 },
+    { width: 920, itemsToShow: 4, itemsToScroll: 2 },
     { width: 1350, itemsToShow: 6, itemsToScroll: 2 },
   ];
 

@@ -1,5 +1,6 @@
 .viewer-container {
   display: flex;
+  background-color: tomato;
 }
 
 .viewer-content {
@@ -13,10 +14,11 @@
 }
 
 .history-viewer-container {
+  align-items: center;
   display: flex;
   flex-direction: column;
+  width: 100%;
   justify-content: center;
-  align-items: center;
 }
 
 .history-viewer-content {
@@ -27,6 +29,7 @@
 .history-page {
   display: flex;
   justify-content: center;
+  width: 600px;
   height: 900px;
   margin-top: 30px;
   background-color: #fff;
@@ -47,8 +50,4 @@
 #tale-comments {
   margin-top: 20px;
   width: 600px;
-}
-
-.slick-slider {
-  width: 50% !important;
 }

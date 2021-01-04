@@ -273,4 +273,21 @@ h4 {
     min-height: 80px;
   }
 
+  
+}
+
+@media only screen and (min-width: 720px)  and (max-width: 1030px) {
+  
+  .profile-content {
+    width: 100%;
+  }
+  
+  #sub-h1 {
+    font-size: 20px;
+  }
+
+  .sub-p {
+    font-size: 8px;
+}
+
 }

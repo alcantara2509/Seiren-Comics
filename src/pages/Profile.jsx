@@ -20,10 +20,7 @@ function Profile() {
    } = useContext(SeirenContext);
 
   const avatarSrc = 'https://blog.nebrass.fr/wp-content/uploads/Homer-Simpson-4-200x200.jpg';
-  const inds = ['name@gmail.com', 'name@gmail.com', 'name@gmail.com',
-    'name@gmail.com', 'name@gmail.com', 'name@gmail.com',
-    'name@gmail.com', 'name@gmail.com', 'name@gmail.com',
-    'name@gmail.com', 'name@gmail.com', 'name@gmail.com'];
+  const inds = ['name@gmail.com', 'name@gmail.com', 'name@gmail.com'];
   const [seen, setSeen] = useState(false);
   const [nickname, setNickname] = useState('');
   const [old_password, setOld_password] = useState('');

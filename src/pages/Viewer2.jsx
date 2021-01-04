@@ -37,7 +37,7 @@ function Viewer() {
   useEffect(() => {
     apiResponse.filter((e) => e.id === +(itemId))
       .map((taleC) => setOldComment([taleC.comments]));
-    // tirar do array quando for atualizado backend
+    // tirar do array quando for atualizado
   }, [isFetching]);
 
   const handleSetComment = () => {
@@ -75,19 +75,21 @@ function Viewer() {
   const renderHistory = () => (
     apiResponse.filter((e) => e.id === +(itemId)).map((tale, id) => (
       <div className="history-viewer-container" key={ id }>
-        <Slider { ...settings } id="slider-viwer" key={ id }>
-          {
-            pages.map((g, t) => (
-              <div key={ t }>
-                <div
-                  className="history-page"
-                  style={ { backgroundImage: `url(${g.page})` } }
-                >
-                  <h1>{tale.title}</h1>
-                </div>
-              </div>))
-          }
-        </Slider>
+        <div className="history-viewer-content">
+          <Slider { ...settings } key={ id }>
+            {
+              pages.map((g, t) => (
+                <div key={ t }>
+                  <div
+                    // className="history-page"
+                    style={ { backgroundImage: `url(${g.page})` } }
+                  >
+                    <h1>{tale.title}</h1>
+                  </div>
+                </div>))
+            }
+          </Slider>
+        </div>
         <div className="tales-comments-container">
           <h2>Comente esta história</h2>
           <textarea
