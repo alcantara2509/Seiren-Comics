@@ -259,6 +259,7 @@
 
   #search-input {
     width: 60%;
+    margin-left: 0;
   }
 
   .highligths-list {
@@ -426,6 +427,8 @@
   .mobile-search {
     display: flex;
     margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
   }
 
 }
