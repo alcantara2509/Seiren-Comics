@@ -273,6 +273,22 @@ h4 {
     min-height: 80px;
   }
 
+  .modal_content {
+    width: 80%;
+    height: 66vh;
+    overflow-y: scroll;
+  }
+
+  .avatar-change {
+    border-radius: 50%;
+    width: 90px;
+    padding: 3px;
+}
+
+  .avatars-container {
+    margin-top: 36px;
+  }
+
   
 }
 
