@@ -12,7 +12,9 @@ import Topbar from './Topbar';
 import { Sidebar } from '.';
 
 function Search() {
-  const { apiResponse, isFetching, searchInput } = useContext(SeirenContext);
+  const { apiResponse, isFetching,
+          searchInput, setSearchInput } = useContext(SeirenContext);
+  const [mobileSearchInput, setMobileSearchInput] = useState('');
 
   const isLoading = () => (
     <div className="loading-container">
@@ -85,8 +87,19 @@ function Search() {
   ));
 
   const breakPoints = [
-    { width: 550, itemsToShow: 2, itemsToScroll: 2 },
-    { width: 850, itemsToShow: 4, itemsToScroll: 2 },
+    { width: 1,
+      itemsToShow: 1,
+      itemsToScroll: 1,
+      showArrows: false,
+      autoTabIndexVisibleItems: false },
+    { width: 340,
+      itemsToShow: 2,
+      itemsToScroll: 1,
+      showArrows: false,
+      autoTabIndexVisibleItems: false },
+    { width: 515, itemsToShow: 3, itemsToScroll: 2, showArrows: false },
+    { width: 720, itemsToShow: 4, itemsToScroll: 2 },
+    { width: 920, itemsToShow: 4, itemsToScroll: 2 },
     { width: 1350, itemsToShow: 6, itemsToScroll: 2 },
   ];
 
@@ -96,6 +109,25 @@ function Search() {
       <section className="shelf-content">
         <Topbar />
     <div className="highligths-list">
+      <div className="mobile-search">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search..."
+          value={ mobileSearchInput }
+          onChange={ ({ target: { value } }) => setMobileSearchInput(value) }
+        />
+        <button
+          type="button"
+          className="topbar-btn"
+          id="search-btn"
+          onClick={ () => {
+                  setSearchInput(mobileSearchInput);
+                } }
+        >
+                <i className="fas fa-search top-icons" id="search-icon" />
+        </button>
+      </div>
       <h2 className="shelf-h2">Resultados</h2>
       <Carousel
         disableArrowsOnEnd={ false }

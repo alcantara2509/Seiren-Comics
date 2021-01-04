@@ -36,7 +36,7 @@ function Topbar() {
       <div className="search-div">
         <input
           type="text"
-          id="search-input"
+          id="search-input-topbar"
           placeholder="Search..."
           value={ currSearch }
           onChange={ ({ target: { value } }) => setCurrSearch(value) }

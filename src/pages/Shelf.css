@@ -247,7 +247,19 @@
   display: none;
 }
 
+.mobile-search {
+  display: none;
+}
+
 @media only screen and (max-width: 1030px) {
+
+  #search-btn {
+    height: 50px;
+  }
+
+  #search-input {
+    width: 60%;
+  }
 
   .highligths-list {
     margin-left: 4px;
@@ -260,7 +272,7 @@
     width: 100%;
   }
 
-  #search-input {
+  #search-input-topbar {
     display: none;
   }
 
@@ -409,6 +421,11 @@
   .rec-slider-container {
     margin: 0 !important;
     margin-left: 16px !important;
+  }
+
+  .mobile-search {
+    display: flex;
+    margin-bottom: 20px;
   }
 
 }
