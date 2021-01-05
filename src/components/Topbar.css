@@ -15,6 +15,14 @@
   width: 290px;
 }
 
+#search-input {
+  border: none;
+  height: 50px;
+  padding-left: 20px;
+  margin-left: 40px;
+  width: 290px;
+}
+
 #search-input:focus {
   outline: none;
 }
