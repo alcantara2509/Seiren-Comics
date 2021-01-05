@@ -25,7 +25,9 @@ function Shelf() {
       <Sidebar />
       <section className="shelf-content">
         <Topbar />
-        <img src={ Banner } alt="banner" id="shelf-banner" />
+        <div style={ { width: '100%' } }>
+          <img src={ Banner } alt="banner" id="shelf-banner" />
+        </div>
         <Anchor />
         <div id="slider-anchor">
           <Slider />
