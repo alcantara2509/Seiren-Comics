@@ -311,3 +311,18 @@ h4 {
   }
 
 }
+
+@media only screen and (min-width: 1031px)  and (max-width: 1450px) {
+  #sub-h1 {
+    font-size: 24px;
+  }
+
+  .profile-btn {
+    font-size: 12px;
+  }
+
+  a {
+    font-size: 12px;
+  }
+
+}

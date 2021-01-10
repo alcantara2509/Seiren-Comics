@@ -59,7 +59,7 @@ function Viewer() {
 
   const pages = [
     { page: 'https://br.web.img3.acsta.net/medias/nmedia/18/79/96/51/19694367.jpg' },
-    { page: 'https://exame.com/wp-content/uploads/2018/05/os-simpsons.jpg?quality=70&strip=info' },
+    { page: 'https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif ' },
   ];
 
   const settings = {

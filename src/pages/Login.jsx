@@ -52,7 +52,7 @@ function Login() {
         <img src={ Logo } className="login-logo" alt="logo seiren" />
         <div className="field">
           <button type="button" className="google-btn">Login com Google</button>
-          <span className="or-span">----- ou -----</span>
+          <hr />
           <input
             type="email"
             name="email"
@@ -83,7 +83,7 @@ function Login() {
             </button>
           </Link>
         </div>
-        <Link to="/">
+        <Link to="/" id="signup-link">
           Ainda não tem uma conta?
           {' '}
           <span>Cadastre-se!</span>
