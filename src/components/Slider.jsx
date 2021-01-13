@@ -10,6 +10,7 @@ import SeirenContext from '../context/SeirenContext';
 
 function Slider() {
   const { apiResponse, isFetching } = useContext(SeirenContext);
+  // console.log(apiRespose);
 
   const isLoading = () => (
     <div className="loading-container">

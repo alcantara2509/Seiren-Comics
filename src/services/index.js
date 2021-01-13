@@ -1,4 +1,4 @@
-const url = 'http://localhost:8000/api/comics/';
+const url = 'http://localhost:8000/api/home';
 const profileUrl = 'http://localhost:8000/api/user/profile/';
 
 const getToken = () => {
@@ -20,9 +20,10 @@ const myInit = {
 };
 
 export const fetchUrl = async () => {
-  const apiRequest = await fetch(url, myInit);
+  const apiRequest = await fetch(url);
   const apiResponse = await apiRequest.json();
   const arrApiResponse = Object.values(apiResponse);
+  console.log(arrApiResponse);
   return arrApiResponse;
 };
 

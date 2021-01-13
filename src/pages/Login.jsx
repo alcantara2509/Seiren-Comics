@@ -19,6 +19,7 @@ function Login() {
   const loc = window.location.pathname;
 
   const loginFunc = () => {
+    console.log(true);
     fetch(loginUrl, {
       method: 'POST',
       body: JSON.stringify({ email, password }),
