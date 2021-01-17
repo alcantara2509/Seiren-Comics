@@ -4,6 +4,7 @@ import Search from './components/Search';
 import SeirenProvider from './context/SeirenProvider';
 import { Calendar, Categories, Profile, Shelf, Viewer } from './pages';
 import Login from './pages/Login';
+import Register from './pages/Register';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route exact path="/calendario" component={ Calendar } />
         <Route exact path="/categorias" component={ Categories } />
         <Route exact path="/login" component={ Login } />
+        <Route exact path="/cadastrar" component={ Register } />
         <Route exact path="/:id" component={ Viewer } />
       </Switch>
     </SeirenProvider>

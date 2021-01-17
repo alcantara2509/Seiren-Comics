@@ -10,7 +10,7 @@ import SeirenContext from '../context/SeirenContext';
 
 function Slider() {
   const { apiResponse, isFetching } = useContext(SeirenContext);
-  // console.log(apiRespose);
+  console.log(apiResponse);
 
   const isLoading = () => (
     <div className="loading-container">
@@ -96,7 +96,7 @@ function Slider() {
                 </p>
               </div>
               <div className="history-container chapter-container">
-                <p className="chapter-title">Nome capítulo</p>
+                <p className="chapter-title">{tales.subtitle}</p>
               </div>
             </div>
           </div>

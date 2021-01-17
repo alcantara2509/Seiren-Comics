@@ -14,7 +14,7 @@ function Login() {
 
   const { setIsLogged } = useContext(SeirenContext);
 
-  const loginUrl = 'http://localhost:8000/api/login';
+  const loginUrl = 'https://app.seirencomics.com.br/api/login';
 
   const loc = window.location.pathname;
 

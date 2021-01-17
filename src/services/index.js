@@ -1,5 +1,4 @@
-const url = 'http://localhost:8000/api/home';
-const profileUrl = 'http://localhost:8000/api/user/profile/';
+const baseUrl = 'https://app.seirencomics.com.br/api';
 
 const getToken = () => {
   const lstore = JSON.parse(sessionStorage.getItem('login'));
@@ -20,15 +19,14 @@ const myInit = {
 };
 
 export const fetchUrl = async () => {
-  const apiRequest = await fetch(url);
+  const apiRequest = await fetch(`${baseUrl}/home`);
   const apiResponse = await apiRequest.json();
-  const arrApiResponse = Object.values(apiResponse);
-  console.log(arrApiResponse);
+  const arrApiResponse = Object.values(apiResponse.novidades);
   return arrApiResponse;
 };
 
 export const fetchUrlProfile = async () => {
-  const apiRequestProfile = await fetch(profileUrl, myInit);
+  const apiRequestProfile = await fetch(`${baseUrl}/user/profile`, myInit);
   const apiResponseProfile = await apiRequestProfile.json();
   const arrApiResponseProfile = Object.values(apiResponseProfile);
   return arrApiResponseProfile;

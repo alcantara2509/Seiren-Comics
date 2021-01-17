@@ -15,6 +15,8 @@ function Viewer() {
   const [oldComment, setOldComment] = useState([]);
   const [pageIndex, setPageIndex] = useState(0);
 
+  console.log(apiResponse);
+
   const isLoading = () => (
     <div className="loading-container">
       <div className="lds-spinner">
@@ -69,8 +71,6 @@ function Viewer() {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
-
-  console.log(apiResponse.filter((e) => e.id === +(itemId)).map((elem) => elem.title));
 
   const renderHistory = () => (
     apiResponse.filter((e) => e.id === +(itemId)).map((tale, id) => (
