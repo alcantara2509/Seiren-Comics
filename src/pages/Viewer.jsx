@@ -113,7 +113,8 @@ function Viewer() {
                 className="history-page"
                 style={ { backgroundImage: `url(${g})`,
                   backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'contain' } }
+                  backgroundSize: 'contain',
+                  backgroundPosition: 'center' } }
               >
                 <div className="pages-header">
                   <h1>{tale.title}</h1>

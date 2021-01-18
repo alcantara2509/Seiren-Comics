@@ -3,7 +3,7 @@
 }
 
 .viewer-content {
-  color: rgb(0, 136, 255);
+  color: #fff;
   background-color: black;
   display: flex;
   flex-direction: column;
@@ -25,11 +25,12 @@
 }
 
 .history-page {
+  align-items: center;
   display: flex;
   justify-content: center;
-  min-height: 300px;
+  min-height: 900px;
   margin-top: 30px;
-  background-color: #fff;
+  background-color: #000;
 }
 
 .viewer-btn {
@@ -41,6 +42,7 @@
 }
 
 .tales-comments-container {
+  margin-top: 20px;
   width: 600px;
 }
 
@@ -51,4 +53,18 @@
 
 .slick-slider {
   width: 60% !important;
+}
+
+.slick-next:before, .slick-prev:before {
+  font-size: 50px !important;
+}
+
+.slick-prev {
+  z-index: 10;
+}
+
+@media only screen and (max-width: 1400px) {
+  .history-page {
+    min-height: 600px;;
+  }
 }
