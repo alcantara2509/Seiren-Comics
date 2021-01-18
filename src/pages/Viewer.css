@@ -27,7 +27,7 @@
 .history-page {
   display: flex;
   justify-content: center;
-  height: 900px;
+  min-height: 300px;
   margin-top: 30px;
   background-color: #fff;
 }
@@ -50,5 +50,5 @@
 }
 
 .slick-slider {
-  width: 50% !important;
+  width: 60% !important;
 }

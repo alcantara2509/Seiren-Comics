@@ -45,6 +45,7 @@ function Viewer() {
     const fetchUrlViewer = async () => {
       const apiRequest = await fetch(`https://app.seirencomics.com.br/api/comics/${itemId}`, myInit);
       const apiResponseViewer = await apiRequest.json();
+      if (apiResponseViewer.status === 'Token is Expired') sessionStorage.clear();
       const arrApiResponse = apiResponseViewer;
       if (arrApiResponse.pages !== undefined) setViewerApi(arrApiResponse.pages.pt_br);
     };
@@ -103,19 +104,18 @@ function Viewer() {
   };
 
   const renderHistory = () => (
-    apiResponse.filter((e) => e.id === +(itemId)).map((tale, id) => (
+    apiResponse[3].filter((e) => e.id === +(itemId)).map((tale, id) => (
       <div className="history-viewer-container" key={ id }>
         <Slider { ...settings } id="slider-viwer" key={ id }>
           {
-            viewerApi.map((g, t) => {
-              console.log(g);
-              return (<div key={ t }>
-                <div
-                  className="history-page"
-                  style={ { backgroundImage: `url(${g})`,
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: 'cover' } }
-                >
+            viewerApi.map((g, t) => (<div key={ t }>
+              <div
+                className="history-page"
+                style={ { backgroundImage: `url(${g})`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'contain' } }
+              >
+                <div className="pages-header">
                   <h1>{tale.title}</h1>
                   <p>
                     página
@@ -127,8 +127,8 @@ function Viewer() {
                     {viewerApi.length}
                   </p>
                 </div>
-              </div>);
-            })
+              </div>
+            </div>))
           }
         </Slider>
         <div className="tales-comments-container">

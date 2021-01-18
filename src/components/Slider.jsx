@@ -10,7 +10,7 @@ import SeirenContext from '../context/SeirenContext';
 
 function Slider() {
   const { apiResponse, isFetching } = useContext(SeirenContext);
-  console.log(apiResponse);
+  const novidades = apiResponse[0];
 
   const isLoading = () => (
     <div className="loading-container">
@@ -57,7 +57,7 @@ function Slider() {
     showEmptySlots
   >
   {
-    apiResponse.map((tales, index) => (
+    novidades !== undefined ? novidades.map((tales, index) => (
       <Link
         to={ `/${tales.id}` }
         key={ index }
@@ -103,6 +103,7 @@ function Slider() {
         </div>
       </Link>
     ))
+    : null
   }
   </Carousel>
   );

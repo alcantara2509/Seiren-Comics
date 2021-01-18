@@ -21,8 +21,11 @@ const myInit = {
 export const fetchUrl = async () => {
   const apiRequest = await fetch(`${baseUrl}/home`);
   const apiResponse = await apiRequest.json();
-  const arrApiResponse = Object.values(apiResponse.novidades);
-  return arrApiResponse;
+  const arrApiResponseNov = Object.values(apiResponse.novidades);
+  const arrApiResponseMV = Object.values(apiResponse.maisVistos);
+  const arrApiResponseRank = Object.values(apiResponse.melhoresRankings);
+  const arrApiResponseAll = Object.values(apiResponse.todos);
+  return [arrApiResponseNov, arrApiResponseMV, arrApiResponseRank, arrApiResponseAll];
 };
 
 export const fetchUrlProfile = async () => {

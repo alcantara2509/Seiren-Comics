@@ -35,18 +35,17 @@ function Search() {
     </div>
   );
 
-  const renderCards = () => apiResponse
-  .filter((e) => (e.title === undefined ? null
-   : e.title.toLowerCase().includes(searchInput.toLowerCase())
+  const renderCards = () => (apiResponse[3]
+  .filter((e) => (e.title.toLowerCase().includes(searchInput.toLowerCase())
     || e.comments.toLowerCase().includes(searchInput.toLowerCase())))
-  .map((tales, id) => (
+  .map((tales, index) => (
     <Link
-      to={ `/${tales.idMeal}` }
-      key={ id }
+      to={ `/${tales.id}` }
+      key={ index }
       style={ {
         padding: '0',
         textTransform: 'none',
-        backgroundImage: `url(${tales.strMealThumb})`,
+        backgroundImage: `url(${tales.capa})`,
       } }
       className="tales-card"
     >
@@ -64,7 +63,7 @@ function Search() {
               <p className="history-title">{tales.title}</p>
               <p className="is-favorite">
                 {
-                  id % 2 !== 0
+                  index % 2 !== 0
                     ? <span
                         style={ {
                         fontSize: '14px',
@@ -84,7 +83,7 @@ function Search() {
         </div>
       </div>
     </Link>
-  ));
+  )));
 
   const breakPoints = [
     { width: 1,
