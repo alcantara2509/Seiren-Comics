@@ -17,6 +17,7 @@ function Login() {
   const loginUrl = 'https://app.seirencomics.com.br/api/login';
 
   const loc = window.location.pathname;
+  console.log(loc);
 
   const loginFunc = () => {
     console.log(true);
@@ -73,7 +74,7 @@ function Login() {
           }
           <Link to="/" id="forgot-password">Esqueceu sua senha?</Link>
           <Link
-            to="/"
+            to={ loc }
           >
             <button
               className="login-btn"

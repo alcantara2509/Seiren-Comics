@@ -64,7 +64,7 @@ function Slider() {
         style={ {
                   padding: '0',
                   textTransform: 'none',
-                  backgroundImage: `url(${tales.strMealThumb})`,
+                  backgroundImage: `url(${tales.capa})`,
       } }
         className="tales-card"
       >

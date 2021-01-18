@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-closing-tag-location */
 /* eslint-disable react/jsx-key */
 /* eslint-disable no-unused-vars */
 import React, { useContext, useEffect, useState } from 'react';
@@ -6,6 +7,7 @@ import Slider from 'react-slick';
 import Sidebar from '../components/Sidebar';
 import Topbar from '../components/Topbar';
 import SeirenContext from '../context/SeirenContext';
+import Login from './Login';
 import './Viewer.css';
 
 function Viewer() {
@@ -14,8 +16,41 @@ function Viewer() {
   const [newComment, setNewComment] = useState('');
   const [oldComment, setOldComment] = useState([]);
   const [pageIndex, setPageIndex] = useState(0);
+  const [redirect, setRedirect] = useState(false);
+  const [viewerApi, setViewerApi] = useState([]);
 
-  console.log(apiResponse);
+  useEffect(() => {
+    const store = sessionStorage.getItem('login');
+
+    if (store !== null) setRedirect(true);
+
+    const getToken = () => {
+      const lstore = JSON.parse(sessionStorage.getItem('login'));
+      if (lstore !== null) {
+        return lstore.token;
+      }
+    };
+
+    const myHeaders = new Headers({
+      Authorization: `Bearer${getToken()}`,
+    });
+
+    const myInit = {
+      method: 'GET',
+      headers: myHeaders,
+      mode: 'cors',
+      cache: 'default',
+    };
+
+    const fetchUrlViewer = async () => {
+      const apiRequest = await fetch(`https://app.seirencomics.com.br/api/comics/${itemId}`, myInit);
+      const apiResponseViewer = await apiRequest.json();
+      const arrApiResponse = apiResponseViewer;
+      if (arrApiResponse.pages !== undefined) setViewerApi(arrApiResponse.pages.pt_br);
+    };
+
+    fetchUrlViewer();
+  }, []);
 
   const isLoading = () => (
     <div className="loading-container">
@@ -59,11 +94,6 @@ function Viewer() {
     );
   }).reverse();
 
-  const pages = [
-    { page: 'https://br.web.img3.acsta.net/medias/nmedia/18/79/96/51/19694367.jpg' },
-    { page: 'https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif ' },
-  ];
-
   const settings = {
     dots: false,
     infinite: false,
@@ -77,15 +107,28 @@ function Viewer() {
       <div className="history-viewer-container" key={ id }>
         <Slider { ...settings } id="slider-viwer" key={ id }>
           {
-            pages.map((g, t) => (
-              <div key={ t }>
+            viewerApi.map((g, t) => {
+              console.log(g);
+              return (<div key={ t }>
                 <div
                   className="history-page"
-                  style={ { backgroundImage: `url(${g.page})` } }
+                  style={ { backgroundImage: `url(${g})`,
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: 'cover' } }
                 >
                   <h1>{tale.title}</h1>
+                  <p>
+                    página
+                    {' '}
+                    {t + 1}
+                    {' '}
+                    de
+                    {' '}
+                    {viewerApi.length}
+                  </p>
                 </div>
-              </div>))
+              </div>);
+            })
           }
         </Slider>
         <div className="tales-comments-container">
@@ -110,15 +153,17 @@ function Viewer() {
   );
 
   return (
-    <section className="viewer-container">
-      <Sidebar />
-      <section className="viewer-content">
-        <Topbar />
-        {
-          isFetching ? isLoading() : renderHistory()
-        }
+    redirect
+      ? <section className="viewer-container">
+        <Sidebar />
+        <section className="viewer-content">
+          <Topbar />
+          {
+            isFetching ? isLoading() : renderHistory()
+          }
+        </section>
       </section>
-    </section>
+      : <Login />
   );
 }
 
