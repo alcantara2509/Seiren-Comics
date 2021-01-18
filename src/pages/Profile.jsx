@@ -11,6 +11,7 @@ import ChangeAvatar from '../components/ChangeAvatar';
 import Search from '../components/Search';
 import SeirenContext from '../context/SeirenContext';
 import Banner from '../images/shelf-banner.png';
+import Login from './Login';
 import './Profile.css';
 
 function Profile() {
@@ -18,6 +19,7 @@ function Profile() {
     apiResponseProfile,
     isFetchingProfile,
    } = useContext(SeirenContext);
+   const [redirect, setRedirect] = useState(false);
 
   const avatarSrc = 'https://blog.nebrass.fr/wp-content/uploads/Homer-Simpson-4-200x200.jpg';
   const inds = ['name@gmail.com', 'name@gmail.com', 'name@gmail.com'];
@@ -76,7 +78,13 @@ function Profile() {
     window.location.reload();
   };
 
+  useEffect(() => {
+    const store = sessionStorage.getItem('login');
+    if (store !== null) setRedirect(true);
+  }, []);
+
   return (
+    redirect ?
     <div>
       <section className="profile-container">
             <Sidebar />
@@ -190,14 +198,16 @@ function Profile() {
               <div id="slider-anchor">
                 <Favorites />
               </div>
-              <KeepReading />
+              {/* <KeepReading /> */}
+              <div style={{height: '140px'}}></div>
+              <Footer />
             </section>
             {
               seen ? <ChangeAvatar toggle={ togglePop } /> : null
             }
       </section>
     </div>
-  );
+  : <Login /> );
 }
 
 export default Profile;

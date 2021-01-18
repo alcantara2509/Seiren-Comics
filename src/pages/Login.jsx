@@ -4,9 +4,6 @@ import SeirenContext from '../context/SeirenContext';
 import Logo from '../images/logo.png';
 import './Login.css';
 
-// mancoso@gmail.com.br
-// ricks77
-
 function Login() {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
@@ -74,7 +71,7 @@ function Login() {
           }
           <Link to="/" id="forgot-password">Esqueceu sua senha?</Link>
           <Link
-            to={ loc }
+            to="/"
           >
             <button
               className="login-btn"

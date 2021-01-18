@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import Topbar from '../components/Topbar';
 import './Calendar.css';
@@ -12,7 +13,33 @@ function Calendar() {
       <Sidebar />
       <section className="calendar-content">
         <Topbar />
-        <h1>Calendar</h1>
+        <div className="calendar-container-inner">
+          <div className="calendar-banner">
+            <div></div>
+          </div>
+          <div className="months-container">
+            <Link to="/search">
+              <div className="calendar-month">
+                {/* <h1 className="months-h1">Jan 2021</h1> */}
+              </div>
+            </Link>
+            <Link to="/search">
+              <div className="calendar-month">
+                {/* <h1 className="months-h1">Jan 2021</h1> */}
+              </div>
+            </Link>
+            <Link to="/search">
+              <div className="calendar-month">
+                {/* <h1 className="months-h1">Jan 2021</h1> */}
+              </div>
+            </Link>
+            <Link to="/search">
+              <div className="calendar-month">
+                {/* <h1 className="months-h1">Jan 2021</h1> */}
+              </div>
+            </Link>
+          </div>
+        </div>
       </section>
     </section>
   );
@@ -23,7 +50,7 @@ function Calendar() {
   }, []);
 
   return (
-    redirect ? renderCalendar() : <Login />
+    renderCalendar()
   );
 }
 

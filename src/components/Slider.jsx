@@ -8,9 +8,11 @@ import { Link } from 'react-router-dom';
 import Carousel from 'react-elastic-carousel';
 import SeirenContext from '../context/SeirenContext';
 
-function Slider() {
+function Slider(name, number) {
   const { apiResponse, isFetching } = useContext(SeirenContext);
-  const novidades = apiResponse[0];
+  const novidades = apiResponse[name.number];
+
+  console.log(name);
 
   const isLoading = () => (
     <div className="loading-container">
@@ -110,7 +112,7 @@ function Slider() {
 
   return (
     <div className="highligths-list">
-      <h2 className="shelf-h2">Destaques</h2>
+      <h2 className="shelf-h2">{name.name}</h2>
       {isFetching ? isLoading() : renderCards()}
     </div>
   );

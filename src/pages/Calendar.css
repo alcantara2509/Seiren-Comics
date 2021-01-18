@@ -9,3 +9,47 @@
   right: 0px;
   width: 87.7%;
 }
+
+.calendar-container-inner {
+  width: 100%;
+  height: 91vh;
+}
+
+.calendar-banner {
+  width: 97%;
+  background-image: url('../images/calendarBanner.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 70vh;
+  margin: 20px auto;
+}
+
+.months-container {
+  width: 97%;
+  margin: 20px auto;
+  height: 21vh;
+  display: flex;
+}
+
+.calendar-month {
+  width: 390px;
+  height: 21vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../images/monthsTest.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 8px;
+}
+
+.months-h1 {
+  color: white;
+  font-size: 40px;
+}
+
+@media only screen and (max-width: 1600px) {
+  .months-container {
+    display: none;
+  }
+}
