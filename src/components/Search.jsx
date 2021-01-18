@@ -18,7 +18,7 @@ function Search() {
   const [mobileSearchInput, setMobileSearchInput] = useState('');
   const [isFetchingSearch, setIsFetchingSearch] = useState(true);
 
-  const all = apiResponse[0];
+  const all = apiResponse[1];
 
   useEffect(() => {
     if (!isFetching) setIsFetchingSearch(false);
