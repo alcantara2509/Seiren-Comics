@@ -18,8 +18,7 @@ function Calendar() {
   );
 
   useEffect(() => {
-    const store = localStorage.getItem('login');
-    console.log(store);
+    const store = sessionStorage.getItem('login');
     if (store !== null) setRedirect(true);
   }, []);
 

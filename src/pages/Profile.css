@@ -166,3 +166,163 @@ h4 {
 #cancel-p {
   color: #E2415B;
 }
+
+.change-avatar {
+  color: #D2D3D9;
+  background: none;
+  border: none;
+}
+
+.supp-contact-mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+
+  .profile-user-container {
+    margin-left: 12px;
+    margin-top: 25px;
+  }
+
+  .profile-settings {
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+  }
+
+  .profile-content {
+    width: 99%;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  .avatar-container {
+    margin-right: 0;
+    width: 120px;
+  }
+
+  .profile-input {
+    margin-bottom: 12px;
+    padding: 0 6px;
+    width: 100%;
+    margin-left: -16px;
+    height: 28px;
+  }
+
+  .input-label {
+    margin-left: -16px;
+    margin-top: 12px;
+  }
+
+  .user-name-container {
+    margin-top: 20px;
+    width: 70%;
+  }
+
+  .profile-btn-container {
+    margin-left: -5px;
+    padding-left: 0;
+  }
+  
+  .profile-btn {
+    padding: 5px 5%;
+    font-size: 13px;
+  }
+
+  .supp-contact {
+    display: none;
+  }
+
+  .supp-contact-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .password-container {
+    width: 70%;
+    margin-left: -5px;
+  }
+
+  #new-password {
+    margin-top: 0;
+  }
+
+  .ind-container {
+    justify-content: center;
+    margin-top: 30px;
+    margin-left: -26px;
+    width: 70%;
+  }
+
+  .ind-wrap {
+    justify-content: center;
+  }
+
+  .sub-container {
+    margin-left: -10px;
+    margin-top: 30px;
+    width: 73%;
+  }
+
+  .sub-itens {
+    min-height: 80px;
+  }
+
+  .modal_content {
+    width: 80%;
+    height: 66vh;
+    overflow-y: scroll;
+  }
+
+  .avatar-change {
+    border-radius: 50%;
+    width: 90px;
+    padding: 3px;
+}
+
+  .avatars-container {
+    margin-top: 36px;
+  }
+
+  
+}
+
+@media only screen and (min-width: 720px)  and (max-width: 1030px) {
+  
+  .profile-content {
+    width: 100%;
+  }
+  
+  #sub-h1 {
+    font-size: 20px;
+  }
+
+  .sub-p {
+    font-size: 8px;
+  }
+
+  .avatar-change {
+    width: 140px;
+  }
+
+}
+
+@media only screen and (min-width: 1031px)  and (max-width: 1450px) {
+  #sub-h1 {
+    font-size: 24px;
+  }
+
+  .profile-btn {
+    font-size: 12px;
+  }
+
+  a {
+    font-size: 12px;
+  }
+
+}

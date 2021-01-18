@@ -16,7 +16,7 @@ function Shelf() {
   const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
-    const store = localStorage.getItem('login');
+    const store = sessionStorage.getItem('login');
     if (store !== null) setRedirect(true);
   }, []);
 
@@ -25,7 +25,9 @@ function Shelf() {
       <Sidebar />
       <section className="shelf-content">
         <Topbar />
-        <img src={ Banner } alt="banner" id="shelf-banner" />
+        <div style={ { width: '100%' } }>
+          <img src={ Banner } alt="banner" id="shelf-banner" />
+        </div>
         <Anchor />
         <div id="slider-anchor">
           <Slider />
@@ -58,7 +60,8 @@ function Shelf() {
   return (
     <section>
       {
-        !redirect ? <Login /> : renderShelf()
+        // !redirect ? <Login /> : renderShelf()
+        renderShelf()
       }
     </section>
   );

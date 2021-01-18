@@ -13,6 +13,28 @@ function SeirenProvider({ children }) {
   const [historyId, setHistoryId] = useState('');
   const [isFetching, setIsFetching] = useState(false);
   const [isFetchingProfile, setIsFetchingProfile] = useState(false);
+  const [menuMobileState, setMenuMobileState] = useState('disabled');
+
+  const ContextValue = {
+    anchorButton,
+    setAnchorButton,
+    apiResponse,
+    setApiResponse,
+    isLogged,
+    setIsLogged,
+    searchInput,
+    setSearchInput,
+    historyId,
+    setHistoryId,
+    isFetching,
+    setIsFetching,
+    apiResponseProfile,
+    setApiResponseProfile,
+    isFetchingProfile,
+    setIsFetchingProfile,
+    menuMobileState,
+    setMenuMobileState,
+  };
 
   useEffect(() => {
     setIsFetching(true);
@@ -33,25 +55,6 @@ function SeirenProvider({ children }) {
 
     fetchApiProfile();
   }, []);
-
-  const ContextValue = {
-    anchorButton,
-    setAnchorButton,
-    apiResponse,
-    setApiResponse,
-    isLogged,
-    setIsLogged,
-    searchInput,
-    setSearchInput,
-    historyId,
-    setHistoryId,
-    isFetching,
-    setIsFetching,
-    apiResponseProfile,
-    setApiResponseProfile,
-    isFetchingProfile,
-    setIsFetchingProfile,
-  };
 
   return (
     <SeirenContext.Provider value={ ContextValue }>

@@ -1,7 +1,10 @@
+/* eslint-disable react/jsx-max-depth */
+/* eslint-disable camelcase */
+/* eslint-disable no-alert */
 /* eslint-disable no-unused-vars */
 /* eslint-disable indent */
 /* eslint-disable react/jsx-indent */
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Favorites, Footer, KeepReading, Sidebar, Topbar } from '../components';
 import ChangeAvatar from '../components/ChangeAvatar';
@@ -13,52 +16,69 @@ import './Profile.css';
 function Profile() {
   const { searchInput,
     apiResponseProfile,
-    isFetchingProfile } = useContext(SeirenContext);
-
-    // console.log(apiResponseProfile, isFetchingProfile);
+    isFetchingProfile,
+   } = useContext(SeirenContext);
 
   const avatarSrc = 'https://blog.nebrass.fr/wp-content/uploads/Homer-Simpson-4-200x200.jpg';
-  const inds = ['name@gmail.com', 'name@gmail.com', 'name@gmail.com',
-    'name@gmail.com', 'name@gmail.com', 'name@gmail.com',
-    'name@gmail.com', 'name@gmail.com', 'name@gmail.com',
-    'name@gmail.com', 'name@gmail.com', 'name@gmail.com'];
+  const inds = ['name@gmail.com', 'name@gmail.com', 'name@gmail.com'];
   const [seen, setSeen] = useState(false);
+  const [nickname, setNickname] = useState('');
+  const [old_password, setOld_password] = useState('');
+  const [password, setPassword] = useState('');
 
   const togglePop = () => {
     setSeen(!seen);
   };
 
-  const renderSearch = () => (
-    <section className="shelf-container">
-      <Sidebar />
-      <section className="shelf-content">
-        <Topbar />
-        <img src={ Banner } alt="banner" id="shelf-banner" />
-        <div id="slider-anchor">
-          <Search />
-        </div>
-        <h3 className="seiren-comunity-h3">Comunidade Seiren</h3>
-        <section className="seiren-comunity">
-          <section className="publicated-pages">
-            <h5 className="seiren-comunity-h5">Páginas Publicadas</h5>
-            <h1 className="seiren-comunity-h1">57345</h1>
-          </section>
-          <section className="online-users">
-            <h5 className="seiren-comunity-h5">Usuários Online</h5>
-            <h1 className="seiren-comunity-h1">345</h1>
-          </section>
-        </section>
-        <Footer />
-      </section>
-    </section>
-  );
+  const editNickname = () => {
+    const getId = () => {
+      const userId = JSON.parse(sessionStorage.getItem('login'));
+      if (userId !== null) {
+        return userId.user_id;
+      }
+    };
+
+    const editProfileUrl = `http://localhost:8000/api/user/edit/${getId()}`;
+
+    const getToken = () => {
+      const lstore = JSON.parse(sessionStorage.getItem('login'));
+      if (lstore !== null) {
+        return lstore.token;
+      }
+    };
+
+    const myHeaders = new Headers({
+      Authorization: `Bearer${getToken()}`,
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    });
+
+    const myInitEdit = {
+      method: 'POST',
+      headers: myHeaders,
+      body: JSON.stringify({ nickname, old_password, password }),
+      mode: 'cors',
+      cache: 'default',
+    };
+
+    const fetchUrlProfileEdit = async () => {
+      const apiRequestProfileEdit = await fetch(editProfileUrl, myInitEdit);
+      const apiResponseProfileEdit = await apiRequestProfileEdit.json();
+      const arrApiResponseProfileEdit = Object.values(apiResponseProfileEdit);
+      return arrApiResponseProfileEdit;
+    };
+    fetchUrlProfileEdit();
+
+    alert('Alterado com sucesso!');
+
+    setNickname('');
+
+    window.location.reload();
+  };
 
   return (
     <div>
-      {
-        searchInput !== ''
-          ? renderSearch()
-          : <section className="profile-container">
+      <section className="profile-container">
             <Sidebar />
             <section className="profile-content">
               <Topbar />
@@ -77,10 +97,21 @@ function Profile() {
                     </button>
                   </div>
                   <div className="user-name-container">
-                    <h4>Nome de Usuário</h4>
-                    <input type="text" className="profile-input" />
+                    <h4 className="input-label">Nome de Usuário</h4>
+                    <input
+                      type="text"
+                      className="profile-input"
+                      value={ nickname }
+                      onChange={ ({ target: { value } }) => setNickname(value) }
+                    />
                     <div className="profile-btn-container">
-                      <button type="button" className="profile-btn">Alterar Nome</button>
+                      <button
+                        type="button"
+                        className="profile-btn"
+                        onClick={ () => editNickname() }
+                      >
+                        Alterar Nome
+                      </button>
                     </div>
                     <div className="supp-contact">
                       <p className="supp-line"> Está com algum problema?</p>
@@ -95,12 +126,26 @@ function Profile() {
                     </div>
                   </div>
                   <div className="password-container">
-                    <h4>Senha atual</h4>
-                    <input type="password" className="profile-input" />
-                    <h4>Nova senha</h4>
-                    <input type="password" className="profile-input" />
+                    <h4 className="input-label">Senha atual</h4>
+                    <input
+                      type="password"
+                      className="profile-input"
+                      onChange={ ({ target: { value } }) => setOld_password(value) }
+                    />
+                    <h4 className="input-label" id="new-password">Nova senha</h4>
+                    <input
+                      type="password"
+                      className="profile-input"
+                      onChange={ ({ target: { value } }) => setPassword(value) }
+                    />
                     <div className="profile-btn-container">
-                      <button type="button" className="profile-btn">Trocar Senha</button>
+                      <button
+                        type="button"
+                        className="profile-btn"
+                        onClick={ () => editNickname() }
+                      >
+                        Alterar Senha
+                      </button>
                     </div>
                   </div>
                   <div className="ind-container">
@@ -128,17 +173,29 @@ function Profile() {
                       </div>
                     </div>
                   </div>
+                  <div className="supp-contact-mobile">
+                      <p className="supp-line"> Está com algum problema?</p>
+                      <Link
+                        to="/"
+                        className="supp-line"
+                        id="supp-link"
+                      >
+                        Contate o suporte
+
+                      </Link>
+                  </div>
                 </section>
 
               </div>
-              <Favorites />
+              <div id="slider-anchor">
+                <Favorites />
+              </div>
               <KeepReading />
             </section>
             {
               seen ? <ChangeAvatar toggle={ togglePop } /> : null
             }
-            </section>
-      }
+      </section>
     </div>
   );
 }

@@ -18,11 +18,13 @@ const ChangeAvatar = (togglePop) => {
     <div className="modal">
       <div className="modal_content" onChange={ handleClick }>
         <span className="close" onClick={ handleClick }>&times;    </span>
-        {
-          avatars.map((avatar, id) => (
-            <img key={ id } src={ avatar } alt="avatar" className="avatar-change" />
-          ))
-        }
+        <div className="avatars-container">
+          {
+            avatars.map((avatar, id) => (
+              <img key={ id } src={ avatar } alt="avatar" className="avatar-change" />
+            ))
+          }
+        </div>
       </div>
     </div>
   );

@@ -14,11 +14,13 @@ function Login() {
 
   const { setIsLogged } = useContext(SeirenContext);
 
-  const loginUrl = 'http://localhost:8000/api/login';
+  const loginUrl = 'https://app.seirencomics.com.br/api/login';
 
   const loc = window.location.pathname;
+  console.log(loc);
 
   const loginFunc = () => {
+    console.log(true);
     fetch(loginUrl, {
       method: 'POST',
       body: JSON.stringify({ email, password }),
@@ -31,9 +33,10 @@ function Login() {
         response.json()
           .then((result) => {
             if (!result.error) {
-              localStorage.setItem('login', JSON.stringify({
+              sessionStorage.setItem('login', JSON.stringify({
                 login: true,
                 token: result.access_token,
+                user_id: result.user.id,
               }));
               setError(false);
               window.location.href = `${loc}`;
@@ -51,7 +54,7 @@ function Login() {
         <img src={ Logo } className="login-logo" alt="logo seiren" />
         <div className="field">
           <button type="button" className="google-btn">Login com Google</button>
-          <span className="or-span">----- ou -----</span>
+          <hr />
           <input
             type="email"
             name="email"
@@ -71,7 +74,7 @@ function Login() {
           }
           <Link to="/" id="forgot-password">Esqueceu sua senha?</Link>
           <Link
-            to="/"
+            to={ loc }
           >
             <button
               className="login-btn"
@@ -82,7 +85,7 @@ function Login() {
             </button>
           </Link>
         </div>
-        <Link to="/">
+        <Link to="/" id="signup-link">
           Ainda não tem uma conta?
           {' '}
           <span>Cadastre-se!</span>

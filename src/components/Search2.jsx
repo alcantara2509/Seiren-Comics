@@ -1,24 +1,26 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable no-unused-vars */
 /* eslint-disable indent */
 /* eslint-disable react/jsx-indent */
 /* eslint-disable no-magic-numbers */
 import React, { useContext, useEffect, useState } from 'react';
 import './Slider.scss';
-// import '../pages/Shelf.css';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-elastic-carousel';
 import SeirenContext from '../context/SeirenContext';
+import Footer from './Footer';
+import Topbar from './Topbar';
+import { Sidebar } from '.';
 
-function Favorites() {
-  const { apiResponse, isFetching, apiResponseProfile } = useContext(SeirenContext);
-  const [favsState, setFavsState] = useState([]);
+function Search() {
+  const { apiResponse, isFetching,
+          searchInput, setSearchInput } = useContext(SeirenContext);
+  const [mobileSearchInput, setMobileSearchInput] = useState('');
+  const [isFetchingSearch, setIsFetchingSearch] = useState(true);
 
   useEffect(() => {
-    if (apiResponseProfile[0] !== 'Token is Expired'
-          && apiResponseProfile[0] !== 'Token is Invalid') {
-      apiResponseProfile.map((e) => setFavsState(e.favorites.map((f) => f.comic_id)));
-    }
-  }, [apiResponseProfile]);
+    if (!isFetching) setIsFetchingSearch(false);
+  }, [apiResponse]);
 
   const isLoading = () => (
     <div className="loading-container">
@@ -61,24 +63,29 @@ function Favorites() {
       disableArrowsOnEnd={ false }
       breakPoints={ breakPoints }
       pagination={ false }
-      className="tales-container"
       showEmptySlots
+      className="tales-container"
     >
-    {
-      apiResponse[3]
-  .filter((elem) => favsState.includes(elem.id))
-  .map((tales, index) => (
-    <Link
-      to={ `/${tales.id}` }
-      key={ index }
-      style={ {
-                padding: '0',
-                textTransform: 'none',
-      backgroundImage: `url(${tales.capa})`,
-    } }
-      className="tales-card"
-    >
-      <div style={ { height: '100%', width: '100%' } }>
+
+        {all
+      .filter((e) => {
+        console.log(e);
+        return e !== undefined ? e.title.toLowerCase().includes(searchInput.toLowerCase())
+        || e.comments.toLowerCase().includes(searchInput.toLowerCase())
+        : console.log('aqui');
+})
+      .map((tales, index) => (
+        <Link
+          to={ `/${tales.id}` }
+          key={ index }
+          style={ {
+            padding: '0',
+            textTransform: 'none',
+            backgroundImage: `url(${tales.capa})`,
+          } }
+          className="tales-card"
+        >
+          <div style={ { height: '100%' } }>
             <div className="card-infos-container">
               <div className="card-top">
                 <p className="sup-left-p">Lorem Ipsum</p>
@@ -110,19 +117,44 @@ function Favorites() {
                 </div>
               </div>
             </div>
-      </div>
-    </Link>
-  ))
-  }
+          </div>
+        </Link>
+      ))}
     </Carousel>
   );
 
   return (
+    <section className="shelf-container">
+      <Sidebar />
+      <section className="shelf-content">
+        <Topbar />
     <div className="highligths-list">
-      <h2 className="shelf-h2">Favoritos</h2>
-      {isFetching ? isLoading() : renderCards()}
+      <div className="mobile-search">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search..."
+          value={ mobileSearchInput }
+          onChange={ ({ target: { value } }) => setMobileSearchInput(value) }
+        />
+        <button
+          type="button"
+          className="topbar-btn"
+          id="search-btn"
+          onClick={ () => {
+                  setSearchInput(mobileSearchInput);
+                } }
+        >
+                <i className="fas fa-search top-icons" id="search-icon" />
+        </button>
+      </div>
+      <h2 className="shelf-h2">Resultados</h2>
+        {isFetching || isFetchingSearch ? isLoading() : renderCards()}
     </div>
+        <Footer />
+      </section>
+    </section>
   );
 }
 
-export default Favorites;
+export default Search;

@@ -22,6 +22,7 @@
 .close {
   color: Black;
   float: right;
+  font-size: 30px;
 }
 
 .close:hover {
