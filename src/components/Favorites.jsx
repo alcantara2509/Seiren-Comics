@@ -65,7 +65,7 @@ function Favorites() {
       showEmptySlots
     >
     {
-      apiResponse
+      apiResponse[3]
   .filter((elem) => favsState.includes(elem.id))
   .map((tales, index) => (
     <Link
@@ -74,7 +74,7 @@ function Favorites() {
       style={ {
                 padding: '0',
                 textTransform: 'none',
-      backgroundImage: `url(${tales.strMealThumb})`,
+      backgroundImage: `url(${tales.capa})`,
     } }
       className="tales-card"
     >
