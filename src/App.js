@@ -20,7 +20,7 @@ function App() {
         <Route exact path="/login" component={ Login } />
         <Route exact path="/cadastrar" component={ Register } />
         <Route exact path="/comics/:id" component={ Viewer } />
-        <Route path="/" />
+        <Route path="/*" component="./public/index.html" />
       </Switch>
     </SeirenProvider>
   );
