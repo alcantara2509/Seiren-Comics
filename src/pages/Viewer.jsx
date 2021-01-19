@@ -51,7 +51,7 @@ function Viewer() {
     };
 
     fetchUrlViewer();
-  }, []);
+  }, [itemId]);
 
   const isLoading = () => (
     <div className="loading-container">
