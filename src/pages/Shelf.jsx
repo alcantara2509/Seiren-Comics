@@ -30,7 +30,16 @@ function Shelf() {
         </div>
         <Anchor />
         <div id="slider-anchor">
-          <Slider />
+          <Slider name="Destaques" number={0} />
+          <div id="keep-anchor">
+            <Slider name="Continue Lendo" number={2} />
+          </div>
+          <div id="releases-anchor">
+            <Slider name="Próximos Lançamentos" number={1} />
+          </div>
+          <div id="series-anchor">
+            <Slider name="Séries" number={0} />
+          </div>
         </div>
         {/* <div id="keep-anchor">
           <KeepReading />
