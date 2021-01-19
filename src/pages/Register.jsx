@@ -13,7 +13,7 @@ function Register() {
   const [password, setPassword] = useState(null);
   const [isDisabled, setIsDisabled] = useState(true);
 
-  const registerUrl = 'https://app.seirencomics.com.br/api/login';
+  const registerUrl = 'https://app.seirencomics.com.br/api/register';
 
   const registerFunc = () => console.log('ok');
 

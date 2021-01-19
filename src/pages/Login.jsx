@@ -14,20 +14,20 @@ function Login() {
   const loginUrl = 'https://app.seirencomics.com.br/api/login';
 
   const loc = window.location.pathname;
-  console.log(loc);
+  console.log(email);
 
   const loginFunc = () => {
-    console.log(true);
+    
     fetch(loginUrl, {
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
-      },
+      }, 
     })
-      .then((response) => {
-        response.json()
+    .then((response) => {
+      response.json()
           .then((result) => {
             if (!result.error) {
               sessionStorage.setItem('login', JSON.stringify({
@@ -71,7 +71,7 @@ function Login() {
           }
           <Link to="/" id="forgot-password">Esqueceu sua senha?</Link>
           <Link
-            to="/"
+            to={ loc }
           >
             <button
               className="login-btn"
@@ -82,7 +82,7 @@ function Login() {
             </button>
           </Link>
         </div>
-        <Link to="/" id="signup-link">
+        <Link to="/cadastrar" id="signup-link">
           Ainda não tem uma conta?
           {' '}
           <span>Cadastre-se!</span>

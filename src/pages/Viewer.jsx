@@ -11,7 +11,7 @@ import Login from './Login';
 import './Viewer.css';
 
 function Viewer() {
-  const itemId = useLocation().pathname.slice(1);
+  const itemId = useLocation().pathname.slice(8);
   const { apiResponse, isFetching } = useContext(SeirenContext);
   const [newComment, setNewComment] = useState('');
   const [oldComment, setOldComment] = useState([]);
