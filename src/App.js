@@ -19,7 +19,8 @@ function App() {
         <Route exact path="/categorias" component={ Categories } />
         <Route exact path="/login" component={ Login } />
         <Route exact path="/cadastrar" component={ Register } />
-        <Route exact path="/:id" component={ Viewer } />
+        <Route exact path="/comics/:id" component={ Viewer } />
+        <Route path="/" />
       </Switch>
     </SeirenProvider>
   );

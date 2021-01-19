@@ -12,8 +12,6 @@ function Slider(name, number) {
   const { apiResponse, isFetching } = useContext(SeirenContext);
   const novidades = apiResponse[name.number];
 
-  console.log(name);
-
   const isLoading = () => (
     <div className="loading-container">
       <div className="lds-spinner">
@@ -61,7 +59,7 @@ function Slider(name, number) {
   {
     novidades !== undefined ? novidades.map((tales, index) => (
       <Link
-        to={ `/${tales.id}` }
+        to={ `/comics/${tales.id}` }
         key={ index }
         style={ {
                   padding: '0',

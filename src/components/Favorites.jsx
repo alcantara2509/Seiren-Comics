@@ -69,7 +69,7 @@ function Favorites() {
   .filter((elem) => favsState.includes(elem.id))
   .map((tales, index) => (
     <Link
-      to={ `/${tales.id}` }
+      to={ `/comics/${tales.id}` }
       key={ index }
       style={ {
                 padding: '0',
