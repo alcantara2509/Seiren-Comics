@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import Topbar from '../components/Topbar';
 import './Calendar.css';
-import Login from './Login';
 
 function Calendar() {
-  const [redirect, setRedirect] = useState(false);
 
   const renderCalendar = () => (
     <section className="calendar-container">
@@ -43,11 +41,6 @@ function Calendar() {
       </section>
     </section>
   );
-
-  useEffect(() => {
-    const store = sessionStorage.getItem('login');
-    if (store !== null) setRedirect(true);
-  }, []);
 
   return (
     renderCalendar()

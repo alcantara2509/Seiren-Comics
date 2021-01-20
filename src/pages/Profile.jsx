@@ -6,11 +6,9 @@
 /* eslint-disable react/jsx-indent */
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Favorites, Footer, KeepReading, Sidebar, Topbar } from '../components';
+import { Favorites, Footer, Sidebar, Topbar } from '../components';
 import ChangeAvatar from '../components/ChangeAvatar';
-import Search from '../components/Search';
 import SeirenContext from '../context/SeirenContext';
-import Banner from '../images/shelf-banner.png';
 import Login from './Login';
 import './Profile.css';
 
@@ -34,7 +32,7 @@ function Profile() {
 
   const editNickname = () => {
     const getId = () => {
-      const userId = JSON.parse(sessionStorage.getItem('login'));
+      const userId = JSON.parse(localStorage.getItem('login'));
       if (userId !== null) {
         return userId.user_id;
       }
@@ -43,7 +41,7 @@ function Profile() {
     const editProfileUrl = `http://localhost:8000/api/user/edit/${getId()}`;
 
     const getToken = () => {
-      const lstore = JSON.parse(sessionStorage.getItem('login'));
+      const lstore = JSON.parse(localStorage.getItem('login'));
       if (lstore !== null) {
         return lstore.token;
       }
@@ -79,7 +77,7 @@ function Profile() {
   };
 
   useEffect(() => {
-    const store = sessionStorage.getItem('login');
+    const store = localStorage.getItem('login');
     if (store !== null) setRedirect(true);
   }, []);
 

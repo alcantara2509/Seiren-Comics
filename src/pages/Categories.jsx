@@ -13,12 +13,6 @@ import Search from '../components/Search';
 import Login from './Login';
 
 function Categories() {
-  const [redirect, setRedirect] = useState(false);
-
-  useEffect(() => {
-    const store = sessionStorage.getItem('login');
-    if (store !== null) setRedirect(true);
-  }, []);
 
   const renderShelf = () => (
     <section className="shelf-container">
@@ -33,15 +27,6 @@ function Categories() {
           <Slider name="Contos" number={1}/>
           <Slider name="Paródias" number={2}/>
         </div>
-        {/* <div id="keep-anchor">
-          <KeepReading />
-        </div>
-        <div id="releases-anchor">
-          <Releases />
-        </div>
-        <div id="series-anchor">
-          <Series />
-        </div> */}
         <h3 className="seiren-comunity-h3">Comunidade Seiren</h3>
         <section className="seiren-comunity">
           <section className="publicated-pages">
@@ -61,7 +46,6 @@ function Categories() {
   return (
     <section>
       {
-        // !redirect ? <Login /> : renderShelf()
         renderShelf()
       }
     </section>
