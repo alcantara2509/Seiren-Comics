@@ -1,6 +1,5 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import SeirenContext from '../context/SeirenContext';
 import Logo from '../images/logo.png';
 import './Login.css';
 
@@ -9,41 +8,42 @@ function Login() {
   const [password, setPassword] = useState(null);
   const [error, setError] = useState();
 
-  const { setIsLogged } = useContext(SeirenContext);
-
   const loginUrl = 'https://app.seirencomics.com.br/api/login';
 
   const loc = window.location.pathname;
-  console.log(email);
-
-  const loginFunc = () => {
-    
-    fetch(loginUrl, {
-      method: 'POST',
-      body: JSON.stringify({ email, password }),
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      }, 
-    })
-    .then((response) => {
-      response.json()
-          .then((result) => {
-            if (!result.error) {
-              localStorage.setItem('login', JSON.stringify({
-                login: true,
-                token: result.access_token,
-                user_id: result.user.id,
-              }));
-              setError(false);
-              window.location.href = `${loc}`;
-            } else {
-              setError(true);
-            }
-            setIsLogged(result);
-          });
-      });
+  console.log("location", loc);
+  
+  const myInit = {
+    method: 'POST',
+    body: JSON.stringify({ email, password }),
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+    mode: 'cors',
+    cache: 'default',
   };
+  
+  const fetchLogin = async () => {
+    console.log('iniciando requisição');
+    const apiRequest = await fetch(loginUrl, myInit);
+    console.log('apiRequest', apiRequest);
+    const apiResponse = await apiRequest.json();
+    console.log('apiResponse', apiResponse);
+    if (!apiResponse.error) {
+      localStorage.setItem('login', JSON.stringify({
+        login: true,
+        token: apiResponse.access_token,
+        user_id: apiResponse.user.id,
+      }));
+      setError(false);
+      window.location.href = `${loc}`;
+    } else {
+      setError(true);
+    }
+    console.log('resultado final', apiResponse);
+    return apiResponse;
+    };
 
   return (
     <div className="wrapper">
@@ -76,7 +76,7 @@ function Login() {
             <button
               className="login-btn"
               type="button"
-              onClick={ () => loginFunc() }
+              onClick={ () => fetchLogin() }
             >
               Entrar
             </button>

@@ -6,11 +6,9 @@
 /* eslint-disable react/jsx-indent */
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Favorites, Footer, KeepReading, Sidebar, Topbar } from '../components';
+import { Favorites, Footer, Sidebar, Topbar } from '../components';
 import ChangeAvatar from '../components/ChangeAvatar';
-import Search from '../components/Search';
 import SeirenContext from '../context/SeirenContext';
-import Banner from '../images/shelf-banner.png';
 import Login from './Login';
 import './Profile.css';
 

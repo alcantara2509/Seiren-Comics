@@ -1,6 +1,3 @@
-/* eslint-disable react/jsx-closing-tag-location */
-/* eslint-disable react/jsx-key */
-/* eslint-disable no-unused-vars */
 import React, { useContext, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Slider from 'react-slick';
@@ -15,7 +12,6 @@ function Viewer() {
   const { apiResponse, isFetching } = useContext(SeirenContext);
   const [newComment, setNewComment] = useState('');
   const [oldComment, setOldComment] = useState([]);
-  // const [pageIndex, setPageIndex] = useState(0);
   const [redirect, setRedirect] = useState(false);
   const [viewerApi, setViewerApi] = useState([]);
 
@@ -74,9 +70,8 @@ function Viewer() {
 
   useEffect(() => {
     apiResponse.filter((e) => e.id === +(itemId))
-      .map((taleC) => setOldComment([taleC.comments]));
-    // tirar do array quando for atualizado backend
-  }, [isFetching, apiResponse, itemId]);
+      .map((taleC) => setOldComment(taleC.comments));
+  }, [isFetching]);
 
   const handleSetComment = () => {
     if (newComment !== '') {
