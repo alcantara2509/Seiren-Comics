@@ -15,7 +15,7 @@ function Viewer() {
   const { apiResponse, isFetching } = useContext(SeirenContext);
   const [newComment, setNewComment] = useState('');
   const [oldComment, setOldComment] = useState([]);
-  const [pageIndex, setPageIndex] = useState(0);
+  // const [pageIndex, setPageIndex] = useState(0);
   const [redirect, setRedirect] = useState(false);
   const [viewerApi, setViewerApi] = useState([]);
 
@@ -76,7 +76,7 @@ function Viewer() {
     apiResponse.filter((e) => e.id === +(itemId))
       .map((taleC) => setOldComment([taleC.comments]));
     // tirar do array quando for atualizado backend
-  }, [isFetching]);
+  }, [isFetching, apiResponse, itemId]);
 
   const handleSetComment = () => {
     if (newComment !== '') {
