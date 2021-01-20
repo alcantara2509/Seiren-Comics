@@ -5,12 +5,12 @@ import SeirenProvider from './context/SeirenProvider';
 import { Calendar, Categories, Profile, Shelf, Viewer } from './pages';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import NotFound from './pages/NotFound'
 
 function App() {
   return (
     <SeirenProvider>
       <Switch>
-        <Route exact path="/" component={ Shelf } />
         <Route exact path="/profile" component={ Profile } />
         <Route exact path="/search" component={ Search } />
         <Route exact path="/favoritos" component={ Profile } />
@@ -20,7 +20,8 @@ function App() {
         <Route exact path="/login" component={ Login } />
         <Route exact path="/cadastrar" component={ Register } />
         <Route exact path="/comics/:id" component={ Viewer } />
-        <Route path="/*" component="../public/index.html" />
+        <Route path="/" component={ Shelf } />
+        <Route component={ NotFound } />
       </Switch>
     </SeirenProvider>
   );
