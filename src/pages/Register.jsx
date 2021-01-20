@@ -11,11 +11,28 @@ import './Login.css';
 function Register() {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
+  const [age_verification] = useState(true);
   const [isDisabled, setIsDisabled] = useState(true);
 
   const registerUrl = 'https://app.seirencomics.com.br/api/register';
 
-  const registerFunc = () => console.log('ok');
+  const myInit = {
+    method: 'POST',
+    body: JSON.stringify({ email, password, age_verification }),
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+    mode: 'cors',
+    cache: 'default',
+  };
+  
+  const fetchLogin = async () => {
+    const apiRequest = await fetch(registerUrl, myInit);
+    const apiResponse = await apiRequest.json();
+    console.log(apiResponse);
+    return apiResponse;
+    };
 
   return (
     <div className="wrapper">
@@ -51,13 +68,13 @@ function Register() {
             onClick={ () => setIsDisabled(false) }
           />
           <Link
-            to="/"
+            to="/login"
           >
             <button
               className="login-btn"
               type="button"
               disabled={ isDisabled }
-              onClick={ () => registerFunc() }
+              onClick={ () => fetchLogin() }
             >
               Criar Conta
             </button>
