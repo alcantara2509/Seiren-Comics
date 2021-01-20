@@ -16,7 +16,7 @@ function Shelf() {
   const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
-    const store = sessionStorage.getItem('login');
+    const store = localStorage.getItem('login');
     if (store !== null) setRedirect(true);
   }, []);
 

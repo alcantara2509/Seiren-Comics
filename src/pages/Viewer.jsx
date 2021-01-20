@@ -20,12 +20,12 @@ function Viewer() {
   const [viewerApi, setViewerApi] = useState([]);
 
   useEffect(() => {
-    const store = sessionStorage.getItem('login');
+    const store = localStorage.getItem('login');
 
     if (store !== null) setRedirect(true);
 
     const getToken = () => {
-      const lstore = JSON.parse(sessionStorage.getItem('login'));
+      const lstore = JSON.parse(localStorage.getItem('login'));
       if (lstore !== null) {
         return lstore.token;
       }
@@ -45,7 +45,7 @@ function Viewer() {
     const fetchUrlViewer = async () => {
       const apiRequest = await fetch(`https://app.seirencomics.com.br/api/comics/${itemId}`, myInit);
       const apiResponseViewer = await apiRequest.json();
-      if (apiResponseViewer.status === 'Token is Expired') sessionStorage.clear();
+      if (apiResponseViewer.status === 'Token is Expired') localStorage.clear();
       const arrApiResponse = apiResponseViewer;
       if (arrApiResponse.pages !== undefined) setViewerApi(arrApiResponse.pages.pt_br);
     };

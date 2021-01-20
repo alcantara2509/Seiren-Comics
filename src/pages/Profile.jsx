@@ -34,7 +34,7 @@ function Profile() {
 
   const editNickname = () => {
     const getId = () => {
-      const userId = JSON.parse(sessionStorage.getItem('login'));
+      const userId = JSON.parse(localStorage.getItem('login'));
       if (userId !== null) {
         return userId.user_id;
       }
@@ -43,7 +43,7 @@ function Profile() {
     const editProfileUrl = `http://localhost:8000/api/user/edit/${getId()}`;
 
     const getToken = () => {
-      const lstore = JSON.parse(sessionStorage.getItem('login'));
+      const lstore = JSON.parse(localStorage.getItem('login'));
       if (lstore !== null) {
         return lstore.token;
       }
@@ -79,7 +79,7 @@ function Profile() {
   };
 
   useEffect(() => {
-    const store = sessionStorage.getItem('login');
+    const store = localStorage.getItem('login');
     if (store !== null) setRedirect(true);
   }, []);
 
