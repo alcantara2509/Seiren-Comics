@@ -49,6 +49,8 @@
 #tale-comments {
   margin-top: 20px;
   width: 600px;
+  padding: 10px;
+  margin-bottom: 20px;
 }
 
 .slick-slider {
@@ -60,11 +62,53 @@
 }
 
 .slick-prev {
-  z-index: 10;
+  z-index: 1;
 }
 
-@media only screen and (max-width: 1400px) {
+#comment-btn {
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 1300px) {
   .history-page {
     min-height: 600px;;
   }
+
+  .viewer-content {
+    position: initial;
+    width: 100%;
+  }
+
+}
+
+@media only screen and (max-width: 600px) {
+  .tales-comments-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  #tale-comments {
+    height: 100px;
+    width: 75%;
+  }
+
+  .slick-slider {
+    width: 100% !important;
+  }
+
+  .slick-prev {
+    left: 10px;
+  }
+
+  .slick-next {
+    right: 40px;
+  }
+
+  .history-page {
+    margin-top: 0;
+  }
+
 }

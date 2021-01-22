@@ -137,7 +137,11 @@ function Viewer() {
             placeholder="Dígite seu comentário"
             onChange={ ({ target: { value } }) => setNewComment(value) }
           />
-          <button type="button" onClick={ handleSetComment }>Comentar</button>
+          <button 
+            type="button" className="profile-btn" id="comment-btn" onClick={ handleSetComment }
+          >
+              Comentar
+          </button>
           <div>
             {
               renderComments()

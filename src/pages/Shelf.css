@@ -19,17 +19,16 @@
 .highligths-list {
   color:#D2D3D9;
   font-size: 40px;
-  margin-left: 20px;
-  margin-top: 40px;
-  width: 96.6%;
+  margin-left: 28px;
+  margin-top: 30px;
+  width: 94.6%;
   scroll-behavior: smooth;
-  height: 100%;
 }
 
 .shelf-h2 {
   font-size: 40px;
   margin-bottom: 20px;
-  margin-left: 40px;
+  margin-left: 10px;
 }
 
 .tales-container {
@@ -90,6 +89,7 @@
 }
 
 .history-title {
+  text-align: initial;
   font-size: 16px;
   font-weight: 800;
 }
@@ -238,6 +238,7 @@
   background-color: #22264300 !important;
   box-shadow: none !important;
   color: rgba(255, 255, 255, 0.89);
+  font-size: 1.2em !important;
 }
 
 .rec-arrow:hover:enabled, .rec-arrow:focus:enabled {
@@ -253,6 +254,49 @@
   display: none;
 }
 
+/* .rec-item-wrapper {
+  width: 230px !important;
+  margin-right: 5px;
+} */
+
+
+@media only screen and (min-width: 1031px)  and (max-width: 1500px) {
+  .card-infos-container {
+    width: 160px;
+  }
+
+  .shelf-h2 {
+    font-size: 32px;
+  }
+
+  .card-bottom {
+    width: 160px;
+  }
+
+  .tales-card {
+    height: 220px;
+  }
+
+  .sup-left-p {
+    font-size: 10px;
+  }
+
+  .history-title {
+    text-align: initial;
+    font-size: 12px;
+  }
+
+  .chapter-title {
+    font-size: 10px;
+  }
+
+  .is-favorite {
+    font-size: 12px;
+  }
+
+}
+
+
 @media only screen and (max-width: 1030px) {
 
   #search-btn {
@@ -267,11 +311,15 @@
   .highligths-list {
     margin-left: 4px;
     margin-top: 25px;
-    width: 99%;
+    width: 98.6%;
   }
 
   .shelf-content {
     position: initial;
+    width: 100%;
+  }
+  
+  .viewer-content {
     width: 100%;
   }
 
@@ -386,16 +434,16 @@
   }
 
   .tales-card {
-    height: 240px;
+    height: 280px;
     margin-right: 0;
   }
 
   .card-infos-container {
-    width: 165px;
+    width: 204px;
   }
 
   .card-bottom {
-    width: 165px;
+    width: 205px;
   }
 
   .card-top {
@@ -423,7 +471,7 @@
 
   .rec-slider-container {
     margin: 0 !important;
-    margin-left: 16px !important;
+    margin-left: 0px !important;
   }
 
   .mobile-search {
@@ -453,5 +501,6 @@
     flex-direction: row;
     justify-content: space-around;
   }
+
 
 }

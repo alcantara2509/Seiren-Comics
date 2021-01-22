@@ -38,7 +38,7 @@ function Profile() {
       }
     };
 
-    const editProfileUrl = `http://localhost:8000/api/user/edit/${getId()}`;
+    const editProfileUrl = `https://app.seirencomics.com.br/api/user/edit/${getId()}`;
 
     const getToken = () => {
       const lstore = JSON.parse(localStorage.getItem('login'));
