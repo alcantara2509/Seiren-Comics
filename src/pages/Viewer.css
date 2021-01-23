@@ -25,7 +25,7 @@
 }
 
 .history-page {
-  align-items: center;
+  align-items: baseline;
   display: flex;
   justify-content: center;
   min-height: 900px;
@@ -69,6 +69,30 @@
   margin-bottom: 20px;
 }
 
+.slick-list {
+  margin-left: 30px;
+}
+
+.pages-header {
+  align-items: center;
+  background-color: #000000a8;
+  display: flex;
+  height: 50px;
+  justify-content: space-around;
+  width: 100%;
+  visibility: hidden;
+}
+
+.pages-header-hover {
+  align-items: center;
+  background-color: #000000a8;
+  display: flex;
+  height: 50px;
+  justify-content: space-around;
+  width: 100%;
+  visibility: visible;
+}
+
 @media only screen and (max-width: 1300px) {
   .history-page {
     min-height: 600px;;
@@ -109,6 +133,14 @@
 
   .history-page {
     margin-top: 0;
+  }
+
+  .slick-list {
+    margin-left: 0;
+  }
+
+  .pages-header {
+    visibility: visible;
   }
 
 }
