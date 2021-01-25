@@ -3,8 +3,7 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable no-magic-numbers */
 import React, { useContext, useEffect, useState } from 'react';
-import './Slider.scss';
-// import '../pages/Shelf.css';
+import './Favorites.css'
 import { Link } from 'react-router-dom';
 import Carousel from 'react-elastic-carousel';
 import SeirenContext from '../context/SeirenContext';
@@ -19,6 +18,8 @@ function Favorites() {
       apiResponseProfile.map((e) => setFavsState(e.favorites.map((f) => f.comic_id)));
     }
   }, [apiResponseProfile]);
+
+  console.log(apiResponseProfile);
 
   const isLoading = () => (
     <div className="loading-container">
@@ -52,7 +53,7 @@ function Favorites() {
       autoTabIndexVisibleItems: false },
     { width: 515, itemsToShow: 3, itemsToScroll: 2, showArrows: false },
     { width: 720, itemsToShow: 4, itemsToScroll: 2 },
-    { width: 920, itemsToShow: 4, itemsToScroll: 2 },
+    { width: 920, itemsToShow: 6, itemsToScroll: 2 },
     { width: 1350, itemsToShow: 6, itemsToScroll: 2 },
   ];
 

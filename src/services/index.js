@@ -1,7 +1,7 @@
 const baseUrl = 'https://app.seirencomics.com.br/api';
 
 const getToken = () => {
-  const lstore = JSON.parse(sessionStorage.getItem('login'));
+  const lstore = JSON.parse(localStorage.getItem('login'));
   if (lstore !== null) {
     return lstore.token;
   }
