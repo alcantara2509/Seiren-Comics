@@ -35,16 +35,16 @@ function Slider(name, number) {
     { width: 1,
       itemsToShow: 1,
       itemsToScroll: 1,
-      showArrows: false,
+      // showArrows: false,
       autoTabIndexVisibleItems: false },
     { width: 340,
-      itemsToShow: 2,
+      itemsToShow: 1,
       itemsToScroll: 1,
-      showArrows: false,
+      // showArrows: false,
       autoTabIndexVisibleItems: false },
     { width: 515, itemsToShow: 3, itemsToScroll: 2, showArrows: false },
     { width: 720, itemsToShow: 4, itemsToScroll: 2 },
-    { width: 920, itemsToShow: 4, itemsToScroll: 2 },
+    { width: 920, itemsToShow: 6, itemsToScroll: 2 },
     { width: 1350, itemsToShow: 6, itemsToScroll: 2 },
   ];
 
@@ -85,7 +85,7 @@ function Slider(name, number) {
                     index % 2 !== 0
                       ? <span
                           style={ {
-                          fontSize: '14px',
+                          fontSize: '12px',
                           color: 'white',
                           textTransform: 'uppercase' } }
                       >

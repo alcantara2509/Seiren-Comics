@@ -17,8 +17,9 @@ function Search() {
           searchInput, setSearchInput } = useContext(SeirenContext);
   const [mobileSearchInput, setMobileSearchInput] = useState('');
   const [isFetchingSearch, setIsFetchingSearch] = useState(true);
+  const [teste, setTeste] = useState([]);
 
-  const all = apiResponse[1];
+  const all = apiResponse[3];
 
   useEffect(() => {
     if (!isFetching) setIsFetchingSearch(false);
@@ -56,7 +57,7 @@ function Search() {
       autoTabIndexVisibleItems: false },
     { width: 515, itemsToShow: 3, itemsToScroll: 2, showArrows: false },
     { width: 720, itemsToShow: 4, itemsToScroll: 2 },
-    { width: 920, itemsToShow: 4, itemsToScroll: 2 },
+    { width: 920, itemsToShow: 6, itemsToScroll: 2 },
     { width: 1350, itemsToShow: 6, itemsToScroll: 2 },
   ];
 
@@ -71,14 +72,12 @@ function Search() {
 
         {all
       .filter((e) => {
-        console.log(e);
         return e !== undefined ? e.title.toLowerCase().includes(searchInput.toLowerCase())
-        || e.comments.toLowerCase().includes(searchInput.toLowerCase())
         : console.log('aqui');
 })
       .map((tales, index) => (
         <Link
-          to={ `/${tales.id}` }
+          to={ `/comics/${tales.id}` }
           key={ index }
           style={ {
             padding: '0',

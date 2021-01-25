@@ -11,7 +11,6 @@ function Login() {
   const loginUrl = 'https://app.seirencomics.com.br/api/login';
 
   const loc = window.location.pathname;
-  console.log("location", loc);
   
   const myInit = {
     method: 'POST',
@@ -25,11 +24,8 @@ function Login() {
   };
   
   const fetchLogin = async () => {
-    console.log('iniciando requisição');
     const apiRequest = await fetch(loginUrl, myInit);
-    console.log('apiRequest', apiRequest);
     const apiResponse = await apiRequest.json();
-    console.log('apiResponse', apiResponse);
     if (!apiResponse.error) {
       localStorage.setItem('login', JSON.stringify({
         login: true,
@@ -41,7 +37,6 @@ function Login() {
     } else {
       setError(true);
     }
-    console.log('resultado final', apiResponse);
     return apiResponse;
     };
 

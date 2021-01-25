@@ -14,6 +14,7 @@ function Viewer() {
   const [oldComment, setOldComment] = useState([]);
   const [redirect, setRedirect] = useState(false);
   const [viewerApi, setViewerApi] = useState([]);
+  const [hoverClass, setHoverClass] = useState('pages-header');
 
   useEffect(() => {
     const store = localStorage.getItem('login');
@@ -82,7 +83,6 @@ function Viewer() {
   };
 
   const renderComments = () => oldComment.map((taleC, idC) => {
-    console.log(taleC.comments);
     return (
       <div key={ idC }>
         <p>{taleC}</p>
@@ -110,8 +110,11 @@ function Viewer() {
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'contain',
                   backgroundPosition: 'center' } }
+                  onMouseOver={ () => setHoverClass('pages-header-hover') }
+                  onMouseOut={ () => setHoverClass('pages-header') }
+                
               >
-                <div className="pages-header">
+                <div className={ hoverClass }>
                   <h1>{tale.title}</h1>
                   <p>
                     página
@@ -137,7 +140,11 @@ function Viewer() {
             placeholder="Dígite seu comentário"
             onChange={ ({ target: { value } }) => setNewComment(value) }
           />
-          <button type="button" onClick={ handleSetComment }>Comentar</button>
+          <button 
+            type="button" className="profile-btn" id="comment-btn" onClick={ handleSetComment }
+          >
+              Comentar
+          </button>
           <div>
             {
               renderComments()
