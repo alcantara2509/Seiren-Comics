@@ -55,11 +55,12 @@ function Register() {
             className="field-login"
             onChange={ ({ target }) => setPassword(target.value) }
           />
-          <p>
+          <p className="termos-18">
             Nosso sistema requer que você tenha 18 anos ou mais para
             <br />
             entrar, confirme sua idade para completar seu cadastro
           </p>
+          <label htmlFor="idade" className="confirm-18">
           <input
             required
             type="checkbox"
@@ -67,6 +68,7 @@ function Register() {
             id="idade"
             onClick={ () => setIsDisabled(false) }
           />
+            Confirmo que sou maior de 18 anos</label>
           <Link
             to="/login"
           >
@@ -83,7 +85,7 @@ function Register() {
         <Link to="/" id="signup-link">
           Já tem uma conta?
           {' '}
-          <span>Entrar</span>
+          <span className="cadastre-se">Entrar</span>
         </Link>
       </section>
     </div>
