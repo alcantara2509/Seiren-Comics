@@ -3,7 +3,6 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable no-magic-numbers */
 import React, { useContext, useEffect, useState } from 'react';
-import './Slider.scss';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-elastic-carousel';
 import SeirenContext from '../context/SeirenContext';
@@ -46,6 +45,8 @@ function Slider(name, number) {
     { width: 720, itemsToShow: 4, itemsToScroll: 2 },
     { width: 920, itemsToShow: 6, itemsToScroll: 2 },
     { width: 1350, itemsToShow: 6, itemsToScroll: 2 },
+    { width: 1600, itemsToShow: 7, itemsToScroll: 2 },
+    { width: 1950, itemsToShow: 8, itemsToScroll: 2 },
   ];
 
   const renderCards = () => (
@@ -65,6 +66,7 @@ function Slider(name, number) {
                   padding: '0',
                   textTransform: 'none',
                   backgroundImage: `url(${tales.capa})`,
+                  marginRight: '0px'
       } }
         className="tales-card"
       >

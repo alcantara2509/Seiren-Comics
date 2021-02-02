@@ -4,7 +4,6 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable no-magic-numbers */
 import React, { useContext, useEffect, useState } from 'react';
-import './Slider.scss';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-elastic-carousel';
 import SeirenContext from '../context/SeirenContext';

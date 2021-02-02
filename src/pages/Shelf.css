@@ -64,6 +64,7 @@
   width: 85%;
 }
 
+
 .card-bottom {
   align-items: center;
   background-color: #131624d5;
@@ -97,6 +98,10 @@
 .is-favorite {
   color: #E2415B;
   font-size: 18px;
+}
+
+.rec-carousel-item {
+  margin-right: -10px !important;
 }
 
 .chapter-title {
@@ -261,6 +266,10 @@
 
 
 @media only screen and (min-width: 1031px)  and (max-width: 1500px) {
+  .rec-carousel-item {
+    margin-right: -4px !important;
+  }
+
   .card-infos-container {
     width: 160px;
   }
@@ -298,6 +307,10 @@
 
 
 @media only screen and (max-width: 1030px) {
+
+  .rec-carousel-item {
+    margin-right: 0px !important;
+  }
 
   #search-btn {
     height: 50px;
@@ -500,6 +513,10 @@
   .seiren-comunity {
     flex-direction: row;
     justify-content: space-around;
+  }
+
+  .rec-carousel-item {
+    margin-right: -3px !important;
   }
 
 

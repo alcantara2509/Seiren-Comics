@@ -80,7 +80,7 @@ function Login() {
         <Link to="/cadastrar" id="signup-link">
           Ainda não tem uma conta?
           {' '}
-          <span>Cadastre-se!</span>
+          <span className="cadastre-se">Cadastre-se!</span>
         </Link>
       </section>
     </div>
