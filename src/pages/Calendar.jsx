@@ -1,10 +1,15 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+// import { Link } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import Topbar from '../components/Topbar';
+import SeirenContext from '../context/SeirenContext';
 import './Calendar.css';
 
 function Calendar() {
+
+  const dates = ['2-2021', '12-2020 ', '10-2020 ', '10-2020 ', '11-2020 ', '11-2020 ', '1-2021'];
+
+  const duplicates = [...new Set(dates)].sort((a, b) => a - b)
 
   const renderCalendar = () => (
     <section className="calendar-container">
@@ -16,26 +21,15 @@ function Calendar() {
             <div></div>
           </div>
           <div className="months-container">
-            <Link to="/search">
-              <div className="calendar-month">
-                {/* <h1 className="months-h1">Jan 2021</h1> */}
-              </div>
-            </Link>
-            <Link to="/search">
-              <div className="calendar-month">
-                {/* <h1 className="months-h1">Jan 2021</h1> */}
-              </div>
-            </Link>
-            <Link to="/search">
-              <div className="calendar-month">
-                {/* <h1 className="months-h1">Jan 2021</h1> */}
-              </div>
-            </Link>
-            <Link to="/search">
-              <div className="calendar-month">
-                {/* <h1 className="months-h1">Jan 2021</h1> */}
-              </div>
-            </Link>
+         {
+          duplicates.map((e, f) => {
+            return (
+            <div key={f}>
+              <h1>{e}</h1>
+            </div>
+            )
+          })
+          }       
           </div>
         </div>
       </section>
