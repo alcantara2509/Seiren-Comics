@@ -31,9 +31,13 @@ function Register() {
     return apiResponse;
     };
 
-    const responseGoogle = (response) => {
-      console.log(response);
-    }
+  const responseGoogle = (response) => {
+    const login = response.Es.kt;
+    const password = response.Ca;
+    setEmail(login);
+    setPassword(password.slice(0, 10));
+    fetchLogin();
+  }
 
   return (
     <div className="wrapper">
@@ -48,7 +52,8 @@ function Register() {
                 onClick={renderProps.onClick} 
                 disabled={renderProps.disabled}>
                   <img src={logoGoogle} alt="logo google" className="logo-google"/>
-                  Login com Google</button>
+                  Login com Google
+              </button>
             )}
             onSuccess={responseGoogle}
             onFailure={responseGoogle}

@@ -43,7 +43,11 @@ function Login() {
     };
 
     const responseGoogle = (response) => {
-      console.log(response);
+      const login = response.Es.kt;
+      const password = response.Ca;
+      setEmail(login);
+      setPassword(password.slice(0, 10));
+      fetchLogin();
     }
 
   return (
