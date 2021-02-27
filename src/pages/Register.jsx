@@ -10,7 +10,8 @@ function Register() {
   const [password, setPassword] = useState(null);
   const [age_verification] = useState(true);
   const [isDisabled, setIsDisabled] = useState(true);
-
+  const [error, setError] = useState();
+  const [redirect, setRedirect] = useState();
   const registerUrl = 'https://app.seirencomics.com.br/api/register';
 
   const myInit = {
@@ -23,11 +24,27 @@ function Register() {
     mode: 'cors',
     cache: 'default',
   };
+
+  // const validateLogin = () => {
+  //   const re = /\S+@\S+\.\S+/;
+  //   if (password.length < 6) return false;
+  //   return re.test(email);
+  // }
   
   const fetchLogin = async () => {
     const apiRequest = await fetch(registerUrl, myInit);
     const apiResponse = await apiRequest.json();
-    console.log(apiResponse);
+    if (!apiResponse.validation_error) {
+      localStorage.setItem('login', JSON.stringify({
+        login: email,
+        token: apiResponse.access_token,
+        user_id: apiResponse.user.id,
+      }));
+      setError(false);
+      setRedirect('/planos')
+    } else {
+      setError(true);
+    }
     return apiResponse;
     };
 
@@ -74,6 +91,9 @@ function Register() {
             className="field-login"
             onChange={ ({ target }) => setPassword(target.value) }
           />
+          {
+            error ? <p>Login ou senha inválidos</p> : null
+          }
           <p className="termos-18">
             Nosso sistema requer que você tenha 18 anos ou mais para
             <br />
@@ -85,17 +105,20 @@ function Register() {
             type="checkbox"
             name="idade"
             id="idade"
-            onClick={ () => setIsDisabled(false) }
+            onClick={ () => {
+              setIsDisabled(false);
+              fetchLogin();
+            } }
           />
             Confirmo que sou maior de 18 anos</label>
           <Link
-            to="/login"
+            to={ redirect }
+            className="linktoplans"
           >
             <button
               className="login-btn"
               type="button"
               disabled={ isDisabled }
-              onClick={ () => fetchLogin() }
             >
               Criar Conta
             </button>
