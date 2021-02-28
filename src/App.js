@@ -2,9 +2,9 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Search from './components/Search';
 import SeirenProvider from './context/SeirenProvider';
-import { Calendar, Categories, Profile, Shelf, Viewer, Payment } from './pages';
-import Login from './pages/Login';
-import Register from './pages/Register';
+import { Calendar, Categories, Profile, 
+  Shelf, Viewer, Payment, Admin, Login, Register } from './pages';
+import { AdminComics, AdminPlanos, AdminUsers } from './components'
 import NotFound from './pages/NotFound'
 
 function App() {
@@ -22,6 +22,10 @@ function App() {
         <Route exact path="/cadastrar" component={ Register } />
         <Route exact path="/comics/:id" component={ Viewer } />
         <Route exact path="/planos" component={ Payment } />
+        <Route exact path="/admin" component={ Admin } />
+        <Route exact path="/admin/comics" component={ AdminComics } />
+        <Route exact path="/admin/users" component={ AdminUsers } />
+        <Route exact path="/admin/planos" component={ AdminPlanos } />
         <Route component={ NotFound } />
       </Switch>
     </SeirenProvider>

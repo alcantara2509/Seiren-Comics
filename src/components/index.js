@@ -5,3 +5,7 @@ export { default as Sidebar } from './Sidebar';
 export { default as Slider } from './Slider';
 export { default as Topbar } from './Topbar';
 export { default as CardPlans } from './CardPlans';
+export { default as AdminComics } from './AdminComics';
+export { default as AdminPlanos } from './AdminPlanos';
+export { default as AdminUsers } from './AdminUsers';
+export { default as AdminHeader } from './AdminHeader';

@@ -2,7 +2,7 @@ import React from 'react';
 import './CardPlans.css'
 
 function CardPlans(params) {
-  const {color, freq, size, title, price, priceId, pCard, liCard, blueTag} = params.infos;
+  const {color, freq, size, title, price, priceId, pCard, liCard, blueTag/*, displayLi*/} = params.infos;
   
   return (
     <section className="plans-container" id={size}>
@@ -20,6 +20,7 @@ function CardPlans(params) {
         <li>Todo conteúdo acessível</li>
         <li>Atualizações periódicas</li>
         <li>Desconto exclusivo</li>
+        {/* <li style={{display: displayLi}}>Desconto exclusivo</li> */}
         <li>E ainda mais...</li>
       </ul>
       <button className={`assine-btn ${pCard}`} id={color}>

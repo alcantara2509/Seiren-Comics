@@ -19,8 +19,6 @@ function Favorites() {
     }
   }, [apiResponseProfile]);
 
-  console.log(apiResponseProfile);
-
   const isLoading = () => (
     <div className="loading-container">
       <div className="lds-spinner">

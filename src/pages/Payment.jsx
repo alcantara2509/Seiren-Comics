@@ -13,7 +13,8 @@ function Payment() {
     priceId: 'priceId',
     pCard: 'p-card',
     liCard: 'li-card',
-    blueTag: 'Valor base mensal sem desconto'
+    blueTag: 'Valor base mensal sem desconto',
+    displayLi: 'none'
   }
   
   const yellowCard = {
@@ -25,18 +26,20 @@ function Payment() {
     priceId: 'priceId-mid',
     pCard: 'p-card-mid',
     liCard: 'li-card-mid',
-    blueTag: 'Pagamento único de R$ 62,00'
+    blueTag: 'Pagamento único de R$ 62,00',
+    displayLi: 'initial'
   }
   const cyanCard = {
     color: 'cyan',
-    freq: 'Anual',
+    freq: 'Trimestral',
     size: 'size2',
     title: 'h1-freq',
     price: '11,00',
     priceId: 'priceId',
     pCard: 'p-card',
     liCard: 'li-card',
-    blueTag: 'Pagamento único de R$33,00'
+    blueTag: 'Pagamento único de R$33,00',
+    displayLi: 'initial'
   }
 
   const renderShelf = () => (

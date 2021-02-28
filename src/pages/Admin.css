@@ -1,0 +1,138 @@
+.admin-container {
+  background-color: white;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.admin-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 8vh;
+  margin-bottom: 10px;
+}
+
+.comics-btn {
+  background-color: #222643;
+  width: 33.33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8vh;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.users-btn {
+  background-color: #1C1F36;
+  width: 33.33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8vh;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.planos-btn {
+  background-color: #131624;
+  width: 33.33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8vh;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.selected-link-admin {
+  font-size: 25px;
+  border-top: rgba(255, 255, 255, 0) 4px solid;
+  box-shadow: #0000004D 0 3px 6px;
+}
+
+.dashboard {
+  color: #131624;
+  margin: 20px;
+  font-weight: 800;
+  text-transform: unset;
+}
+
+.dash-infos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 72vh;
+}
+
+.dash-users-container {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  box-shadow: #0000004D 0 3px 6px;
+  padding: 20px;
+  min-width: 140px;
+  min-height: 120px;
+  border-radius: 10px;
+  margin: 10px;
+  border-top: #222643 12px solid;
+}
+
+.admin-comics-container {
+  display: flex;
+  align-items: space-around;
+  flex-direction: column;
+  width: 70%;
+  margin: auto;
+  padding-bottom: 20px;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.search-comics {
+  width: 40%;
+  padding: 4px;
+}
+
+.table-comics-list {
+  text-align: center;
+}
+
+.table-comics-title {
+  align-items: flex-start;
+  display: flex;
+}
+
+.table-header {
+  font-size: 20px;
+  font-weight: 800;
+  padding-bottom: 10px;
+}
+
+.table-itens {
+  padding: 5px 0;
+  border-bottom: 1px solid #2226432f;
+}
+
+.admin-commands {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon-margin {
+  margin: 0 5px;
+}
+
+@media only screen and (max-width: 500px) {
+  .dash-infos {
+    flex-direction: column;
+  }
+}
+/* #222643 #131624 #1C1F36 */
