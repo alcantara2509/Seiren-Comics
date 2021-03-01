@@ -81,7 +81,6 @@
   font-weight: 800;
   justify-content: center;
   height: 38px;
-  margin-top: 30px;
   padding: 5px;
   width: 212px;
 }
@@ -131,6 +130,10 @@ hr::after {
   font-size: 0.9em;
   padding: 0 0.3em;
   background: white;
+}
+
+.linktoplans {
+  margin-top: 30px;
 }
 
 @media only screen and (max-width: 1200px) {
