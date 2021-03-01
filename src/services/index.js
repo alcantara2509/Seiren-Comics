@@ -35,4 +35,11 @@ export const fetchUrlProfile = async () => {
   return arrApiResponseProfile;
 };
 
+export const fetchUrlUser = async () => {
+  const apiRequestUser = await fetch(`${baseUrl}/user`, myInit);
+  const apiResponseUser = await apiRequestUser.json();
+  const arrApiResponseUser = Object.values(apiResponseUser);
+  return arrApiResponseUser;
+};
+
 export default fetchUrl;

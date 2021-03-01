@@ -5,12 +5,7 @@ import SeirenContext from '../context/SeirenContext';
 import './Admin.css'
 
 function Admin() {
-  // const { apiResponse } = useContext(SeirenContext);
-  
-  // const totalComics = async() => {
-  //   // const apitotal = await apiResponse
-  //   return 0;
-  // }
+  const { apiResponse, apiResponseUser } = useContext(SeirenContext);
 
   return (
     <section className="admin-container">
@@ -20,13 +15,13 @@ function Admin() {
           className="dash-users-container" style={{color: '#222643'}}
         >
             <h1>Comics</h1>
-            <h2>417</h2>
+            <h2>{!apiResponse[3] ? 417 : apiResponse[3].length}</h2>
         </Link>
         <Link to='/admin/users' 
           className="dash-users-container" style={{color: '#222643'}}
         >
             <h1>Usuários</h1>
-            <h2>1496</h2>
+            <h2>{!apiResponseUser ? 1008 : apiResponseUser.length}</h2>
         </Link>
       </section>
     </section>

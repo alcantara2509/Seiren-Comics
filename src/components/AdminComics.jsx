@@ -2,13 +2,12 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AdminHeader } from '.';
 import SeirenContext from '../context/SeirenContext';
+import Popup from 'reactjs-popup';
 
 function AdminComics() {
   const { apiResponse, isFetching } = useContext(SeirenContext);
   const [search, setSearch] = useState();
   const allComics = apiResponse[3];
-
-  // console.log(allComics);
   
   const isLoading = () => (
     <div className="loading-container" style={{color: 'black'}}>
@@ -46,7 +45,15 @@ function AdminComics() {
             <tr key={i}>
               <td className="table-itens">{e.id}</td>
               <td className="table-comics-title table-itens">{e.title}</td>
-              <td className="table-itens"><i class="fas fa-edit"></i></td>
+              <td 
+                className="table-itens" style={{cursor: 'pointer'}}>
+                  <Popup trigger={<i class="fas fa-edit"></i>} position="center">
+                    <section className="admin-pop">
+                      <div>{e.id}</div>
+                      <div>{e.title}</div>
+                    </section>
+                  </Popup>
+              </td>
               <td className="table-itens"><i class="fas fa-times"></i></td>
             </tr>         
         )
@@ -62,11 +69,17 @@ function AdminComics() {
         <Link to="/admin" className="dashboard">
           <i class="fas fa-arrow-left icon-margin"></i> Ir para o Dashboard
         </Link>
-        <Link to="/admin" className="dashboard">
-          <i class="fas fa-plus icon-margin"></i> 
-          Criar novo Quadrinho
-        </Link>
+        <Popup trigger={
+          <i class="fas fa-plus icon-margin dashboard">
+            Criar novo Quadrinho
+          </i>
+        } position="center">
+          <section className="admin-pop">
+            oi
+          </section>
+        </Popup>
       </section>
+      
       <section className="admin-comics-container">
         <section className="search-container">
           <input 
