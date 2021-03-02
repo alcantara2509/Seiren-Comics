@@ -14,7 +14,7 @@ const myHeaders = new Headers({
 const myInit = {
   method: 'GET',
   headers: myHeaders,
-  mode: 'cors',
+  mode: 'no-cors',
   cache: 'default',
 };
 
@@ -28,18 +28,25 @@ export const fetchUrl = async () => {
   return [arrApiResponseNov, arrApiResponseMV, arrApiResponseRank, arrApiResponseAll];
 };
 
-export const fetchUrlProfile = async () => {
-  const apiRequestProfile = await fetch(`${baseUrl}/user/profile`, myInit);
-  const apiResponseProfile = await apiRequestProfile.json();
-  const arrApiResponseProfile = Object.values(apiResponseProfile);
-  return arrApiResponseProfile;
-};
+// export const fetchUrlProfile = async () => {
+//   const apiRequestProfile = await fetch(`${baseUrl}/user/profile`, myInit);
+//   const apiResponseProfile = await apiRequestProfile.json();
+//   const arrApiResponseProfile = Object.values(apiResponseProfile);
+//   return arrApiResponseProfile;
+// };
 
-export const fetchUrlUser = async () => {
-  const apiRequestUser = await fetch(`${baseUrl}/user`, myInit);
-  const apiResponseUser = await apiRequestUser.json();
-  const arrApiResponseUser = Object.values(apiResponseUser);
-  return arrApiResponseUser;
-};
+// export const fetchUrlUser = async () => {
+//   const apiRequestUser = await fetch(`${baseUrl}/user`, myInit);
+//   const apiResponseUser = await apiRequestUser.json();
+//   const arrApiResponseUser = Object.values(apiResponseUser);
+//   return arrApiResponseUser;
+// };
+
+// export const fetchUrlPlans = async () => {
+//   const apiRequestPlans = await fetch(`${baseUrl}/plans`, myInit);
+//   const apiResponsePlans = await apiRequestPlans.json();
+//   const arrApiResponsePlans = Object.values(apiResponsePlans);
+//   return arrApiResponsePlans;
+// };
 
 export default fetchUrl;
