@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AdminHeader } from '.';
+import SeirenContext from '../context/SeirenContext';
 
 function Admin() {
+  const { apiResponsePlans, isFetchingPlans } = useContext(SeirenContext);
+  console.log(apiResponsePlans, isFetchingPlans);
   return (
     <section className="admin-container">
       <AdminHeader />

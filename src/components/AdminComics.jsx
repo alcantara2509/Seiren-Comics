@@ -75,7 +75,7 @@ function AdminComics() {
           </i>
         } position="center">
           <section className="admin-pop">
-            oi
+            
           </section>
         </Popup>
       </section>
